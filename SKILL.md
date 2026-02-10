@@ -11,10 +11,11 @@ description: 为各类视频风格（动漫、3D动画、电影）生成专业�
 **触发词**: "脚本", "分镜", "视频提示词", "电影感拆解", "动画分镜", "帮我把这个故事动起来"。
 
 ## 核心资源 (Core Resources)
-*   **角色档案 (Cast Profiles)**: `cast/*.json` (包含外貌、服装、武器的物理描述)
-*   **视觉指南 (Visual Guide)**: `references/visual_style_guide.md` (包含光影、色调、材质规范)
-*   **叙事美学 (Narrative Aesthetic)**: `references/snow_stride_aesthetic.md` (雪中悍刀行风格专属)
-*   **角色参考图 (Cast Refs)**: `cast_refs/` (用于 ControlNet 或图生图的底片)
+*   **分镜剧本 (Scripts)**: `scripts/` (各集文学剧本)
+*   **角色档案 (Cast Profiles)**: `cast/*.json` (物理描述规范)
+*   **定妆照片 (Cast Portraits)**: `cast_refs/` (面部一致性参考)
+*   **视觉参考 (Visual References)**: `references/` (美学与风格指南)
+*   **背景音乐 (BGM & OST)**: `music/` (音乐设计与封面)
 
 ## 核心工作流 (Core Workflow)
 
