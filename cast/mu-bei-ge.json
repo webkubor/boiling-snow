@@ -1,0 +1,15 @@
+{
+  "name": "慕北歌",
+  "id": "mu-bei-ge",
+  "gender": "male",
+  "persona": "白衣剑仙（写实武侠顶级高手）",
+  "visual_specs": {
+    "base_ref": "cast_refs/慕北歌.jpg",
+    "facial_features": "100% original likeness, REMOVE GLASSES. Realistic skin texture.",
+    "hair": "Long black hair, partially tied, realistic and wind-blown",
+    "outfit": "High-quality white silk or linen martial arts robe, layered with a thin grey inner layer, realistic fabric drape",
+    "weapon": "A realistic, high-quality Chinese straight sword (Jian) with a textured scabbard",
+    "distinguishing_marks": "No glasses, sharp focused gaze, realistic wuxia style"
+  },
+  "style_tags": ["Realistic Wuxia", "Sword Snow Stride Style", "Solitary Swordsman", "Snowy Landscape"]
+}

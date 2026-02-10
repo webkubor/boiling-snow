@@ -1,0 +1,30 @@
+{
+  "id": "character-id",
+  "display_name": "角色名",
+  "usage_scope": "cinematic-storyboard-only",
+  "role_in_story": "主角/配角/旁白",
+  "profile": {
+    "gender_presentation": "",
+    "age_range": "",
+    "appearance_keywords": [],
+    "wardrobe_keywords": [],
+    "personality_keywords": []
+  },
+  "reference_images": [
+    {
+      "ref_id": "ref-01",
+      "path": "docs/skills/visual/cinematic-storyboard/cast_refs/character-id_01.png",
+      "shot_type": "close-up",
+      "notes": "用于面部一致性"
+    }
+  ],
+  "prompt_anchors": [
+    "keep facial features consistent with reference images",
+    "maintain identity across shots"
+  ],
+  "constraints": [
+    "禁止替换为无关人物",
+    "无参考图时需先向用户确认"
+  ],
+  "updated_at": "2026-02-09"
+}

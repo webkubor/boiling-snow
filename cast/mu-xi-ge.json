@@ -1,0 +1,16 @@
+{
+  "name": "慕夕歌",
+  "id": "mu-xi-ge",
+  "gender": "female",
+  "persona": "倔强灵动的剑客师妹 (Sword Snow Stride Style)",
+  "visual_specs": {
+    "base_ref": "",
+    "facial_features": "Youthful, energetic eyes, but with a stubborn set to her jaw. Natural skin texture with slight cold-weather flushing.",
+    "hair": "High ponytail tied with a simple red ribbon, messy strands wind-blown. Dark black hair.",
+    "outfit": "Light blue or teal linen martial arts robe, practical and slightly worn, layered with a thin white fur collar.",
+    "weapon": "A light and elegant Chinese straight sword (Jian), well-maintained.",
+    "distinguishing_marks": "Sharp, emotional gaze. Red ribbon is her signature.",
+    "lighting_preference": "Soft natural daylight on a snowy mountain to emphasize her youthful features."
+  },
+  "style_tags": ["Realistic Wuxia", "Youthful", "Emotional", "Stubborn", "Snowy Landscape"]
+}

@@ -1,0 +1,54 @@
+{
+  "id": "su-meng-cheng",
+  "display_name": "苏梦城",
+  "usage_scope": "cinematic-storyboard-only",
+  "role_in_story": "南楚国王爷（武侠男主）",
+  "profile": {
+    "gender_presentation": "male",
+    "age_range": "young adult",
+    "appearance_keywords": [
+      "武侠气质",
+      "冷峻英气",
+      "王族风范"
+    ],
+    "wardrobe_assets": [
+      "Heavyweight matte black woolen robe with rough-textured linen underlayers (No shiny silk)",
+      "Subtle, dark-on-black dragon embroidery on the shoulders (3D textured thread, not gold print)",
+      "Aged leather wrist guards with brass buckles"
+    ],
+    "weapon_assets": [
+      "Black Tang Hengdao (Straight single-edged blade)",
+      "Dark forged steel blade material with visible folding patterns",
+      "Black shark-skin wrapped hilt, unpolished brass guard"
+    ],
+    "personality_keywords": [
+      "沉稳",
+      "克制",
+      "杀伐果断"
+    ]
+  },
+  "reference_images": [
+    {
+      "ref_id": "gold-standard",
+      "path": "cast_refs/苏梦城.png",
+      "shot_type": "cinematic-hero",
+      "notes": "老爹钦定的黄金标准定妆照，包含核心妆造与神韵"
+    },
+    {
+      "ref_id": "base-bone-structure",
+      "path": "cast_refs/苏梦城.png",
+      "shot_type": "close-up",
+      "notes": "原始骨相参考"
+    }
+  ],
+  "prompt_anchors": [
+    "keep facial features consistent with reference images",
+    "outfit: heavyweight matte black woolen robe with dark 3D dragon embroidery and leather guards",
+    "weapon: authentic black Tang Hengdao with straight forged steel blade and shark-skin hilt"
+  ],
+  "constraints": [
+    "禁止替换为无关人物",
+    "无参考图时需先向用户确认"
+  ],
+  "updated_at": "2026-02-09"
+}
