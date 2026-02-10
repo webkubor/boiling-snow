@@ -12,10 +12,11 @@ description: 为各类视频风格（动漫、3D动画、电影）生成专业�
 
 ## 核心资源 (Core Resources)
 *   **分镜剧本 (Scripts)**: `scripts/` (各集文学剧本)
+*   **人物参考 (Cast Face Refs)**: `cast_refs/` (仅用于锁定面部骨相，人物原始参考图)
+*   **定妆照片 (Cast Styling)**: `cast_styling/` (角色最终装扮、服装、武器定妆照)
 *   **角色档案 (Cast Profiles)**: `cast/*.json` (物理描述规范)
-*   **定妆照片 (Cast Portraits)**: `cast_refs/` (面部一致性参考)
-*   **视觉参考 (Visual References)**: `references/` (美学与风格指南)
 *   **背景音乐 (BGM & OST)**: `music/` (音乐设计与封面)
+*   **视觉规范 (Style Guides)**: `references/` (美学与风格指南)
 
 ## 核心工作流 (Core Workflow)
 
