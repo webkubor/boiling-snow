@@ -11,5 +11,11 @@
     "weapon": "A realistic, high-quality Chinese straight sword (Jian) with a textured scabbard",
     "distinguishing_marks": "No glasses, sharp focused gaze, realistic wuxia style"
   },
-  "style_tags": ["Realistic Wuxia", "Sword Snow Stride Style", "Solitary Swordsman", "Snowy Landscape"]
+  "audio_specs": {
+    "genre": "World Music Fusion (Not Epic)",
+    "keywords": ["Sense of Progression (行进感)", "Rhythmic", "Grounded", "Traveler"],
+    "instruments": ["Handpan (手碟)", "Duduk (杜管)", "Steady Percussion"],
+    "vibe": "Steady forward momentum, isolating the character from the noise. No grand orchestra."
+  },
+  "style_tags": ["Realistic Wuxia", "World Music Vibe", "Solitary Swordsman", "Snowy Landscape"]
 }
