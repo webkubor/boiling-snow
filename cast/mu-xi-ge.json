@@ -3,6 +3,12 @@
   "id": "mu-xi-ge",
   "gender": "female",
   "persona": "倔强灵动的剑客师妹 (Sword Snow Stride Style)",
+  "backstory": {
+    "relation_to_mu_bei_ge": "同门师妹",
+    "master_departure_timeline": "师父离去一年后",
+    "core_motivation": "不甘山中枯修，执意下山闯荡",
+    "combat_level_note": "在同辈江湖中已属一线身手"
+  },
   "visual_specs": {
     "base_ref": "",
     "facial_features": "Youthful, energetic eyes, but with a stubborn set to her jaw. Natural skin texture with slight cold-weather flushing.",

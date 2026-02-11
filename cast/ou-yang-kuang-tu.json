@@ -2,7 +2,11 @@
   "name": "欧阳狂徒",
   "id": "ou-yang-kuang-tu",
   "gender": "male",
-  "persona": "狂妄霸道的重剑高手 (Sword Snow Stride Style)",
+  "persona": "狂妄霸道的重刃宗师 / 西燕大将军 (Sword Snow Stride Style)",
+  "identity": "西燕大将军",
+  "faction": "西燕",
+  "political_stance": "反对南楚扩大战争，尤其敌视推动边境开战的南楚势力",
+  "core_conflict": "与“南楚枪神”长期不对付，互视为宿敌",
   "visual_specs": {
     "base_ref": "cast_refs/欧阳狂徒.jpg",
     "facial_features": "100% original likeness, fierce and untamed expression. No beautification.",

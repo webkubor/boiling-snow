@@ -2,7 +2,11 @@
   "id": "su-meng-cheng",
   "display_name": "苏梦城",
   "usage_scope": "cinematic-storyboard-only",
-  "role_in_story": "南楚国王爷（武侠男主）",
+  "role_in_story": "南楚国王爷（隐藏身份：南楚枪神）",
+  "public_title": "南楚枪神（仅闻其名，不知其人）",
+  "faction": "南楚",
+  "strategic_agenda": "长期暗中推动南楚对西燕开战",
+  "known_rival": "西燕大将军·欧阳狂徒",
   "profile": {
     "gender_presentation": "male",
     "age_range": "young adult",
@@ -17,9 +21,9 @@
       "Aged leather wrist guards with brass buckles"
     ],
     "weapon_assets": [
-      "Black Tang Hengdao (Straight single-edged blade)",
-      "Dark forged steel blade material with visible folding patterns",
-      "Black shark-skin wrapped hilt, unpolished brass guard"
+      "Primary weapon (public legend): Black forged long spear for battlefield and duel",
+      "Secondary weapon (close-quarters): Black Tang Hengdao (Straight single-edged blade)",
+      "Dark forged steel material with visible folding patterns"
     ],
     "personality_keywords": [
       "沉稳",
@@ -44,7 +48,7 @@
   "prompt_anchors": [
     "keep facial features consistent with reference images",
     "outfit: heavyweight matte black woolen robe with dark 3D dragon embroidery and leather guards",
-    "weapon: authentic black Tang Hengdao with straight forged steel blade and shark-skin hilt"
+    "weapon: primary black forged long spear; optional black Tang Hengdao as sidearm"
   ],
   "constraints": [
     "禁止替换为无关人物",

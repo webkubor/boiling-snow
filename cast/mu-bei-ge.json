@@ -3,6 +3,12 @@
   "id": "mu-bei-ge",
   "gender": "male",
   "persona": "白衣剑仙（写实武侠顶级高手）",
+  "identity": "孤山剑首",
+  "backstory": {
+    "master_status": "师父离山未归",
+    "oath": "未至剑神境，不下孤山",
+    "discipline": "极端克制，长期闭关练剑"
+  },
   "visual_specs": {
     "base_ref": "cast_refs/慕北歌.jpg",
     "facial_features": "100% original likeness, REMOVE GLASSES. Realistic skin texture.",

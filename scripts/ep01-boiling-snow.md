@@ -80,14 +80,14 @@ Dialogue: 欧阳狂徒“拦路者，断。”
 Duration: 15s
 ```
 
-### Shot 06 (01:15-01:30) - 苏梦城 Solo
+### Shot 06 (01:15-01:30) - 南楚枪神（未揭身份）Solo
 ```text
 Scene: 王府偏厅，烛火摇曳，棋盘半局。
 Camera: Top-down chessboard -> macro on fingers placing piece.
-Action: 苏梦城落子，门外侍卫立刻领命而去。
+Action: 南楚王府执棋人落子，门外侍卫立刻领命而去。
 Style: Elegant but cold, black-gold costume accents, controlled motion.
 Audio: 棋子落盘清脆声 + 低沉鼓点过门。
-Dialogue: 苏梦城“子落，局成。”
+Dialogue: 执棋人“子落，局成。”
 Duration: 15s
 ```
 
@@ -117,7 +117,7 @@ Duration: 15s
 ```text
 Scene: 三地外景快速并剪。
 Camera: Horse mount shot / weapon lift close-up / cloak turn profile.
-Action: 慕北歌上马、欧阳磨刃、苏梦城披氅出门。
+Action: 慕北歌上马、欧阳磨刃、南楚王府执棋人披氅出门。
 Style: Heroic kinetic montage, medium-fast shutter for crisp action.
 Audio: 鼓点增强，弦乐上行。
 Dialogue: 无。
@@ -142,7 +142,7 @@ Camera: 240-degree arc around triangle blocking.
 Action: 三人不交手，只对视，各自一步定位。
 Style: Mythic tension with realism, breath vapor and cloth flutter emphasized.
 Audio: BGM短暂停顿后重击回归。
-Dialogue: 慕北歌“剑只对该死之人。” 欧阳狂徒“我只信刀。” 苏梦城“我只信结果。”
+Dialogue: 慕北歌“剑只对该死之人。” 欧阳狂徒“我只信刀。” 执棋人“我只信结果。”
 Duration: 15s
 ```
 
