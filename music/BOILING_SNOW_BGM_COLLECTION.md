@@ -4,9 +4,9 @@
 
 ---
 
-## 1. 开头：算尽苍生 (Prelude: The Game)
-**场景**: 故事开场，角色登场，阴谋浮现。
-**氛围**: 压抑、神秘、苍凉。
+## 1. 《初雪·局中劫》 (开头/前奏)
+**场景**: 故事开场，苏梦城落子，阴谋浮现，寒风初起。
+**氛围**: 压抑、神秘、苍凉、宿命感。
 
 ### 🧩 风格标签 (Style Box)
 ```text
@@ -29,9 +29,9 @@ Instrumental, Slow Deep Guqin solo, Ambient Wind, Ominous Dark Cello, Minimalist
 
 ---
 
-## 2. 战斗/高潮：沸腾 (Climax: Boiling)
-**场景**: 三杰大战，拔刀时刻，动作戏。
-**氛围**: 激进、热血、暴力美学。
+## 2. 《雪沸·命如刃》 (战斗/高潮 - 暂定名)
+**场景**: 三杰大战，拔刀时刻，动作戏最高潮，热血飞溅。
+**氛围**: 激进、狂放、悍气十足、暴力美学。
 
 ### 🧩 风格标签 (Style Box)
 ```text
@@ -54,9 +54,9 @@ Instrumental, Fast Taiko Drumming, Aggressive Strings, Bamboo Flute Solo, Metall
 
 ---
 
-## 3. 结尾：万径人踪 (Finale: Silence)
-**场景**: 悲剧落幕，雪地孤影，剧终。
-**氛围**: 破碎、忧郁、空灵。
+## 3. 《残雪·杯中冷》 (结尾/终章)
+**场景**: 悲剧落幕，雪地孤影，剧终，人走茶凉。
+**氛围**: 破碎、忧郁、空灵、留白。
 
 ### 🧩 风格标签 (Style Box)
 ```text
