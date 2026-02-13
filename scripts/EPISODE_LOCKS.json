@@ -1,0 +1,82 @@
+{
+  "policy": {
+    "status_values": [
+      "planned",
+      "in_progress",
+      "completed"
+    ],
+    "dialogue_lock_rule": "When dialogue_locked=true, dialogue text must not be modified."
+  },
+  "episodes": [
+    {
+      "episode": "EP01",
+      "title": "雪夜传说",
+      "status": "completed",
+      "dialogue_locked": true,
+      "notes": "Locked by user request."
+    },
+    {
+      "episode": "EP02",
+      "title": "小卒入城",
+      "status": "completed",
+      "dialogue_locked": true,
+      "notes": "Locked by user request."
+    },
+    {
+      "episode": "EP03",
+      "title": "茶肆传闻",
+      "status": "completed",
+      "dialogue_locked": true,
+      "notes": "Locked by user request."
+    },
+    {
+      "episode": "EP04",
+      "title": "暗角潜伏",
+      "status": "completed",
+      "dialogue_locked": true,
+      "notes": "Locked by user request."
+    },
+    {
+      "episode": "EP05",
+      "title": "驿卒倒地·金印暴露",
+      "status": "completed",
+      "dialogue_locked": true,
+      "notes": "Locked by user request."
+    },
+    {
+      "episode": "EP06",
+      "title": "天下三分",
+      "status": "planned",
+      "dialogue_locked": false,
+      "notes": ""
+    },
+    {
+      "episode": "EP07",
+      "title": "梅雪试锋",
+      "status": "planned",
+      "dialogue_locked": false,
+      "notes": ""
+    },
+    {
+      "episode": "EP08",
+      "title": "狂刀渡口",
+      "status": "planned",
+      "dialogue_locked": false,
+      "notes": ""
+    },
+    {
+      "episode": "EP09",
+      "title": "面具与枪影",
+      "status": "planned",
+      "dialogue_locked": false,
+      "notes": ""
+    },
+    {
+      "episode": "EP10",
+      "title": "三线并轨",
+      "status": "planned",
+      "dialogue_locked": false,
+      "notes": ""
+    }
+  ]
+}
