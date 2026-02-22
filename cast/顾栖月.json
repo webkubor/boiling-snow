@@ -1,0 +1,29 @@
+{
+  "name": "顾栖月",
+  "id": "wang-fu-flutist",
+  "gender": "female",
+  "persona": "王府隐线暗卫（玉笛，高武写实）",
+  "identity": "苏梦城麾下近身暗卫（节奏扰敌/近身补杀）",
+  "faction": "南楚王府",
+  "personality_profile": {
+    "core_traits": ["从容", "机敏", "善伪装", "狠准"],
+    "inner_conflict": "擅长诱敌与误导，但对无意义折磨目标有底线。",
+    "emotional_triggers": ["王爷被试探", "同伴受损", "任务节奏被打乱"],
+    "expression_style": "常带浅笑，真正动手前反而更安静。",
+    "motion_signature": ["先以笛音定节奏", "贴身切角换位", "一击即退再入"],
+    "speech_style": "语气轻，信息密，常以反问试探对方底牌。"
+  },
+  "visual_specs": {
+    "facial_features": "Calm eyes with sharp focus, natural skin texture, no heavy makeup.",
+    "hair": "Neat dark hair in a practical half-up style with hidden tie.",
+    "outfit": "Dark-green and ink-black fitted travel robe, split hem for agile footwork, light leather belt rig.",
+    "weapon": "Primary: mutton-fat jade transverse flute '寒簧' (lustrous carved pattern, green-jade tassel, combat-grade; can parry and strike). No secondary weapon.",
+    "distinguishing_marks": "Finger calluses from flute control and close-quarters grip transitions."
+  },
+  "combat_profile": {
+    "role": "Tempo control and close-range finish",
+    "style": "Rhythm breaks, angle entries, precise short-range lethal windows",
+    "forbidden": ["No magical sonic waves", "No fantasy rune effects"]
+  },
+  "style_tags": ["Realistic Wuxia", "Flute Assassin", "Tempo Control", "Palace Shadow Line"]
+}
