@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>《沸腾之雪》服化道图鉴 - 顾栖月</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Ma+Shan+Zheng&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --wuxia-black: #0a0a0a;
+            --wuxia-silver: #c0c0c0;
+            --wuxia-gold: #d4af37;
+            --wuxia-white: #f8f8f8;
+        }
+        body {
+            background-color: var(--wuxia-black);
+            color: var(--wuxia-white);
+            font-family: 'Noto Serif SC', serif;
+            overflow-x: hidden;
+        }
+        .brush-font {
+            font-family: 'Ma Shan Zheng', cursive;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .glass-card:hover {
+            background: rgba(255, 255, 255, 0.06);
+            border-color: var(--wuxia-silver);
+            transform: translateY(-5px);
+        }
+        .grain {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: url('https://grainy-gradients.vercel.app/noise.svg');
+            opacity: 0.05;
+            pointer-events: none;
+            z-index: 50;
+        }
+        .section-title {
+            position: relative;
+            display: inline-block;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px; left: 0;
+            width: 100%; height: 1px;
+            background: linear-gradient(90deg, var(--wuxia-silver), transparent);
+        }
+    </style>
+</head>
+<body class="p-8 md:p-16">
+    <div class="grain"></div>
+
+    <header class="mb-20 text-center">
+        <h1 class="brush-font text-6xl md:text-8xl mb-4 text-transparent bg-clip-text bg-gradient-to-b from-white to-gray-500">顾栖月</h1>
+        <p class="text-gray-400 tracking-[0.5em] uppercase text-sm">天榜第九 · 玉笛暗卫 · 服化道图鉴</p>
+    </header>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto">
+        
+        <!-- 方案一：月影流光 -->
+        <div class="glass-card p-6 rounded-sm relative group">
+            <div class="aspect-[3/4] mb-6 overflow-hidden bg-gray-900 relative">
+                <img src="nanobanana-output/gu_qiyue_palace.png" alt="月影流光" class="w-full h-full object-cover grayscale-[0.2] group-hover:scale-110 transition-transform duration-700">
+                <div class="absolute top-4 left-4 border border-white/20 px-2 py-1 text-[10px] tracking-widest bg-black/50">PALACE FAIRY</div>
+            </div>
+            <h2 class="brush-font text-3xl mb-4 text-gray-200 section-title">【月影流光】</h2>
+            <div class="space-y-4 text-sm text-gray-400 leading-relaxed">
+                <p><span class="text-white">场景：</span> 王府/夜宴潜行。强调如月光般不可捉摸的透明质感。</p>
+                <p><span class="text-white">服饰：</span> 月白色蝉翼纱外罩，内衬银丝软甲。高开叉长裙配窄口束脚裤。</p>
+                <p><span class="text-white">妆发：</span> 坠马髻配冷银发带，珠光银眼影，呈现清冷易碎感。</p>
+                <div class="pt-4 border-t border-white/10 flex justify-between items-center italic text-[10px]">
+                    <span>暗卫潜行 · 诱敌误导</span>
+                    <span class="text-gray-600">VER. 2.0</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 方案二：寒梅映雪 -->
+        <div class="glass-card p-6 rounded-sm relative group">
+            <div class="aspect-[3/4] mb-6 overflow-hidden bg-gray-900 relative border-x border-white/5">
+                <img src="nanobanana-output/gu_qiyue_winter.png" alt="寒梅映雪" class="w-full h-full object-cover grayscale-[0.2] group-hover:scale-110 transition-transform duration-700">
+                <div class="absolute top-4 left-4 border border-white/20 px-2 py-1 text-[10px] tracking-widest bg-black/50">WINTER FAIRY</div>
+            </div>
+            <h2 class="brush-font text-3xl mb-4 text-gray-200 section-title">【寒梅映雪】</h2>
+            <div class="space-y-4 text-sm text-gray-400 leading-relaxed">
+                <p><span class="text-white">场景：</span> 极寒雪原。强调物理上的保暖质感与傲雪孤高感。</p>
+                <p><span class="text-white">服饰：</span> 重磅真丝哑光缎面，肩披黑狼毫领大氅。黑色犀角皮护腕。</p>
+                <p><span class="text-white">妆发：</span> 高马尾配玄色发簪。素面朝天，仅唇部点染朱砂红。</p>
+                <div class="pt-4 border-t border-white/10 flex justify-between items-center italic text-[10px]">
+                    <span>傲雪孤高 · 杀意内敛</span>
+                    <span class="text-gray-600">VER. 2.0</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 方案三：云丝鹤羽 -->
+        <div class="glass-card p-6 rounded-sm relative group">
+            <div class="aspect-[3/4] mb-6 overflow-hidden bg-gray-900 relative">
+                <img src="nanobanana-output/gu_qiyue_celestial.png" alt="云丝鹤羽" class="w-full h-full object-cover grayscale-[0.2] group-hover:scale-110 transition-transform duration-700">
+                <div class="absolute top-4 left-4 border border-white/20 px-2 py-1 text-[10px] tracking-widest bg-black/50">CELESTIAL BATTLE</div>
+            </div>
+            <h2 class="brush-font text-3xl mb-4 text-gray-200 section-title">【云丝鹤羽】</h2>
+            <div class="space-y-4 text-sm text-gray-400 leading-relaxed">
+                <p><span class="text-white">场景：</span> 高海拔决战。最高规格战袍，强调绝对的力量与轻盈。</p>
+                <p><span class="text-white">服饰：</span> 云母白缂丝长袍，镶嵌真实白鹤羽片。内藏暗扣可变劲装。</p>
+                <p><span class="text-white">妆发：</span> 冷玉叶片编发，眉宇间尽显英气。玉笛横握，仙姿卓然。</p>
+                <div class="pt-4 border-t border-white/10 flex justify-between items-center italic text-[10px]">
+                    <span>天榜顶级 · 决战姿态</span>
+                    <span class="text-gray-600">VER. 2.1</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer class="mt-24 text-center text-[10px] text-gray-600 tracking-widest uppercase">
+        &copy; 2026 Cinematic Storyboard Pro · 沸腾之雪制作组
+    </footer>
+</body>
+</html>

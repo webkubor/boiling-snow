@@ -17,6 +17,23 @@
     "facial_features": "Calm eyes with sharp focus, natural skin texture, no heavy makeup.",
     "hair": "Neat dark hair in a practical half-up style with hidden tie.",
     "outfit": "Dark-green and ink-black fitted travel robe, split hem for agile footwork, light leather belt rig.",
+    "wardrobe": [
+      {
+        "name": "月影流光 (Palace Fairy)",
+        "context": "王府/夜宴潜行",
+        "description": "月白色蝉翼纱外罩，内衬银丝软甲。强调不可捉摸的流光质感。"
+      },
+      {
+        "name": "寒梅映雪 (Winter Fairy)",
+        "context": "雪原实战",
+        "description": "珍珠白哑光缎面配黑狼毫领大氅，手持墨色青油纸伞。傲雪凌霜。"
+      },
+      {
+        "name": "云丝鹤羽 (Celestial Battle-Dress)",
+        "context": "巅峰决战",
+        "description": "云母白缂丝长袍镶嵌白鹤羽片。眉宇英气，仙姿冷冽。"
+      }
+    ],
     "weapon": "Primary: mutton-fat jade transverse flute '玉尘' (lustrous carved pattern, green-jade tassel, combat-grade; can parry and strike). No secondary weapon.",
     "distinguishing_marks": "Finger calluses from flute control and close-quarters grip transitions."
   },
