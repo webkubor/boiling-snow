@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>《沸腾之雪》服化道图鉴 - 燕照绫 (Cold & Lethal Aesthetic)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Ma+Shan+Zheng&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --wuxia-black: #0a0a0a;
+            --wuxia-red: #8b0000;
+            --wuxia-silver: #c0c0c0;
+            --wuxia-white: #f8f8f8;
+        }
+        body {
+            background-color: var(--wuxia-black);
+            color: var(--wuxia-white);
+            font-family: 'Noto Serif SC', serif;
+            overflow-x: hidden;
+        }
+        .brush-font {
+            font-family: 'Ma Shan Zheng', cursive;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .glass-card:hover {
+            background: rgba(255, 255, 255, 0.06);
+            border-color: var(--wuxia-red);
+            transform: translateY(-5px);
+        }
+        .grain {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: url('https://grainy-gradients.vercel.app/noise.svg');
+            opacity: 0.05;
+            pointer-events: none;
+            z-index: 50;
+        }
+        .section-title {
+            position: relative;
+            display: inline-block;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px; left: 0;
+            width: 100%; height: 1px;
+            background: linear-gradient(90deg, var(--wuxia-red), transparent);
+        }
+    </style>
+</head>
+<body class="p-8 md:p-16">
+    <div class="grain"></div>
+
+    <header class="mb-20 text-center">
+        <h1 class="brush-font text-6xl md:text-8xl mb-4 text-transparent bg-clip-text bg-gradient-to-b from-red-600 to-red-900">燕照绫</h1>
+        <p class="text-gray-400 tracking-[0.5em] uppercase text-sm">天榜第十 · 赤练女鞭 · 极冷服化道图鉴</p>
+    </header>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-6xl mx-auto">
+        
+        <!-- 方案一：赤练寒沙 -->
+        <div class="glass-card p-8 rounded-sm relative group">
+            <div class="aspect-[3/4] mb-8 overflow-hidden bg-gray-900 relative border border-white/5">
+                <img src="references/costume_designs/yan_zhaoling/yan_zhaoling_cold_lethal.png" alt="赤练寒沙" class="w-full h-full object-cover grayscale-[0.1] group-hover:scale-110 transition-transform duration-700">
+                <div class="absolute top-4 left-4 border border-red-900/40 px-3 py-1 text-[10px] tracking-widest bg-black/60 text-red-500">LETHAL ELEGANCE</div>
+            </div>
+            <h2 class="brush-font text-4xl mb-6 text-red-100 section-title">【赤练寒沙】</h2>
+            <div class="space-y-6 text-base text-gray-400 leading-relaxed">
+                <p><span class="text-white">定性：</span> 不同于顾栖月的“又纯又欲”，燕照绫追求的是极致的**冷峻与干练**。无需刻意露腿，身段通过精准的利落剪裁自然呈现。</p>
+                <p><span class="text-white">服饰：</span> 红黑双色高密丝绸劲装，加固型黑皮束腰。线条极其流畅，无任何多余装饰。</p>
+                <p><span class="text-white">身态：</span> 沉稳伫立在大漠夕阳下，长鞭盘旋，眼神如刃，尽显宗师气场。</p>
+                <div class="pt-6 border-t border-white/10 flex justify-between items-center italic text-xs">
+                    <span>冷艳宗师 · 战力压制</span>
+                    <span class="text-red-900">FINAL VER</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 方案二：赤弧破阵 -->
+        <div class="glass-card p-8 rounded-sm relative group">
+            <div class="aspect-[3/4] mb-8 overflow-hidden bg-gray-900 relative border border-white/5">
+                <img src="references/costume_designs/yan_zhaoling/yan_zhaoling_combat_arc.png" alt="赤弧破阵" class="w-full h-full object-cover grayscale-[0.1] group-hover:scale-110 transition-transform duration-700">
+                <div class="absolute top-4 left-4 border border-red-900/40 px-3 py-1 text-[10px] tracking-widest bg-black/60 text-red-500">WHIP STRIKE</div>
+            </div>
+            <h2 class="brush-font text-4xl mb-6 text-red-100 section-title">【赤弧破阵】</h2>
+            <div class="space-y-6 text-base text-gray-400 leading-relaxed">
+                <p><span class="text-white">定性：</span> 强调实战中的动态张力。通过肢体的拉伸体现身段的柔韧与爆发力。</p>
+                <p><span class="text-white">服饰：</span> 贴身窄袖设计，腰身线条在大幅度扭转中清晰可辨。红发与衣摆随鞭影狂舞。</p>
+                <p><span class="text-white">身态：</span> 极速横扫，鞭势如赤色满月。力量由足尖传导至指尖，动态感极强。</p>
+                <div class="pt-6 border-t border-white/10 flex justify-between items-center italic text-xs">
+                    <span>瞬时爆发 · 物理极致</span>
+                    <span class="text-red-900">FINAL VER</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer class="mt-24 text-center text-[10px] text-gray-600 tracking-widest uppercase">
+        &copy; 2026 Cinematic Storyboard Pro · 沸腾之雪制作组
+    </footer>
+</body>
+</html>
