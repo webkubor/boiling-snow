@@ -36,7 +36,8 @@
 - **低饱和度**: 颜色要沉下去，强调布料、金属、木材的原始质感。
 - **体积光 (Volumetric Light)**：雪中的丁达尔效应，光束必须能看见风雪的流动。
 - **古代器物规范 (Historical Accuracy)**：严禁出现任何现代结构的伞（如自动折叠伞、金属骨架伞）。所有场景中的伞必须是**古代油纸伞 (Traditional Oil-paper Umbrella)**。
-- **严禁现代衣物细节 (No Modern Details)**：严禁出现任何形式的**现代丝袜 (Stockings/Pantyhose)**、现代袜装或现代内衣边。女性角色的腿部展现必须是**纯粹的瓷白皮肤质感**，或者是古代形制的**丝绸衬裤 (Silk Trousers/Leggings)**。若隐若现的效果必须通过**外层薄纱 (Gauze)** 与 **内里裸肌 (Bare Skin)** 的层叠实现，严禁任何现代网格或反光材质。
+- **严禁现代衣物细节 (No Modern Details)**：严禁出现任何形式的**现代丝袜 (Stockings/Pantyhose)**、现代袜装或现代内衣边。严禁出现任何形式的**连体衣 (Jumpsuits/One-piece suits)**、拉链、现代排扣。女性角色的腿部展现必须是**纯粹的瓷白皮肤质感**，或者是古代形制的**丝绸衬裤 (Silk Trousers/Leggings)**。
+- **古代服装结构 (Traditional Construction)**：所有服装（尤其是皮革、兽皮类）必须符合古代制衣逻辑：**分体剪裁、系带、束腰、布扣或交叉掩襟**。强调材质的天然纹理（如手工缝线、粗粝皮缘）。
 - **乐器持握铁律 (Instrument Posture)**：严禁混淆笛与箫。
 顾栖月使用的为**横笛 (Transverse Flute)**，必须**横向持握**或**横向吹奏**。严禁出现竖持笛子的错误动作。
 

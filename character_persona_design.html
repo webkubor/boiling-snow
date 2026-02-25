@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>《沸腾之雪》女角色人格化图鉴 - 燕照绫 & 慕夕歌</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Ma+Shan+Zheng&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --wuxia-black: #0a0a0a;
+            --wuxia-red: #8b0000;
+            --wuxia-blue: #4a90e2;
+            --wuxia-white: #f8f8f8;
+        }
+        body {
+            background-color: var(--wuxia-black);
+            color: var(--wuxia-white);
+            font-family: 'Noto Serif SC', serif;
+            overflow-x: hidden;
+        }
+        .brush-font {
+            font-family: 'Ma Shan Zheng', cursive;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .grain {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: url('https://grainy-gradients.vercel.app/noise.svg');
+            opacity: 0.05;
+            pointer-events: none;
+            z-index: 50;
+        }
+        .yan-border:hover { border-color: var(--wuxia-red); }
+        .mu-border:hover { border-color: var(--wuxia-blue); }
+    </style>
+</head>
+<body class="p-8 md:p-16">
+    <div class="grain"></div>
+
+    <header class="mb-20 text-center">
+        <h1 class="brush-font text-6xl md:text-8xl mb-4 text-transparent bg-clip-text bg-gradient-to-b from-white to-gray-600">江湖红颜</h1>
+        <p class="text-gray-400 tracking-[0.5em] uppercase text-sm">性格定调 · 材质区分 · 视觉图鉴</p>
+    </header>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-7xl mx-auto">
+        
+        <!-- 燕照绫：西北野性 -->
+        <div class="glass-card p-8 rounded-sm yan-border group">
+            <div class="aspect-[3/4] mb-8 overflow-hidden bg-gray-900 relative">
+                <img src="references/costume_designs/yan_zhaoling/yan_zhaoling_wild_fur.png" alt="燕照绫" class="w-full h-full object-cover grayscale-[0.1] group-hover:scale-110 transition-transform duration-700">
+                <div class="absolute top-4 left-4 border border-red-900/40 px-3 py-1 text-[10px] tracking-widest bg-black/60 text-red-500">NORTHWEST WILDERNESS</div>
+            </div>
+            <h2 class="brush-font text-4xl mb-6 text-red-200">【燕照绫 · 西北野性】</h2>
+            <div class="space-y-4 text-gray-400 text-sm leading-relaxed">
+                <p><span class="text-white">性格：</span> 冷艳、大胆、充满侵略性的西北野性美。</p>
+                <p><span class="text-white">服化道：</span> **分体式古代形制**。由狼毫皮草短衣与多层皮革围裙组成，采用粗粝的系带与束腰结构（严禁连体衣）。穿衣风格大胆，展现西北游牧民族的张力与她极佳的健美身段。</p>
+                <p><span class="text-white">视觉：</span> 大漠夕阳，红衣赤蛇，赤足破沙。</p>
+            </div>
+        </div>
+
+        <!-- 慕夕歌：甜美傲娇 -->
+        <div class="glass-card p-8 rounded-sm mu-border group">
+            <div class="aspect-[3/4] mb-8 overflow-hidden bg-gray-900 relative">
+                <img src="references/costume_designs/mu_xige/mu_xige_sweet_sword.png" alt="慕夕歌" class="w-full h-full object-cover grayscale-[0.1] group-hover:scale-110 transition-transform duration-700">
+                <div class="absolute top-4 left-4 border border-blue-900/40 px-3 py-1 text-[10px] tracking-widest bg-black/60 text-blue-400">SWEET & TSUNDERE</div>
+            </div>
+            <h2 class="brush-font text-4xl mb-6 text-blue-200">【慕夕歌 · 甜美少女】</h2>
+            <div class="space-y-4 text-gray-400 text-sm leading-relaxed">
+                <p><span class="text-white">性格：</span> 甜美可爱、傲娇少女心，倔强又灵动。</p>
+                <p><span class="text-white">服化道：</span> **轻盈绸缎与灵动丝带**。服装设计更偏向少女的俏皮，色彩以白蓝为主，剪裁贴身但不显肃杀，充满了江湖初登场的清新感。</p>
+                <p><span class="text-white">视觉：</span> 孤山初雪，长发飞扬，眼底藏星。</p>
+            </div>
+        </div>
+
+    </div>
+
+    <footer class="mt-24 text-center text-[10px] text-gray-600 tracking-widest uppercase">
+        &copy; 2026 Cinematic Storyboard Pro · 沸腾之雪制作组
+    </footer>
+</body>
+</html>
