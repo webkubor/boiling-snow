@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>《沸腾之雪》英雄录 - 巅峰定格版</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Ma+Shan+Zheng&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --wuxia-black: #050505;
+            --wuxia-silver: #c0c0c0;
+            --wuxia-gold: #d4af37;
+            --wuxia-red: #8b0000;
+            --wuxia-cyan: #e0f7fa;
+            --wuxia-white: #f8f8f8;
+        }
+        body {
+            background-color: var(--wuxia-black);
+            color: var(--wuxia-white);
+            font-family: 'Noto Serif SC', serif;
+            overflow-x: hidden;
+        }
+        .brush-font {
+            font-family: 'Ma Shan Zheng', cursive;
+        }
+        .masterpiece-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+        }
+        .masterpiece-card:hover {
+            border-color: var(--wuxia-gold);
+            transform: translateY(-10px);
+        }
+        .char-tag {
+            background: linear-gradient(90deg, rgba(212,175,55,0.2), transparent);
+            border-left: 2px solid var(--wuxia-gold);
+            padding: 4px 12px;
+            font-size: 12px;
+            letter-spacing: 0.2em;
+        }
+    </style>
+</head>
+<body class="p-8 md:p-16">
+    <header class="mb-24 text-center">
+        <h1 class="brush-font text-7xl md:text-9xl mb-6 text-transparent bg-clip-text bg-gradient-to-b from-white to-gray-600">巅峰·定格</h1>
+        <p class="text-gray-500 tracking-[1em] uppercase text-sm">极致舒展 · 霸气王权 · 电影级海报定稿</p>
+    </header>
+
+    <div class="space-y-32 max-w-[1600px] mx-auto">
+        
+        <!-- RANK 01: 苏梦城 -->
+        <div class="masterpiece-card grid grid-cols-1 lg:grid-cols-5 gap-0">
+            <div class="lg:col-span-3 overflow-hidden">
+                <img src="references/costume_designs/su_mengcheng/su_mengcheng_ultimate_pose.png" alt="苏梦城" class="w-full h-full object-cover">
+            </div>
+            <div class="lg:col-span-2 p-12 flex flex-col justify-center space-y-8">
+                <div class="char-tag">RANK 01 · 南楚枪神</div>
+                <h2 class="brush-font text-6xl text-yellow-500">惊鸿定乾坤</h2>
+                <p class="text-gray-400 leading-relaxed text-lg italic">
+                    “大开大合，方显王权。身如怒龙出海，枪似惊鸿掠影。”
+                </p>
+                <div class="space-y-4 text-sm text-gray-500">
+                    <p><b class="text-white">舒展度：</b> 全力前冲的弓步箭势，手臂与银枪形成完美的视觉延伸线，全构图展示。</p>
+                    <p><b class="text-white">霸气感：</b> 重磅黑金锦袍宽袖狂舞，身后雪龙气劲凝聚，压迫感窒息。</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- RANK 02: 欧阳狂徒 -->
+        <div class="masterpiece-card grid grid-cols-1 lg:grid-cols-5 gap-0">
+            <div class="lg:col-span-2 p-12 flex flex-col justify-center space-y-8 order-2 lg:order-1 text-right items-end">
+                <div class="char-tag" style="background: linear-gradient(-90deg, rgba(139,0,0,0.2), transparent); border-left: none; border-right: 2px solid var(--wuxia-red);">RANK 02 · 西燕狂刀</div>
+                <h2 class="brush-font text-6xl text-red-600">力劈万岳</h2>
+                <p class="text-gray-400 leading-relaxed text-lg italic">
+                    “原始的暴力，不需要多余的修饰。一力降十会，一刀断古今。”
+                </p>
+                <div class="space-y-4 text-sm text-gray-500">
+                    <p><b class="text-white">舒展度：</b> 极速跃起的背弓之势，双臂拉满过顶，黑铁巨刃【破军】全貌呈现。</p>
+                    <p><b class="text-white">霸气感：</b> 虬结肌肉与狂乱黑发，废墟烟尘中唯有纯粹的力量之火。</p>
+                </div>
+            </div>
+            <div class="lg:col-span-3 overflow-hidden order-1 lg:order-2">
+                <img src="references/costume_designs/ouyang_kuangtu/ouyang_kuangtu_ultimate_pose.png" alt="欧阳狂徒" class="w-full h-full object-cover">
+            </div>
+        </div>
+
+        <!-- RANK 03: 慕北歌 -->
+        <div class="masterpiece-card grid grid-cols-1 lg:grid-cols-5 gap-0">
+            <div class="lg:col-span-3 overflow-hidden">
+                <img src="references/costume_designs/mu_beige/mu_beige_ultimate_pose.png" alt="慕北歌" class="w-full h-full object-cover">
+            </div>
+            <div class="lg:col-span-2 p-12 flex flex-col justify-center space-y-8">
+                <div class="char-tag" style="background: linear-gradient(90deg, rgba(224,247,250,0.2), transparent); border-left: 2px solid var(--wuxia-cyan);">RANK 03 · 孤山剑首</div>
+                <h2 class="brush-font text-6xl text-cyan-100">白鹤掠影</h2>
+                <p class="text-gray-400 leading-relaxed text-lg italic">
+                    “极致的轻盈，亦是极致的凌厉。一剑出，万物寂。”
+                </p>
+                <div class="space-y-4 text-sm text-gray-500">
+                    <p><b class="text-white">舒展度：</b> 凌空横向滑行的极简姿态，身体与剑平齐，白袍如巨翼掠过雪原。</p>
+                    <p><b class="text-white">霸气感：</b> 这种霸气来自于绝对的自信与孤傲，于静谧中掌握生死，不着痕迹。</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer class="mt-32 text-center text-[10px] text-gray-600 tracking-[0.5em] uppercase">
+        &copy; 2026 Cinematic Storyboard Pro · 沸腾之雪制作组 · 巅峰定格实验
+    </footer>
+</body>
+</html>
