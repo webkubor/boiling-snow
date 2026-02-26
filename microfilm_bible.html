@@ -1,0 +1,342 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>《沸腾之雪》微电影大纲与角色介绍</title>
+  <style>
+    :root {
+      --bg: #0f1217;
+      --panel: #171c24;
+      --panel-2: #1d2430;
+      --text: #e8edf6;
+      --muted: #9ca9be;
+      --line: #2c3646;
+      --accent: #d9b36a;
+      --ok: #56c06e;
+      --wip: #f6b049;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      background: radial-gradient(1200px 600px at 20% -10%, #1b2432 0%, var(--bg) 45%), var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    .wrap {
+      width: min(1120px, 92vw);
+      margin: 32px auto 80px;
+    }
+    .hero {
+      background: linear-gradient(135deg, #1a2230 0%, #111722 100%);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 22px 24px;
+      margin-bottom: 20px;
+    }
+    .hero h1 {
+      margin: 0 0 6px;
+      font-size: 28px;
+      letter-spacing: 0.4px;
+    }
+    .hero p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .grid {
+      display: grid;
+      gap: 12px;
+      grid-template-columns: repeat(12, 1fr);
+      margin-top: 12px;
+    }
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 16px;
+    }
+    .card h2 {
+      margin: 0 0 10px;
+      font-size: 18px;
+    }
+    .card h3 {
+      margin: 8px 0 6px;
+      font-size: 15px;
+      color: var(--accent);
+    }
+    .span-12 { grid-column: span 12; }
+    .span-8 { grid-column: span 8; }
+    .span-4 { grid-column: span 4; }
+    .muted { color: var(--muted); }
+    .pill {
+      display: inline-block;
+      font-size: 12px;
+      padding: 2px 8px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: var(--panel-2);
+      color: var(--muted);
+      margin-right: 6px;
+      margin-bottom: 6px;
+    }
+    .pill.ok { color: #d8ffe0; border-color: #2f6f3f; background: #183123; }
+    .pill.wip { color: #fff0d5; border-color: #7d5d1d; background: #352912; }
+    .kvs {
+      display: grid;
+      grid-template-columns: 96px 1fr;
+      gap: 6px 10px;
+      font-size: 14px;
+    }
+    .kvs .k { color: var(--muted); }
+    .episode {
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 12px;
+      margin-bottom: 10px;
+      background: #131923;
+    }
+    .episode h4 {
+      margin: 0 0 6px;
+      font-size: 15px;
+    }
+    .episode p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .character {
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: #141b26;
+      padding: 12px;
+    }
+    .character strong { font-size: 15px; }
+    .character .meta {
+      margin-top: 4px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .tianbang li {
+      margin-bottom: 8px;
+      font-size: 14px;
+    }
+    .toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    button {
+      background: var(--panel-2);
+      color: var(--text);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 6px 12px;
+      cursor: pointer;
+      font-size: 13px;
+    }
+    button.active {
+      border-color: #84662f;
+      background: #2a2215;
+      color: #ffe3af;
+    }
+    footer {
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+    @media (max-width: 900px) {
+      .span-8, .span-4, .span-12 { grid-column: span 12; }
+      .split { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <section class="hero">
+      <h1>《沸腾之雪》微电影大纲与角色介绍</h1>
+      <p>单文件版剧情手册（轻量级）｜口径来源：WORLD / canon / VOICEOVER_BIBLE</p>
+    </section>
+
+    <section class="grid">
+      <article class="card span-8">
+        <h2>世界观总览</h2>
+        <div class="kvs">
+          <div class="k">三国格局</div><div>南楚 / 西燕 / 北荒（朝廷争权，江湖争名）</div>
+          <div class="k">核心冲突</div><div>三杰大战后双双失踪，引发朝廷猜忌与江湖猎杀潮</div>
+          <div class="k">战力体系</div><div>万宝楼“天榜”按战绩+神兵+身法综合评定（上榜即催命）</div>
+          <div class="k">视觉铁律</div><div>写实高武、无字幕、无玄幻法阵、动作必须有物理反馈</div>
+          <div class="k">叙事结构</div><div>倒序：第1集先给结果态，后续回填成因并推进新局</div>
+        </div>
+      </article>
+
+      <article class="card span-4">
+        <h2>项目进度</h2>
+        <p>
+          <span class="pill ok">EP01 已完结</span>
+          <span class="pill ok">EP02 已完结</span>
+          <span class="pill ok">EP03 已完结</span>
+          <span class="pill ok">EP04 已完结</span>
+          <span class="pill ok">EP05 已完结</span>
+          <span class="pill ok">EP06 已完结</span>
+          <span class="pill ok">EP07 已完结</span>
+          <span class="pill wip">EP08 制作中</span>
+          <span class="pill wip">EP09 策划中</span>
+        </p>
+      </article>
+
+      <article class="card span-12">
+        <h2>微电影大纲（分集）</h2>
+        <div class="episode">
+          <h4>EP01｜雪夜传说：三杰约战已成</h4>
+          <p>先给“结果感”：天下已知三杰将战，旧怨不明，国运入局。</p>
+        </div>
+        <div class="episode">
+          <h4>EP02｜不是告别，是江湖开场</h4>
+          <p>慕夕歌负剑下山，情感与剑道矛盾正式展开。</p>
+        </div>
+        <div class="episode">
+          <h4>EP03｜酒肆见闻：三杰名动</h4>
+          <p>夕歌在市井第一次听见“外部江湖版本”，认知发生错位。</p>
+        </div>
+        <div class="episode">
+          <h4>EP04｜鬼面枪影：天门关前等狂刀</h4>
+          <p>银面枪神立关宣战，狂刀线被正面点名。</p>
+        </div>
+        <div class="episode">
+          <h4>EP05｜雪山三日战：天下第一</h4>
+          <p>狂刀与枪神大战三日，山崩雪裂，胜负不明，二人失踪。</p>
+        </div>
+        <div class="episode">
+          <h4>EP06｜戏里戏外·灯火疑城</h4>
+          <p>除夕繁华下药路异常，宁观尘登场，江湖线被点燃。</p>
+        </div>
+        <div class="episode">
+          <h4>EP07｜笛止王线：江湖深水</h4>
+          <p>顾栖月止线：狂刀枪神未死，但多方势力已开猎杀局。</p>
+        </div>
+        <div class="episode">
+          <h4>EP08｜皇影入局：黑市开门</h4>
+          <p>皇帝影卫下场，王府双属下清街，主线转入黑市情报战。</p>
+        </div>
+        <div class="episode">
+          <h4>EP09｜暗坊深水：旧名与信物</h4>
+          <p>夜惊鸿身份抬升与宁观尘姐姐线索同场揭出，三方杀机逼近。</p>
+        </div>
+      </article>
+
+      <article class="card span-12">
+        <h2>角色介绍（按国家筛选）</h2>
+        <div class="toolbar">
+          <button class="active" data-filter="all">全部</button>
+          <button data-filter="南楚">南楚</button>
+          <button data-filter="西燕">西燕</button>
+          <button data-filter="北荒">北荒</button>
+          <button data-filter="江湖">江湖独立</button>
+        </div>
+        <div class="split" id="characters">
+          <div class="character" data-country="南楚">
+            <strong>夜惊鸿（苏梦城）</strong>
+            <div class="meta">南楚｜武器：银枪【惊鸿】｜标签：天榜第1、枪神、银面旧名线</div>
+          </div>
+          <div class="character" data-country="南楚">
+            <strong>影</strong>
+            <div class="meta">南楚皇权线｜武器：短刺【蛰龙】｜标签：天榜第4、皇帝影卫</div>
+          </div>
+          <div class="character" data-country="南楚">
+            <strong>萧烬弦</strong>
+            <div class="meta">南楚王府｜武器：玄弓【乌麟】｜标签：天榜第7、十象之力</div>
+          </div>
+          <div class="character" data-country="南楚">
+            <strong>顾栖月</strong>
+            <div class="meta">南楚王府暗线（出身北荒）｜武器：寒玉笛【玉尘】｜标签：天榜第9、身法第一</div>
+          </div>
+
+          <div class="character" data-country="西燕">
+            <strong>欧阳狂徒</strong>
+            <div class="meta">西燕｜武器：重刃【破军】｜标签：天榜第2、狂刀</div>
+          </div>
+          <div class="character" data-country="西燕">
+            <strong>叶沉舟</strong>
+            <div class="meta">西燕｜武器：重斧【裂岳】｜标签：天榜第6、斧宗</div>
+          </div>
+          <div class="character" data-country="西燕">
+            <strong>燕照绫</strong>
+            <div class="meta">西燕｜武器：长鞭【赤练】｜标签：天榜第10、赤练</div>
+          </div>
+
+          <div class="character" data-country="北荒">
+            <strong>慕北歌</strong>
+            <div class="meta">北荒·孤山｜武器：长剑【问雪】｜标签：天榜第3、孤山剑首</div>
+          </div>
+          <div class="character" data-country="北荒">
+            <strong>慕夕歌</strong>
+            <div class="meta">北荒·孤山｜武器：白鞘白柄长剑【流白】｜标签：主角线、下山入局</div>
+          </div>
+          <div class="character" data-country="北荒">
+            <strong>谢无锋</strong>
+            <div class="meta">北荒｜武器：重剑【无锋】｜标签：天榜第5、正面硬压</div>
+          </div>
+          <div class="character" data-country="北荒">
+            <strong>陆听潮</strong>
+            <div class="meta">现归北荒（南楚陆家遗孤）｜武器：双刀【残响】｜标签：天榜第8、与影灭门死仇</div>
+          </div>
+
+          <div class="character" data-country="江湖">
+            <strong>宁观尘</strong>
+            <div class="meta">江湖独立｜武器：木剑+酒葫芦｜标签：游侠道士、情报贩子、姐姐线</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="card span-12">
+        <h2>天榜十绝（当前口径）</h2>
+        <ol class="tianbang">
+          <li><strong>#1 夜惊鸿</strong>（南楚枪神）</li>
+          <li><strong>#2 欧阳狂徒</strong>（西燕狂刀）</li>
+          <li><strong>#3 慕北歌</strong>（孤山剑首）</li>
+          <li><strong>#4 影</strong>（寒江淮影卫）</li>
+          <li><strong>#5 谢无锋</strong>（北荒）</li>
+          <li><strong>#6 叶沉舟</strong>（西燕斧宗）</li>
+          <li><strong>#7 萧烬弦</strong>（王府玄弓）</li>
+          <li><strong>#8 陆听潮</strong>（北荒双刀）</li>
+          <li><strong>#9 顾栖月</strong>（花神）</li>
+          <li><strong>#10 燕照绫</strong>（赤练）</li>
+        </ol>
+      </article>
+    </section>
+
+    <footer>
+      更新说明：单文件轻量版，方便你继续做宣发、分镜和角色卡统一口径。
+    </footer>
+  </div>
+
+  <script>
+    (function () {
+      const buttons = document.querySelectorAll("button[data-filter]");
+      const cards = document.querySelectorAll(".character");
+
+      function setFilter(country) {
+        buttons.forEach((btn) => {
+          btn.classList.toggle("active", btn.dataset.filter === country);
+        });
+        cards.forEach((card) => {
+          const ok = country === "all" || card.dataset.country === country;
+          card.style.display = ok ? "" : "none";
+        });
+      }
+
+      buttons.forEach((btn) => {
+        btn.addEventListener("click", () => setFilter(btn.dataset.filter));
+      });
+    })();
+  </script>
+</body>
+</html>
