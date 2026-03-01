@@ -1,53 +1,30 @@
 {
-  "name": "顾栖月",
-  "id": "wang-fu-flutist",
-  "gender": "female",
-  "persona": "北荒旧门第遗孤 / 王府隐线暗卫（花神，玉笛，高武写实）",
-  "identity": "苏梦城麾下近身暗卫（节奏扰敌/近身补杀）",
-  "faction": "南楚王府",
-  "origin_timeline": {
-    "early_status": "北荒高官之女，容貌出众，善笛。",
-    "tragedy_trigger": "北荒皇帝欲强纳入宫被拒，随后其家门被灭。",
-    "turning_point": "她归来复线时与苏梦城相交，苏梦城赠其寒玉笛【玉尘】。",
-    "jianghu_phase": "三年后，江湖现“花神”绝色美人，以音律控节奏并完成致命收束。",
-    "retreat_phase": "“花神”名动一时后主动隐退江湖，转入王府暗线行动。"
+  "姓名": "顾栖月",
+  "ID": "gu-qi-yue",
+  "曾用名": "顾疏笛",
+  "身份": "南楚王府影子暗卫 / 天榜第九 / 花神",
+  "天榜排名": "天榜第九 (Rank 09)",
+  "所属势力": "南楚 (Southern Chu) - 苏梦城亲信",
+  "性格画像": {
+    "核心特质": ["又纯又欲", "极致死忠", "清冷出尘", "狠辣决绝"],
+    "立场": "苏梦城的绝对影子。见过王爷白发后的疲惫，甘愿为其背负所有脏活。",
+    "动作特征": ["节奏控场", "贴身切角换位", "一击即退", "120fps 极速身法"]
   },
-  "personality_profile": {
-    "core_traits": ["从容", "机敏", "善伪装", "狠准"],
-    "inner_conflict": "擅长诱敌与误导，但对无意义折磨目标有底线。",
-    "emotional_triggers": ["王爷被试探", "同伴受损", "任务节奏被打乱"],
-    "expression_style": "常带浅笑，真正动手前反而更安静。",
-    "motion_signature": ["先以笛音定节奏", "贴身切角换位", "一击即退再入"],
-    "speech_style": "语气轻，信息密，常以反问试探对方底牌。"
+  "生平背景": {
+    "出身": "原北荒高官之女，因拒婚灭门，被苏梦城救于绝境。",
+    "成名": "化身‘花神’复仇名动江湖，后退隐归于苏梦城麾下。",
+    "使命": "执行王府暗线止损任务。曾在第七集制止药路调查，发出‘王线不可碰’的警告。"
   },
-  "visual_specs": {
-    "facial_features": "Calm eyes with sharp focus, natural skin texture, no heavy makeup.",
-    "hair": "Neat dark hair in a practical half-up style with hidden tie.",
-    "outfit": "Dark-green and ink-black fitted travel robe, split hem for agile footwork, light leather belt rig.",
-    "wardrobe": [
-      {
-        "name": "月影流光 (Palace Fairy)",
-        "context": "王府/夜宴潜行",
-        "description": "月白色蝉翼纱外罩，内衬银丝织锦内衫。强调不可捉摸的流光质感。"
-      },
-      {
-        "name": "寒梅映雪 (Winter Fairy)",
-        "context": "雪原实战",
-        "description": "珍珠白哑光缎面配黑狼毫领大氅，手持墨色青油纸伞。傲雪凌霜。"
-      },
-      {
-        "name": "云丝鹤羽 (Celestial Battle-Dress)",
-        "context": "巅峰决战",
-        "description": "云母白缂丝长袍镶嵌白鹤羽片。眉宇英气，仙姿冷冽。"
-      }
-    ],
-    "weapon": "Primary: mutton-fat jade transverse flute '玉尘' (lustrous carved pattern, green-jade tassel, combat-grade; can parry and strike). No secondary weapon.",
-    "distinguishing_marks": "Finger calluses from flute control and close-quarters grip transitions."
+  "出场时态锁定": {
+    "默认状态": "墨绿与玄色贴身劲装、白玉横笛【玉尘】、身法如月下残影。"
   },
-  "combat_profile": {
-    "role": "Tempo control and close-range finish",
-    "style": "Rhythm breaks, angle entries, precise short-range lethal windows",
-    "forbidden": ["No magical sonic waves", "No fantasy rune effects"]
+  "视觉规范": {
+    "面部特征": "眼神平静且专注，气质清冷。肤质瓷白，严禁现代浓妆。",
+    "服饰": "严格执行【女性身段令】。修身利落的暗绿/黑撞色长袍，分体剪裁，强调敏捷感。",
+    "武器": {
+      "主武": "横笛【玉尘】",
+      "特性": "羊脂白玉材质。内藏精密机括可发毒针。笛声可干扰敌人耳蜗平衡（物理级控场）。可格挡重型兵刃。"
+    }
   },
-  "style_tags": ["Realistic Wuxia", "Flute Assassin", "Tempo Control", "Palace Shadow Line"]
+  "风格标签": ["纯欲暗卫", "天榜第九", "节奏大师", "写实高武", "南楚隐线"]
 }
