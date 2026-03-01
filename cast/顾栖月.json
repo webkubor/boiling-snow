@@ -2,9 +2,16 @@
   "name": "顾栖月",
   "id": "wang-fu-flutist",
   "gender": "female",
-  "persona": "王府隐线暗卫（玉笛，高武写实）",
+  "persona": "北荒旧门第遗孤 / 王府隐线暗卫（花神，玉笛，高武写实）",
   "identity": "苏梦城麾下近身暗卫（节奏扰敌/近身补杀）",
   "faction": "南楚王府",
+  "origin_timeline": {
+    "early_status": "北荒高官之女，容貌出众，善笛。",
+    "tragedy_trigger": "北荒皇帝欲强纳入宫被拒，随后其家门被灭。",
+    "turning_point": "她归来复线时与苏梦城相交，苏梦城赠其寒玉笛【玉尘】。",
+    "jianghu_phase": "三年后，江湖现“花神”绝色美人，以音律控节奏并完成致命收束。",
+    "retreat_phase": "“花神”名动一时后主动隐退江湖，转入王府暗线行动。"
+  },
   "personality_profile": {
     "core_traits": ["从容", "机敏", "善伪装", "狠准"],
     "inner_conflict": "擅长诱敌与误导，但对无意义折磨目标有底线。",
