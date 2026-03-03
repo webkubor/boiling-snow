@@ -17,3 +17,4 @@
 
 ---
 **详细剧本存放在**: `scripts/canon/epXX.md`
+**最终脚本模板（统一格式）**: `scripts/canon/FINAL_SCRIPT_FORMAT.md`
