@@ -95,9 +95,17 @@ body {
     transition: all 0.3s ease;
 }
 
-.music-on .bar1 { animation: soundBar 0.6s infinite alternate; }
-.music-on .bar2 { animation: soundBar 0.8s infinite alternate; }
-.music-on .bar3 { animation: soundBar 0.5s infinite alternate; }
+.music-on .bar1 {
+    animation: soundBar 0.6s infinite alternate;
+}
+
+.music-on .bar2 {
+    animation: soundBar 0.8s infinite alternate;
+}
+
+.music-on .bar3 {
+    animation: soundBar 0.5s infinite alternate;
+}
 
 .music-off .bar {
     height: 3px !important;
@@ -105,14 +113,27 @@ body {
 }
 
 @keyframes soundBar {
-    0% { height: 20%; }
-    100% { height: 100%; }
+    0% {
+        height: 20%;
+    }
+
+    100% {
+        height: 100%;
+    }
 }
 
 @keyframes pulse {
-    0% { opacity: 0.4; }
-    50% { opacity: 1; }
-    100% { opacity: 0.4; }
+    0% {
+        opacity: 0.4;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0.4;
+    }
 }
 
 header {
@@ -190,7 +211,7 @@ main {
     align-items: center;
     text-align: center;
     border-bottom: 1px solid var(--border-color);
-    background: 
+    background:
         radial-gradient(circle at 50% 50%, rgba(139, 0, 0, 0.1) 0%, transparent 80%),
         var(--bg-color);
     position: relative;
@@ -326,8 +347,8 @@ main {
     border-radius: 2px;
     letter-spacing: 1px;
     box-shadow: 0 0 10px rgba(197, 160, 89, 0.3);
-    text-shadow: 0 1px 2px rgba(0,0,0,0.5);
-    border: 1px solid rgba(255,255,255,0.1);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     text-transform: uppercase;
 }
 
@@ -459,13 +480,21 @@ main {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 50%, transparent 100%);
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.4) 50%, transparent 100%);
     z-index: 2;
 }
 
-.faction-chu::before { background-image: url('https://img.webkubor.online/1772725365871-9ba0140o.png'); }
-.faction-yan::before { background-image: url('https://img.webkubor.online/1772725346415-d3125sv4.png'); }
-.faction-bei::before { background-image: url('https://img.webkubor.online/1772725362947-3l56xtyv.png'); }
+.faction-chu::before {
+    background-image: url('https://img.webkubor.online/1772725365871-9ba0140o.png');
+}
+
+.faction-yan::before {
+    background-image: url('https://img.webkubor.online/1772725346415-d3125sv4.png');
+}
+
+.faction-bei::before {
+    background-image: url('https://img.webkubor.online/1772725362947-3l56xtyv.png');
+}
 
 .faction-content {
     position: absolute;
@@ -504,7 +533,7 @@ main {
     font-size: 1rem;
     color: #ccc;
     line-height: 1.8;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .faction-box:hover::before {
@@ -513,12 +542,54 @@ main {
 
 .faction-box:hover {
     border-color: var(--accent-gold);
-    box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
 }
 
-.faction-chu { border-left: 5px solid var(--accent-red); }
-.faction-yan { border-left: 5px solid var(--accent-gold); }
-.faction-bei { border-left: 5px solid #fff; }
+.faction-chu {
+    border-left: 5px solid var(--accent-red);
+}
+
+.faction-yan {
+    border-left: 5px solid var(--accent-gold);
+}
+
+.faction-bei {
+    border-left: 5px solid #fff;
+}
+
+/* 视频板块渐入效果 */
+.video-teaser {
+    margin-bottom: 100px;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.video-teaser.in-view {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-top: 56.25%;
+    /* 16:9 Aspect Ratio */
+    background: #000;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
 
 footer {
     text-align: center;

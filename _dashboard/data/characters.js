@@ -11,10 +11,10 @@ const characters = [
         isOriginalIP: true,
         isRevealed: true,
         revealedIn: "EP 02",
-        title: "孤山小师妹 / 问雪传人",
-        desc: "孤山最清白的一页。持有【问雪】佩剑，拔剑无声。她尚不知自己手中的剑意味着什么，便已身处风暴中心。",
-        weapons: ["纯白汉剑【问雪】"],
-        avatar: "https://img.webkubor.online/1772728852657-p0y0znrd.jpeg"
+        title: "孤山小师妹 / 风暴中心",
+        desc: "孤山最清白的一页。第二集离山，单纯地以为下山只是为了看外面的世界，却不知自己早已成为各方势力角力的核心。",
+        weapons: ["白色汉剑【问雪】"],
+        avatar: "https://cdn.jsdelivr.net/gh/webkubor/upic-images@main/assets/mu_xi_ge_anchor.png"
     },
     {
         id: "mu-bei-ge",
@@ -24,7 +24,7 @@ const characters = [
         isRevealed: true,
         revealedIn: "EP 02",
         title: "孤山剑首 / 守诺者",
-        desc: "知晓一切却选择沉默。他是物理天花板的底线，手握【问天】至尊汉剑，天若不应，我便问天。绝不踏出孤山半步的孤傲巅峰。",
+        desc: "知晓一切却选择沉默。第二集雪中送别师妹。身着洗得发白的青衫，视承诺如生命，绝不踏出孤山半步。",
         weapons: ["至尊汉剑【问天】"],
         avatar: "https://cdn.jsdelivr.net/gh/webkubor/upic-images@main/assets/mu_bei_ge_anchor.jpg"
     },
@@ -37,7 +37,7 @@ const characters = [
         revealedIn: "EP 04",
         title: "天榜高手 / 索命鬼神",
         desc: "第四集天门关现身。银面、白发、黑金大氅。他是南楚皇权最深的阴影，也是唯一的定海神针。点名要战西燕大将欧阳狂徒。",
-        weapons: ["银色折叠枪【惊鸿】"],
+        weapons: ["银白透甲长枪【惊鸿】"],
         avatar: "https://cdn.jsdelivr.net/gh/webkubor/upic-images@main/assets/su_meng_cheng_anchor.png"
     },
     {
@@ -49,7 +49,7 @@ const characters = [
         revealedIn: "EP 04 (Mentioned)",
         title: "西燕大将军 / 狂刀",
         desc: "西燕军魂，物理毁灭美学。虽未亲至南楚，但在第四集已被枪神点名。信奉绝对力量，唯有【破军】能让他开口。",
-        weapons: ["门板重刃【破军】"],
+        weapons: ["黑铁斩马刀【破军】"],
         avatar: "https://cdn.jsdelivr.net/gh/webkubor/upic-images@main/assets/ouyang_kuang_tu_anchor.png"
     },
     {

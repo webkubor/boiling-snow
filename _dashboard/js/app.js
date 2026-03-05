@@ -20,7 +20,7 @@ function initScrollObserver() {
         });
     }, observerOptions);
 
-    const targets = document.querySelectorAll('.section-title, .roster-grid, .assets-grid, .scenery-gallery, .factions, .manifesto-section');
+    const targets = document.querySelectorAll('.section-title, .roster-grid, .assets-grid, .scenery-gallery, .factions, .manifesto-section, .video-teaser');
     targets.forEach(t => observer.observe(t));
 }
 

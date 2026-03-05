@@ -2,10 +2,26 @@
 
 // 1. 神兵谱 (Divine Weapons) - 纯粹的器械
 const weapons = [
-    { name: "问天", url: "https://img.webkubor.online/1772729290669-cprtgp0g.png", desc: "至尊汉剑，天榜第一慕北歌随身佩剑，天若不应，我便问天。" },
-    { name: "问雪剑", url: "https://img.webkubor.online/1772728852657-p0y0znrd.jpeg", desc: "透明汉剑，孤山守诺者的遗世独立。" },
-    { name: "惊鸿枪", url: "https://img.webkubor.online/1772725959237-4f4ihm6r.jpg", desc: "银色折叠枪，南楚定海神针。" },
-    { name: "破军", url: "https://img.webkubor.online/1772725962775-slaaiya9.png", desc: "门板重刃，西燕物理毁灭美学。" }
+    { 
+        name: "问天", 
+        url: "https://img.webkubor.online/1772729290669-cprtgp0g.png", 
+        desc: "至尊汉剑，天榜第一慕北歌随身佩剑。天若不应，我便问天。" 
+    },
+    { 
+        name: "问雪剑", 
+        url: "https://img.webkubor.online/1772728852657-p0y0znrd.jpeg", 
+        desc: "白色汉剑，慕夕歌的随身佩剑。剑身如霜，透着灵动且危险的寒光。" 
+    },
+    { 
+        name: "惊鸿枪", 
+        url: "https://img.webkubor.online/1772725959237-4f4ihm6r.jpg", 
+        desc: "银色折叠枪，南楚定海神针。" 
+    },
+    { 
+        name: "破军", 
+        url: "https://img.webkubor.online/1772725962775-slaaiya9.png", 
+        desc: "门板重刃，西燕物理毁灭美学。" 
+    }
 ];
 
 // 2. 绝壁风雪 (Cinematic Scenery)
