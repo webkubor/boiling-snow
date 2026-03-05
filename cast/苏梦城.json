@@ -36,5 +36,23 @@
       "特性": "白银拉丝质感，三棱透甲锥。高频振动，杀人后瞬震震飞血珠，‘滴血不沾’。"
     }
   },
+  "reference_images": {
+    "说明": "调用 edit_image / nanobanana 时，按线路选取对应参考图作为 image_reference 输入。路径相对项目根目录。",
+    "江湖线_夜惊鸿": {
+      "face": "references/character_anchors/su_mengcheng_jianghu_face.jpg",
+      "pose": "references/character_anchors/su_mengcheng_jianghu_pose.jpg",
+      "weapon": "references/character_anchors/su_mengcheng_jinghong_spear.jpg",
+      "适用场景": "天榜第二·夜惊鸿身份：银面、白发、黑金袍、银枪惊鸿。"
+    },
+    "朝堂线_王爷": {
+      "face": "references/character_anchors/su_mengcheng_court_face.jpg",
+      "pose": "references/character_anchors/su_mengcheng_court_pose.jpg",
+      "适用场景": "南楚异姓王身份：白发王爷（不戴面具）、宽袖长袍、重磅锦缎、狼毫领。"
+    },
+    "历史线_黑发": {
+      "face": "references/character_anchors/su_mengcheng_history_face.jpg",
+      "适用场景": "回溯戏份：黑发、王爷服制、配长刀而非长枪。"
+    }
+  },
   "风格标签": ["白发枪神", "异姓王", "极致克制", "守夜人", "写实高武"]
 }
