@@ -1,12 +1,16 @@
 // 核心渲染逻辑
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. 渲染数据
-    renderRoster();
-    renderWeapons();
-    renderScenery();
-    renderMaterials();
+    // 1. 渲染数据 (增加健壮性检查)
+    try {
+        if (typeof characters !== 'undefined') renderRoster();
+        if (typeof weapons !== 'undefined') renderWeapons();
+        if (typeof sceneries !== 'undefined') renderScenery();
+        if (typeof materials !== 'undefined') renderMaterials();
+    } catch (e) {
+        console.error("数据渲染出错:", e);
+    }
 
-    // 2. 音乐播放与入阵逻辑
+    // 2. 音乐播放与入阵逻辑 (核心逻辑，必须尝试启动)
     initMusicPlayer();
 });
 
