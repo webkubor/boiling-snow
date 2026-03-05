@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>《沸腾之雪》Boiling Snow | 电影级 AI 生产系统</title>
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <link rel="stylesheet" href="css/style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Noto+Serif+SC:wght@400;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- 入阵遮罩 (解决 Autoplay 限制) -->
+    <div id="enter-overlay">
+        <div class="enter-content">
+            <img src="https://img.webkubor.online/1772725975694-prcefm4t.png" class="enter-mask" alt="夜惊鸿面具">
+            <h2 class="enter-title">沸腾之雪</h2>
+            <p class="enter-hint">点击入阵 · 聆听江湖</p>
+        </div>
+    </div>
+
+    <!-- 背景音乐 -->
+    <audio id="bg-music" loop>
+        <source src="https://img.webkubor.online/1772726498209-btgwa8d1.wav" type="audio/wav">
+    </audio>
+
+    <!-- 音乐控制开关 -->
+    <div id="music-toggle" class="music-on">
+        <div class="bar bar1"></div>
+        <div class="bar bar2"></div>
+        <div class="bar bar3"></div>
+    </div>
+
+    <header>
+        <div id="snow-container"></div>
+        <h1 class="hero-title">沸腾之雪</h1>
+        <div class="hero-subtitle">Boiling Snow Cinematic IP</div>
+        <div class="hero-quote">“雪落江湖，热血难凉。一笔写风月，一心藏滚烫。”</div>
+    </header>
+
+    <main>
+        <!-- 江湖宣言 -->
+        <section class="manifesto-section">
+            <div class="manifesto-content">
+                <p class="manifesto-question">"那么，究竟什么是江湖？"</p>
+                <p>有人说，江湖是朝堂的倒影，是天下棋局上的弃子。</p>
+                <p>有人说，江湖是极致的杀戮，是生死契阔退无可退的决绝。</p>
+                <p>但在这里——</p>
+                <p class="manifesto-core">江湖，就是在这片万里冰封的修罗场上，<br>所有拒绝下跪的人，用鲜血与断刃烧干的最后一场大雪。</p>
+            </div>
+        </section>
+
+        <!-- 天榜 -->
+        <h2 class="section-title">天榜极意 (Heavenly Roster)</h2>
+        <div class="roster-grid" id="roster-container">
+            <div style="color:var(--text-muted); padding:20px;">正在加载天榜档案...</div>
+        </div>
+
+        <!-- 神兵谱 -->
+        <h2 class="section-title">神兵谱 (Divine Weapons)</h2>
+        <div class="weapons-intro">
+            <div class="weapons-intro-inner">
+                <span class="wi-tag">WAN BAO LOU CLASSIFIED</span>
+                <p>万宝楼知委按战绩、神兵评级与目击证词综合评定——天下失传十兵，不分先后，将命之器，一此为案。上谱非荣光，是最高级别的吁杀令。谁能持得，谁就是军神。</p>
+            </div>
+        </div>
+        <div class="assets-grid" id="weapons-container"></div>
+
+        <!-- 绝壁风雪 -->
+        <h2 class="section-title">绝壁风雪 (Cinematic Scenery)</h2>
+        <div class="scenery-gallery" id="scenery-container"></div>
+
+        <!-- 势力 -->
+        <h2 class="section-title">天下棋局 (Factions)</h2>
+        <div class="factions">
+            <div class="faction-box faction-chu">
+                <div class="faction-name">南楚 (Southern Chu)</div>
+                <div class="faction-desc">皇权与王权的巅峰对立。皇帝手握"影"，异姓王苏梦城手握"惊鸿"。</div>
+            </div>
+            <div class="faction-box faction-yan">
+                <div class="faction-name">西燕 (Western Yan)</div>
+                <div class="faction-desc">军阀联邦，以武立威。大将军欧阳狂徒的物理毁灭美学。</div>
+            </div>
+            <div class="faction-box faction-bei">
+                <div class="faction-name">北荒 (Northern Wilderness)</div>
+                <div class="faction-desc">绝壁孤山，苦寒之地。孤山剑首慕北歌的无上剑意压场。</div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 底部海报展示 -->
+    <section class="poster-section">
+        <div class="poster-grid">
+            <div class="poster-item">
+                <img src="https://img.webkubor.online/1772723048590-0fkhh162.png" alt="夜惊鸿面具" class="footer-poster">
+                <div class="poster-overlay">
+                    <span class="poster-tag">ICONIC MASK</span>
+                    <h3 class="poster-title">修罗面具</h3>
+                    <p class="poster-subtitle">索命鬼神的唯一特征</p>
+                </div>
+            </div>
+            <div class="poster-item">
+                <img src="https://img.webkubor.online/1772725982278-9voeue4t.png" alt="夜惊鸿长矛" class="footer-poster">
+                <div class="poster-overlay">
+                    <span class="poster-tag">EXCLUSIVE ARTWORK</span>
+                    <h3 class="poster-title">惊鸿破阵</h3>
+                    <p class="poster-subtitle">夜惊鸿 · 寒星裂甲</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        © 2026 沸腾之雪 制作委员会 | Webkubor Heart | 电影级 AI 制造
+    </footer>
+
+    <!-- 注入数据 -->
+    <script src="data/characters.js"></script>
+    <script src="data/assets.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>

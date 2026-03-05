@@ -97,6 +97,20 @@
 6. **AI 赋能**：利用 Nanobanana/Pencil 插件生成具备胶片感与物理质感的视觉分镜。
 
 ---
+
+## 🚀 部署指南 (Deployment)
+
+### Vercel 一键部署
+
+本项目支持在 **Vercel** 上全自动构建与热更新：
+
+1. **关联仓库**：在 Vercel 中导入本 Git 仓库（需关联 `_dashboard` 为构建主体）。
+2. **根目录配置**：系统检测到根目录下的 `vercel.json` 后将自动按以下逻辑构建：
+    * **构建命令**：`cd _dashboard && npm install && npm run build`
+    * **发布目录**：`_dashboard/dist`
+3. **实时预览**：代码推送到 `main` 分支后，Vercel 将自动完成打包并刷新渲染看板。
+
+---
 **微信号：webkubor-heart**  
 **2026.02.19 · 沸腾之雪 制作委员会**  
-**README 版本**：V2.0 (2026-03-05)
+**README 版本**：V2.1 (2026-03-06)

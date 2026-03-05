@@ -1,0 +1,8 @@
+{
+    "name": "cinematic-storyboard-pro",
+    "version": "1.0.0",
+    "private": true,
+    "scripts": {
+        "build": "cd _dashboard && npm install && npm run build"
+    }
+}
