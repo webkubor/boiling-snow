@@ -1,0 +1,29 @@
+# Boiling Snow (沸腾之雪) - LLMs Discovery Guide
+
+> **Project Identity**: AI-Native Realistic Wuxia Micro-movie Production System.
+> **Philosophy**: Physics-based action, 35mm film grain, Low-key lighting, Realistic high-martial-arts (Realistic Wuxia).
+
+## 🎬 Core Strategy
+- **Visual**: No magic circles, no glowing runes. Every movement must have a physical impact (snow dust, wall cracks, fabric physics).
+- **Ranking**: The "Tianbang" (God Ranking) defines the power balance (10 masters).
+- **Production**: All scenes are segmented into 15s clips following the [0-4s: Breath | 4-10s: Impact | 10-15s: Aftermath] structure.
+
+## 📁 Critical Files for AI Context
+- `bibles/WORLD.md`: The SSOT (Single Source of Truth) for world-building, weapon stats, and ranking logic.
+- `bibles/PRODUCTION.md`: Hard rules for cinematography, low-key lighting, and combat physics.
+- `cast/*.json`: Character physical attributes and consistency anchors.
+- `SKILL.md`: Storyboard generation protocol.
+
+## 👤 Key Characters
+- **Su Mengcheng (苏梦城)**: King of Nanchu, Spear God. White hair, silver mask.
+- **Gu Qiyue (顾栖月)**: Shadow guard, Jade flute. Master of agility (Step 1 in Qinggong ranking).
+- **Mu Beige (慕北歌)**: Sword Leader of Lone Mountain. Calm and absolute.
+- **Ouyang Kuangtu (欧阳狂徒)**: Berserker of Xiyan, Giant cleaver. Pure physical destruction.
+
+## 🛠️ AI Production Red Lines
+- **Strictly NO subtitles/watermarks** in visual descriptions.
+- **Strictly NO modern elements**.
+- **Combat**: Must follow "Windup -> Path -> Impact -> Recovery" loop.
+
+---
+*Created by Little Candle (小烛) for Father (老爹).*
