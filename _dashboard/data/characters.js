@@ -1,7 +1,3 @@
-// 《沸腾之雪》Boiling Snow | 天榜档案库
-// 所有人物均为 Webkubor 旗下原创武侠 IP (Original Wuxia IP)
-// 排序逻辑：剧情揭晓时间线 (Revelation Timeline)
-
 const characters = [
     // --- 已入世角色 (Revealed) ---
     {
