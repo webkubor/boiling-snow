@@ -14,10 +14,9 @@
 
 <body>
 
-    <!-- 入阵遮罩 (解决 Autoplay 限制) -->
+    <!-- 入阵遮罩 -->
     <div id="enter-overlay">
         <div class="enter-content">
-            <img src="https://img.webkubor.online/1772725975694-prcefm4t.png" class="enter-mask" alt="夜惊鸿面具">
             <h2 class="enter-title">沸腾之雪</h2>
             <p class="enter-hint">点击入阵 · 聆听江湖</p>
         </div>
@@ -62,60 +61,45 @@
 
         <!-- 神兵谱 -->
         <h2 class="section-title">神兵谱 (Divine Weapons)</h2>
-        <div class="weapons-intro">
-            <div class="weapons-intro-inner">
-                <span class="wi-tag">WAN BAO LOU CLASSIFIED</span>
-                <p>万宝楼知委按战绩、神兵评级与目击证词综合评定——天下失传十兵，不分先后，将命之器，一此为案。上谱非荣光，是最高级别的吁杀令。谁能持得，谁就是军神。</p>
-            </div>
-        </div>
         <div class="assets-grid" id="weapons-container"></div>
 
         <!-- 绝壁风雪 -->
         <h2 class="section-title">绝壁风雪 (Cinematic Scenery)</h2>
         <div class="scenery-gallery" id="scenery-container"></div>
 
+        <!-- 物料设计 -->
+        <h2 class="section-title">物料设计 (Material Design)</h2>
+        <div class="assets-grid" id="materials-container"></div>
+
         <!-- 势力 -->
         <h2 class="section-title">天下棋局 (Factions)</h2>
         <div class="factions">
             <div class="faction-box faction-chu">
-                <div class="faction-name">南楚 (Southern Chu)</div>
-                <div class="faction-desc">皇权与王权的巅峰对立。皇帝手握"影"，异姓王苏梦城手握"惊鸿"。</div>
+                <div class="faction-content">
+                    <div class="faction-name">南楚 (Southern Chu)</div>
+                    <div class="faction-slogan">皇权与王权的巅峰对立</div>
+                    <div class="faction-desc">丹阳城下，一半是泼天的富贵，一半是封喉的暗箭。皇帝手握“影”之利刃清剿异己，异姓王苏梦城独守“惊鸿”银枪镇压国运。棋局已成，谁是执棋人？</div>
+                </div>
             </div>
             <div class="faction-box faction-yan">
-                <div class="faction-name">西燕 (Western Yan)</div>
-                <div class="faction-desc">军阀联邦，以武立威。大将军欧阳狂徒的物理毁灭美学。</div>
+                <div class="faction-content">
+                    <div class="faction-name">西燕 (Western Yan)</div>
+                    <div class="faction-slogan">虎狼之师，以武立国</div>
+                    <div class="faction-desc">在黄沙与烈火中淬炼出的武将寡头政权。大将军欧阳狂徒奉行丛林法则，以“破军”断门刃横扫边境，不讲和谈，唯有彻底的物理毁灭。这天下的规矩，由最强的人来写。</div>
+                </div>
             </div>
             <div class="faction-box faction-bei">
-                <div class="faction-name">北荒 (Northern Wilderness)</div>
-                <div class="faction-desc">绝壁孤山，苦寒之地。孤山剑首慕北歌的无上剑意压场。</div>
+                <div class="faction-content">
+                    <div class="faction-name">北荒 (Northern Wilderness)</div>
+                    <div class="faction-slogan">绝壁孤山，苦寒绝地</div>
+                    <div class="faction-desc">这里没有律法，只有剑意。孤山剑首慕北歌一剑横空，万籁俱寂。它是江湖最后的净土，也是最冷的坟墓。每个人都在等那场雪停，但雪从未停过。</div>
+                </div>
             </div>
         </div>
     </main>
 
-    <!-- 底部海报展示 -->
-    <section class="poster-section">
-        <div class="poster-grid">
-            <div class="poster-item">
-                <img src="https://img.webkubor.online/1772723048590-0fkhh162.png" alt="夜惊鸿面具" class="footer-poster">
-                <div class="poster-overlay">
-                    <span class="poster-tag">ICONIC MASK</span>
-                    <h3 class="poster-title">修罗面具</h3>
-                    <p class="poster-subtitle">索命鬼神的唯一特征</p>
-                </div>
-            </div>
-            <div class="poster-item">
-                <img src="https://img.webkubor.online/1772725982278-9voeue4t.png" alt="夜惊鸿长矛" class="footer-poster">
-                <div class="poster-overlay">
-                    <span class="poster-tag">EXCLUSIVE ARTWORK</span>
-                    <h3 class="poster-title">惊鸿破阵</h3>
-                    <p class="poster-subtitle">夜惊鸿 · 寒星裂甲</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <footer>
-        © 2026 沸腾之雪 制作委员会 | Webkubor Heart | 电影级 AI 制造
+        © 2026 Boiling Snow | Webkubor Original IP | 微电影 · 原创剧情 · 原创 OC · 原创 BGM | 电影级 AI 联合生产
     </footer>
 
     <!-- 注入数据 -->

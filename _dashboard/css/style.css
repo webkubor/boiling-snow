@@ -51,30 +51,6 @@ body {
 
 .enter-content {
     text-align: center;
-    max-width: 600px;
-}
-
-.enter-mask {
-    width: 200px;
-    height: auto;
-    margin-bottom: 40px;
-    filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.1));
-    opacity: 0.8;
-    animation: maskFloat 4s ease-in-out infinite;
-}
-
-@keyframes maskFloat {
-
-    0%,
-    100% {
-        transform: translateY(0);
-        filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.05));
-    }
-
-    50% {
-        transform: translateY(-15px);
-        filter: drop-shadow(0 0 30px rgba(255, 255, 255, 0.2));
-    }
 }
 
 .enter-title {
@@ -119,17 +95,9 @@ body {
     transition: all 0.3s ease;
 }
 
-.music-on .bar1 {
-    animation: soundBar 0.6s infinite alternate;
-}
-
-.music-on .bar2 {
-    animation: soundBar 0.8s infinite alternate;
-}
-
-.music-on .bar3 {
-    animation: soundBar 0.5s infinite alternate;
-}
+.music-on .bar1 { animation: soundBar 0.6s infinite alternate; }
+.music-on .bar2 { animation: soundBar 0.8s infinite alternate; }
+.music-on .bar3 { animation: soundBar 0.5s infinite alternate; }
 
 .music-off .bar {
     height: 3px !important;
@@ -137,27 +105,14 @@ body {
 }
 
 @keyframes soundBar {
-    0% {
-        height: 20%;
-    }
-
-    100% {
-        height: 100%;
-    }
+    0% { height: 20%; }
+    100% { height: 100%; }
 }
 
 @keyframes pulse {
-    0% {
-        opacity: 0.4;
-    }
-
-    50% {
-        opacity: 1;
-    }
-
-    100% {
-        opacity: 0.4;
-    }
+    0% { opacity: 0.4; }
+    50% { opacity: 1; }
+    100% { opacity: 0.4; }
 }
 
 header {
@@ -212,26 +167,19 @@ main {
 
 .section-title {
     font-family: var(--font-serif);
-    font-size: 2.8rem;
+    font-size: 2.5rem;
     color: #fff;
     margin-bottom: 60px;
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 15px;
-    text-shadow: 0 0 20px rgba(139, 0, 0, 0.4);
-}
-
-.section-title::after {
-    content: '';
-    height: 3px;
-    width: 100px;
-    background: linear-gradient(90deg, var(--accent-red) 0%, transparent 100%);
-    box-shadow: 0 0 10px var(--accent-red);
+    align-items: center;
+    gap: 20px;
 }
 
 .section-title::before {
-    display: none;
+    content: '';
+    height: 2px;
+    width: 60px;
+    background: var(--accent-red);
 }
 
 /* 江湖宣言板块 - 全屏沉浸式 */
@@ -242,7 +190,7 @@ main {
     align-items: center;
     text-align: center;
     border-bottom: 1px solid var(--border-color);
-    background:
+    background: 
         radial-gradient(circle at 50% 50%, rgba(139, 0, 0, 0.1) 0%, transparent 80%),
         var(--bg-color);
     position: relative;
@@ -378,8 +326,8 @@ main {
     border-radius: 2px;
     letter-spacing: 1px;
     box-shadow: 0 0 10px rgba(197, 160, 89, 0.3);
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+    border: 1px solid rgba(255,255,255,0.1);
     text-transform: uppercase;
 }
 
@@ -399,13 +347,6 @@ main {
 .char-desc {
     font-size: 0.9rem;
     color: var(--text-muted);
-    line-height: 1.6;
-    margin-bottom: 20px;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
 }
 
 .weapon-tag {
@@ -414,39 +355,6 @@ main {
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid var(--border-color);
     font-size: 0.75rem;
-}
-
-/* 神兵谱介绍 */
-.weapons-intro {
-    margin-bottom: 60px;
-    border-left: 3px solid var(--accent-red);
-    background: linear-gradient(90deg, rgba(139, 0, 0, 0.05), transparent);
-}
-
-.weapons-intro-inner {
-    padding: 30px 40px;
-}
-
-.wi-tag {
-    display: inline-block;
-    background: var(--accent-red);
-    color: #fff;
-    font-size: 11px;
-    font-weight: 900;
-    padding: 4px 10px;
-    letter-spacing: 2px;
-    margin-bottom: 20px;
-    box-shadow: 2px 2px 0 var(--accent-gold);
-}
-
-.weapons-intro p {
-    font-family: var(--font-serif);
-    font-size: 1.1rem;
-    color: var(--text-main);
-    line-height: 1.8;
-    max-width: 900px;
-    letter-spacing: 0.05em;
-    opacity: 0.9;
 }
 
 /* 神兵谱网格 */
@@ -473,33 +381,18 @@ main {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    filter: grayscale(100%) brightness(0.8);
-    transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1);
-}
-
-.weapon-item:hover .weapon-img-wrapper {
-    border-color: var(--accent-red);
-    box-shadow: 0 0 30px rgba(139, 0, 0, 0.3);
+    filter: grayscale(100%);
+    transition: all 0.5s ease;
 }
 
 .weapon-item:hover img {
-    filter: grayscale(0%) brightness(1);
-    transform: scale(1.1);
+    filter: grayscale(0%);
 }
 
 .weapon-name {
     font-family: var(--font-serif);
     font-size: 1.4rem;
     color: var(--accent-gold);
-    margin-bottom: 8px;
-}
-
-.weapon-desc {
-    font-size: 0.85rem;
-    color: var(--text-muted);
-    line-height: 1.6;
-    max-width: 220px;
-    margin: 0 auto;
 }
 
 /* 绝壁风雪画廊 */
@@ -529,110 +422,103 @@ main {
     opacity: 1;
 }
 
-/* 势力 */
+/* 势力棋局 - 影视化重构 */
 .factions {
     display: flex;
-    gap: 40px;
+    flex-direction: column;
+    gap: 30px;
     margin-bottom: 100px;
 }
 
 .faction-box {
-    flex: 1;
-    padding: 60px 40px;
-    background: rgba(20, 20, 20, 0.8);
-    border-top: 2px solid var(--border-color);
+    height: 400px;
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
-.faction-chu {
-    border-top-color: var(--accent-red);
+.faction-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    transition: transform 1.2s ease;
+    z-index: 1;
 }
 
-.faction-yan {
-    border-top-color: var(--accent-gold);
+.faction-box::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 50%, transparent 100%);
+    z-index: 2;
 }
 
-.faction-bei {
-    border-top-color: #fff;
+.faction-chu::before { background-image: url('https://img.webkubor.online/1772725365871-9ba0140o.png'); }
+.faction-yan::before { background-image: url('https://img.webkubor.online/1772725346415-d3125sv4.png'); }
+.faction-bei::before { background-image: url('https://img.webkubor.online/1772725362947-3l56xtyv.png'); }
+
+.faction-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 60px;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 600px;
 }
 
 .faction-name {
     font-family: var(--font-serif);
-    font-size: 2rem;
+    font-size: 2.5rem;
     color: #fff;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
+    letter-spacing: 0.1em;
+    white-space: nowrap;
+}
+
+.faction-slogan {
+    font-size: 1rem;
+    color: var(--accent-gold);
+    text-transform: uppercase;
+    letter-spacing: 0.4em;
+    margin-bottom: 30px;
+    border-left: 3px solid var(--accent-red);
+    padding-left: 15px;
 }
 
 .faction-desc {
-    font-size: 0.95rem;
-    color: var(--text-muted);
-    line-height: 1.6;
+    font-size: 1rem;
+    color: #ccc;
+    line-height: 1.8;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
 }
 
-.poster-section {
-    width: 100%;
-    margin-bottom: 80px;
-    padding: 0 40px;
+.faction-box:hover::before {
+    transform: scale(1.05);
 }
 
-.poster-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 30px;
-    width: 100%;
+.faction-box:hover {
+    border-color: var(--accent-gold);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.8);
 }
 
-.poster-item {
-    position: relative;
-    width: 100%;
-    height: 400px;
-    /* 缩小高度 */
-    overflow: hidden;
-    border: 1px solid var(--border-color);
-    background: #000;
-}
-
-.footer-poster {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0.7;
-    transition: transform 1.5s ease, opacity 0.5s ease;
-}
-
-.poster-item:hover .footer-poster {
-    transform: scale(1.08);
-    opacity: 1;
-}
-
-.poster-overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    padding: 40px;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, transparent 100%);
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-}
-
-.poster-tag {
-    font-size: 0.7rem;
-    color: var(--accent-gold);
-    letter-spacing: 2px;
-}
-
-.poster-title {
-    font-family: var(--font-serif);
-    font-size: 1.8rem;
-    color: #fff;
-    text-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
-}
-
-.poster-subtitle {
-    font-size: 0.85rem;
-    color: var(--text-muted);
-}
+.faction-chu { border-left: 5px solid var(--accent-red); }
+.faction-yan { border-left: 5px solid var(--accent-gold); }
+.faction-bei { border-left: 5px solid #fff; }
 
 footer {
     text-align: center;
