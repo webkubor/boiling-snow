@@ -147,7 +147,7 @@ header {
     /* 移除边框以实现与宣言板块的无缝衔接 */
     background-image:
         linear-gradient(to bottom, rgba(5, 5, 5, 0.3) 0%, rgba(5, 5, 5, 0.7) 60%, var(--bg-color) 100%),
-        url('https://img.webkubor.online/1772725359776-6oe8gd0i.png');
+        url('../assets/scenery/hero-bg-21-9.png');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
