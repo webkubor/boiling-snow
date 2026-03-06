@@ -1,14 +1,15 @@
 {
-    "character": "燕照绫 (Yan Zhaoling)",
+    "character": "燕照绫 (Yan Zhaoling) - [NEW SWAP]",
     "facial_anchors": {
-        "features": "Sharp, intense eyes (amber/brown), refined but fierce facial structure, focused gaze",
-        "hair": "Dark brown/black hair with complex braids, adorned with silver tribal headpiece on the forehead",
-        "skin": "Sun-kissed fair skin, realistic texture with golden sunset highlights"
+        "features": "Sharp, almond-shaped eyes, refined and determined facial structure",
+        "hair": "Dark brown hair with complex braids, silver forehead headpiece with intricate carvings",
+        "skin": "Sun-kissed fair skin, realistic golden sunset illumination"
     },
     "costume_anchors": {
-        "clothing": "Dark teal/grey tribal leather-linen dress, complex metallic patterns, wolf-fur collar on one shoulder, sheer silk outer sleeves, leather bracers",
-        "jewelry": "Heavy silver necklaces with large circular medallions, long tassel earrings matching the headpiece",
-        "weapon": "Dark braided leather whip with a refined silver hilt/base"
+        "outer": "Crimson/Red high-volume wolf-fur shrug/collar, dark teal leather crop top with metallic embroidery",
+        "lower": "Layered brown leather skirt with heavy rope belt, tan suede lace-up high boots",
+        "arms": "Dark leather lace-up bracers with fur trim",
+        "weapon": "Dark braided leather/bone whip with silver hilt"
     },
-    "visual_quality_spec": "8K, 35mm film grain, Low-key golden hour lighting (sunset), high contrast, volumetric sand/dust particles, hyper-realistic fabric and fur texture."
+    "visual_quality_spec": "8K Masterpiece, 35mm film grain, Low-key sunset photography, high contrast, volumetric sand particles, hyper-realistic fur and leather textures."
 }
