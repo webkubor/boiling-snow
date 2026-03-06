@@ -1,0 +1,14 @@
+{
+    "character": "夜惊鸿 (Ye Jinghong)",
+    "facial_anchors": {
+        "mask": "Intricate metallic silver dragon-head mask covering the upper/full face",
+        "hair": "Long white/silver hair, partially tied up, flowing",
+        "eyes": "Sharp eyes visible through mask slits, cold killing intent"
+    },
+    "costume_anchors": {
+        "outer": "Tactical black battle robes, heavy black fur-trimmed collar and cuffs",
+        "weapon": "Jinghong Spear (九尺三寸银白透甲枪), silver dragon-head joint, silver leaf-blade, dark metallic shaft",
+        "identity": "The 'Spear God', masked general, night-time field operations vibe"
+    },
+    "visual_quality_spec": "8K Masterpiece, 35mm film grain, Low-key photography, high contrast highlights on silver mask/spear, volumetric wind-blown particles."
+}

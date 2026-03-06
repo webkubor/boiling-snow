@@ -1,0 +1,14 @@
+{
+    "character": "苏梦城 (Su Mengcheng)",
+    "facial_anchors": {
+        "face": "Mature, authoritative, focused Asian male face, sharp eyes, determined mouth",
+        "hair": "Jet black hair, tied up in a neat high bun/top-knot",
+        "skin": "Natural, fair, healthy texture"
+    },
+    "costume_anchors": {
+        "outer": "Expensive black-and-white brocade robes with silver/white embroidery (cloud/dragon patterns), wide sleeves",
+        "collar": "Thick, high-volume black wolf-fur collar framing the neck",
+        "identity": "Aristocratic Prince/异姓王, no mask, elegant but powerful posture"
+    },
+    "visual_quality_spec": "8K Masterpiece, 35mm film grain, Low-key cinematic lighting, Tyndall effect, high texture detail for fur and silk."
+}
