@@ -1,0 +1,16 @@
+{
+    "character": "顾栖月 (Gu Qiyue)",
+    "facial_anchors": {
+        "face_shape": "Refined oval face, narrow chin, sharp jawline",
+        "eyes": "Intense dark eyes, focused expression, naturally elongated eyelashes",
+        "makeup": "Subtle red lip tint, clean and elegant",
+        "hair": "Jet black, high-volume flowing hair, silver pendant earrings",
+        "skin": "Porcelain white, high-detail texture"
+    },
+    "costume_anchors": {
+        "robes": "Layered flowing white silk robes, light-blue silk belt/accents, wide ethereal sleeves",
+        "weapon": "White jade flute (Jade Dust), glossy stone texture, visible finger holes, cold glow",
+        "accessory": "Classic oil-paper umbrella (white/grey) from secondary reference"
+    },
+    "visual_quality_spec": "8K Masterpiece, 35mm film grain, Cinematic lighting (moonlight + waterfall mist), low-key, high contrast, realistic silk and stone textures."
+}

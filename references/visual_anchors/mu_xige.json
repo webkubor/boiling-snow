@@ -1,0 +1,15 @@
+{
+    "character": "慕夕歌 (Mu Xige)",
+    "facial_anchors": {
+        "face": "Youthful but determined, rounded yet defined features, large intelligent dark eyes",
+        "expression": "Focused, calm but soft",
+        "hair": "High-tied ponytail, black, silver hair ring ornament",
+        "skin": "Fair, natural lighting"
+    },
+    "costume_anchors": {
+        "outer": "Translucent white silk robes with delicate pink/white floral embroidery, high waistline",
+        "weapon": "Wenxue (Han sword), pure white scabbard with high-gloss finish, silver metallic hilt with intricate engravings",
+        "detail": "Lightweight multi-layered fabric texture"
+    },
+    "visual_quality_spec": "8K, Movie-grade, 35mm film grain, low-key lighting with soft snow bounce, absolute physical consistency."
+}
