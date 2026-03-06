@@ -22,12 +22,12 @@ const weapons = [
 ];
 
 const sceneries = [
-    { name: "冰雪战场1", url: "https://img.webkubor.online/1772726000194-roj51uov.png" },
-    { name: "冰雪战场3", url: "https://img.webkubor.online/1772726012839-msqf6k9g.png" },
-    { name: "冰雪战场4", url: "https://img.webkubor.online/1772726016265-683qx12w.png" },
-    { name: "冰雪战场5", url: "https://img.webkubor.online/1772726020314-ok49whee.png" },
-    { name: "冰雪战场6", url: "https://img.webkubor.online/1772726025255-6zd9ms3x.png" },
-    { name: "冰雪战场7", url: "https://img.webkubor.online/1772726030318-p9ewby4j.png" }
+    { name: "南楚·丹阳夜雨", url: "assets/scenery/roof-rain-21-9.png" },
+    { name: "北荒·幽寒冰渊", url: "assets/scenery/ice-chasm-21-9.png" },
+    { name: "竹林迷雾", url: "assets/scenery/bamboo-mist-21-9.png" },
+    { name: "孤江渡口", url: "assets/scenery/desolate-river-21-9.png" },
+    { name: "沙漠客栈", url: "assets/scenery/desert-inn-21-9.png" },
+    { name: "西燕·午后长街", url: "assets/scenery/afternoon-street-21-9.png" }
 ];
 
 const materials = [
