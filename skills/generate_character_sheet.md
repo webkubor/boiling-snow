@@ -1,36 +1,34 @@
 ---
 name: generate_character_sheet
-description: 基于单张原图生成正、侧、背三视图
+description: Agentic SOP: 基于单张原图生成高保真三视图（正面、侧面、背面）
 ---
 
-# 角色三视图生成技能
+# 角色三视图生成技能 (SOP)
 
-## 适用场景
+## 技能定义
 
-当需要将角色原图扩展为建模专用的标准三视图时调用。
+当需要将单张角色原图（Anchor）扩展为标准的 16:9 画幅三视图展板时，AI Agent 应当遵循物理一致性原则，禁止任何基于剧情的自创解读。
 
-## 物理特征锁定 (Fidelity Rules)
+## 执行准则 (High Fidelity Rules)
 
-- **人脸强一致性**：必须严格遵循输入图的面部轮廓和五官比例。
-- **服饰强一致性**：必须完整继承原图的服装材质、花纹及层叠逻辑。
-- **禁止自行阐释**：不要在 Prompt 中加入对角色的剧情猜测或性格描述，以免干扰模型。
+1. **物理克隆 (Physical Cloning)**：
+   - **面部**：严防人脸偏移，必须严格克隆面部轮廓、瞳色、五官间距。
+   - **发型**：必须保持原图的发色、长度及扎发逻辑。
+   - **服装**：严禁改变衣服的剪裁、花纹和色彩深度。
+2. **禁止剧情干扰**：不准在 Prompt 中加入“英气十足”、“杀意凛然”等情绪化词汇，也不准加入对该角色剧情地位的描述，避免模型通过“脑补”改变细节。
 
-## 调用方式
+## 工作流 (Agent Workflow)
 
-不要在对话中重写逻辑，直接调用项目内封装好的脚本，并传入对应路径。
+1. **参考解析**：通过视觉读取 `references/character_anchors/` 下的原图。
+2. **调用 `edit_image` (图生图模式)**：
+   - `inputImage`: 原图绝对路径。
+   - `prompt`: 采用极简物理描述。
+     - **模板**：`A professional wide character model sheet (front, side, back views) showing the EXACT character from the input image. STRICTLY maintain the face, hairstyle, and clothing with 100% fidelity. No text. Photorealistic 3D game engine aesthetic. Clean neutral background.`
+   - `model`: `gemini-3-pro-image-preview`
+   - `aspectRatio`: `16:9`
+3. **复合产出 (如有需求)**：如果角色带有核心武器，需先执行 `analyze_visual_anchors` 提取武器特征，并合并到上述 Prompt 中。
 
-```bash
-# 执行示例
-node skills/scripts/gen_character_sheet.js \
-  "references/character_anchors/夜惊鸿.png" \
-  "references/三视图/夜惊鸿.png"
-```
+## 注意事项
 
-## 执行逻辑说明
-
-该脚本位于 `skills/scripts/gen_character_sheet.js`，它会自动执行以下安全逻辑：
-
-1. **秘钥隔离**：动态从 `/Users/webkubor/Documents/memory/secrets/google.md` 读取 Key，不在代码中留痕。
-2. **比例锁定**：强制使用 `16:9` 宽画幅确保三个身位均匀分布。
-3. **视觉锁定**：自动注入“严格保留原图特征”的强负面限制与正向引导词。
-4. **归档**：自动将生成结果存入 `references/三视图/`。
+- 图片边缘如果出现乱码文字，必须在 Prompt 中显式说明 `Do not add any text.`。
+- 生成后，必须主动将其存档至 `references/三视图/{角色名}.png`。

@@ -1,0 +1,17 @@
+{
+    "character": "慧明 (Huiming)",
+    "facial_anchors": {
+        "age": "Youthful, approximately 20-25 years old",
+        "features": "Clean-cut, refined Asian facial structure, narrow jawline, focused and calm gaze",
+        "eyes": "Dark, deep-set, serene and intelligent",
+        "mouth": "Neutral to slight 'spring breeze' smile, thin lips",
+        "hair": "Clean-shaven Buddhist monk (short black stubble visible)",
+        "skin": "Fair, smooth, realistic skin pores visible under soft light"
+    },
+    "costume_anchors": {
+        "outer_robe": "Charcoal/Dark grey linen texture, loose-fitting monastic style",
+        "inner_robe": "Crisp white cross-collar (overlapping v-neck)",
+        "aesthetic": "Zen minimalism, no ornaments, strictly monastic"
+    },
+    "visual_quality_spec": "8K, 35mm film grain, Low-key cinematic lighting, Volume light (Tyndall effect), soft natural highlights, high texture detail for fabric and skin."
+}

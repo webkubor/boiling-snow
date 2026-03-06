@@ -1,34 +1,34 @@
 ---
 name: generate_story
-description: 连续分镜预演技能 (Story Sequence Generator)
+description: Agentic SOP: 基于环境描述与核心视觉锚点，生成连贯的连续分镜序列图
 ---
 
-# 连续分镜预演技能
+# 连续分镜预演技能 (SOP)
 
-## 适用场景
+## 技能定义
 
-用于快速视效打版、剧情分镜预演。通过生成一组（多张）连续画面，模拟电影镜头的演进。
+通过 `nanobanana-plus` 的 `generateStorySequence` MCP 能力，为一段故事大纲生成 3-5 张在视觉风格、角色形象上具有强连贯性的动作/场景分镜。
 
-## 执行方式
+## 执行准则 (Consistency Rules)
 
-不要直接在 Skill 或代码中硬编码 Prompt。请调用封装好的脚本来执行生成逻辑。
+1. **锚点前置 (Anchor Initialization)**：在生成分镜前，必须先获取目标角色和核心物品（如武器）的描述词。
+2. **基调锁定 (Tone Locking)**：
+   - 必须在 Prompt 开头锁定朝代质感、天气质感及摄影影调（如：8K cinematic, heavy snow, low-key lighting）。
+3. **动作路径 (Action Path)**：
+   - Prompt 应当涵盖动作的起、承、转、合，模型会根据 `outputCount` 自动切分时间轴。
 
-```bash
-# 执行示例
-node skills/scripts/gen_story.js \
-  "A cinematic wide shot of Su Mengcheng standing on the peak, then unsheathing his sword, with snow swirling around." \
-  4
-```
+## 工作流 (Agent Workflow)
 
-## 执行逻辑说明
-
-脚本位于 `skills/scripts/gen_story.js`：
-
-1. **自动授权**：脚本会安全地从本地秘钥路径读取 API Key。
-2. **多镜连贯**：调用 MCP 的 `generateStorySequence` 模式，模型会尝试在 4 镜之间保持画面风格和角色视觉的连贯性。
-3. **输出规格**：默认锁定 `21:9` 宽画幅和电影级质感后缀。
+1. **环境与角色建模**：
+   - 若角色已存在，调用 `references/三视图/` 中的特征。
+   - 若武器已存在，调用 `analyze_visual_anchors` 的成果。
+2. **调用 `generateStorySequence` MCP 工具**：
+   - `prompt`: 综合环境、角色锚点与动作剧情的描述。
+   - `outputCount`: 建议 4。
+   - `aspectRatio`: 必须锁定 `21:9`。
+   - `args`: 设置 `type: "story"`, `style: "consistent cinematic film"`。
 
 ## 注意事项
 
-- 画面连贯性属于“弱一致性”预演，不建议用于对细节要求极其严苛的成品环节。
-- 建议传入的 Prompt 包含环境基调、核心动作三个阶段（起、中、转）。
+- 连续分镜属于“弱连贯”系统，主要用于视效打版和镜头感预演。
+- 严禁在分镜中加入现代元素或无意义的文字。

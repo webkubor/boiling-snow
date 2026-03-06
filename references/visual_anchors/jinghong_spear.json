@@ -1,0 +1,23 @@
+{
+    "weapon": "惊鸿枪 (Jinghong Spear)",
+    "visual_anchors": {
+        "overall_style": "Cinematic Wuxia, high-fidelity polished silver",
+        "spearhead": {
+            "shape": "Sleek leaf-blade, prominent central ridge",
+            "material": "Highly reflective polished silver/chrome",
+            "engravings": "Slight wave/cloud patterns near the base of the blade"
+        },
+        "joint": {
+            "feature": "Exquisite silver dragon head",
+            "detail": "Spearhead emerges from the open mouth of the dragon, prominent horns, detailed silver scales",
+            "material": "Antique silver finish"
+        },
+        "shaft": {
+            "material": "Dark charcoal metallic/deep blue alloy",
+            "grip": "Silver wire-wrapped sections for enhanced texture",
+            "ornaments": "A series of silver rings/collars acting as segment dividers"
+        },
+        "lighting": "Blue-cyan rim lighting, metallic high-gloss reflections"
+    },
+    "prompt_seed": "Silver leaf-blade spear from a dragon's mouth, detailed silver scales, dark metallic shaft with silver wire-wrapped grips, cinematic Wuxia style."
+}
