@@ -108,6 +108,18 @@ const characters = [
         weapons: ["异兽皮鞭【赤练】"],
         avatar: "https://cdn.jsdelivr.net/gh/webkubor/upic-images@main/assets/yan_zhao_ling_anchor.png"
     },
+    {
+        id: "hui-ming",
+        isHeavenlyRoster: true,
+        name: "慧明",
+        isOriginalIP: true,
+        isRevealed: true,
+        revealedIn: "EP 11",
+        title: "连城寺首座 / 天下第一防线",
+        desc: "第十一集正式入局。风雪压身而不退，青莲大自在一开，快马与杀意都撞不过他脚下那一步。",
+        weapons: ["无 (以身为兵)"],
+        avatar: "https://img.webkubor.online/1772725378011-313y6om7.png"
+    },
 
     // --- 幕后迷雾角色 (Unrevealed) ---
     {
@@ -117,33 +129,21 @@ const characters = [
         isOriginalIP: true,
         isRevealed: false,
         revealedIn: "???",
-        title: "寒江淮影卫 / ???",
-        desc: "???",
-        weapons: ["???"],
+        title: "寒江淮影卫 / 天榜第四",
+        desc: "寒江淮手中最锋利的一道影子。名字和来路都还藏着，留下来的只有蛰龙短刺与灭门传闻。",
+        weapons: ["蛰龙"],
         avatar: "https://img.webkubor.online/1772725378011-313y6om7.png"
     },
     {
-        id: "xie-wu-feng",
+        id: "unknown-roster",
         isHeavenlyRoster: true,
-        name: "谢无锋",
+        name: "未知者",
         isOriginalIP: true,
         isRevealed: false,
         revealedIn: "???",
-        title: "重剑无锋 / ???",
-        desc: "???",
-        weapons: ["???"],
-        avatar: "https://img.webkubor.online/1772725378011-313y6om7.png"
-    },
-    {
-        id: "hui-ming",
-        isHeavenlyRoster: true,
-        name: "慧明",
-        isOriginalIP: true,
-        isRevealed: false,
-        revealedIn: "???",
-        title: "天榜高手 / 青莲大自在",
-        desc: "???",
-        weapons: ["无 (以身为兵)"],
+        title: "天榜第六 / 绝密代号",
+        desc: "榜上第六，真名未存。关于他的记录几乎都停在传闻里，只知道这个位置从来没人敢轻易去碰。",
+        weapons: ["未知"],
         avatar: "https://img.webkubor.online/1772725378011-313y6om7.png"
     },
     {
@@ -153,9 +153,9 @@ const characters = [
         isOriginalIP: true,
         isRevealed: false,
         revealedIn: "???",
-        title: "雨幕残响 / ???",
-        desc: "???",
-        weapons: ["???"],
+        title: "北荒双刀 / 暴雨听潮",
+        desc: "陆家庄灭门之后活下来的那个人。雨夜、断桥、双刀残响，都是他留给旧仇的回声。",
+        weapons: ["双刀【残响】"],
         avatar: "https://img.webkubor.online/1772725378011-313y6om7.png"
     }
 ];
