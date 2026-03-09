@@ -296,7 +296,10 @@ main {
 }
 
 .roster-card.locked {
-    filter: grayscale(1) brightness(0.7);
+    background:
+        radial-gradient(circle at 50% 20%, rgba(197, 160, 89, 0.12), transparent 45%),
+        linear-gradient(180deg, rgba(18, 18, 18, 0.92), rgba(8, 8, 8, 0.94));
+    border-color: rgba(197, 160, 89, 0.2);
 }
 
 .roster-card.locked::after {
@@ -306,7 +309,7 @@ main {
     right: 10px;
     font-size: 20px;
     font-weight: 900;
-    color: rgba(255, 255, 255, 0.05);
+    color: rgba(197, 160, 89, 0.08);
 }
 
 .avatar-container {
@@ -328,6 +331,57 @@ main {
 
 .roster-card:hover .char-avatar {
     filter: grayscale(0%);
+}
+
+.avatar-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background:
+        radial-gradient(circle at 50% 50%, rgba(197, 160, 89, 0.16), transparent 55%),
+        linear-gradient(180deg, rgba(22, 22, 22, 0.95), rgba(8, 8, 8, 0.95));
+    border-color: rgba(197, 160, 89, 0.24);
+    overflow: hidden;
+}
+
+.avatar-placeholder::before {
+    content: '';
+    position: absolute;
+    inset: 8px;
+    border: 1px solid rgba(197, 160, 89, 0.16);
+    background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.02), transparent 42%),
+        radial-gradient(circle at 50% 0%, rgba(197, 160, 89, 0.08), transparent 60%);
+}
+
+.avatar-placeholder-core {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.avatar-placeholder-seal {
+    width: 44px;
+    height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 1px solid rgba(197, 160, 89, 0.35);
+    color: rgba(235, 226, 204, 0.88);
+    font-family: var(--font-serif);
+    font-size: 1.35rem;
+    letter-spacing: 0.05em;
+    box-shadow: 0 0 24px rgba(197, 160, 89, 0.08);
+}
+
+.avatar-placeholder-caption {
+    font-size: 0.62rem;
+    letter-spacing: 0.28em;
+    color: rgba(197, 160, 89, 0.72);
 }
 
 /* 角色信息区元数据行 */

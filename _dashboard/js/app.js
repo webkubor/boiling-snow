@@ -39,12 +39,22 @@ function renderRoster() {
         const episodeTag = char.revealedIn ? `<div class="ep-tag">${char.revealedIn}</div>` : '';
         const rosterTag = char.isHeavenlyRoster ? `<span class="master-badge">天榜高手</span>` : '';
         const weaponTags = char.weapons.map(w => `<span class="weapon-tag">${w}</span>`).join('');
+        const avatarMarkup = char.isRevealed
+            ? `
+            <div class="avatar-container">
+                <img src="${char.avatar}" alt="${char.name}" class="char-avatar">
+            </div>`
+            : `
+            <div class="avatar-container avatar-placeholder" aria-hidden="true">
+                <div class="avatar-placeholder-core">
+                    <span class="avatar-placeholder-seal">${getSealText(char)}</span>
+                    <span class="avatar-placeholder-caption">天机未显</span>
+                </div>
+            </div>`;
         card.innerHTML = `
             ${ipTag}
             ${episodeTag}
-            <div class="avatar-container">
-                <img src="${char.avatar}" alt="${char.name}" class="char-avatar">
-            </div>
+            ${avatarMarkup}
             <div class="char-info">
                 <div class="char-meta-row">${rosterTag}</div>
                 <div class="char-name">${char.name}</div>
@@ -55,6 +65,11 @@ function renderRoster() {
         `;
         container.appendChild(card);
     });
+}
+
+function getSealText(char) {
+    if (char.name === '未知者') return '秘';
+    return char.name?.slice(0, 1) || '隐';
 }
 
 function renderWeapons() {
