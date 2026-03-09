@@ -300,7 +300,7 @@ main {
 }
 
 .roster-card.locked::after {
-    content: "UNREVEALED";
+    content: "待揭晓";
     position: absolute;
     bottom: 10px;
     right: 10px;
