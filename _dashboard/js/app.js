@@ -76,7 +76,7 @@ function renderRoster() {
                 <div class="char-meta-row">${rosterTag}</div>
                 <div class="char-name">${char.name}</div>
                 <div class="char-title">${char.title}</div>
-                <div class="char-desc">${char.desc}</div>
+                <div class="char-desc">${char.isRevealed ? char.desc : '<span class="desc-locked">天机未显，待君入阵</span>'}</div>
                 <div class="char-weapons">${weaponTags}</div>
             </div>
         `;
@@ -160,9 +160,16 @@ function renderAesthetics() {
 
 function renderAIInstructions() {
     const container = document.getElementById('ai-instructions-container');
-    if (!container) return;
-        </div >
-        `).join('');
+    if (!container || typeof aiInstructions === 'undefined') return;
+    container.innerHTML = aiInstructions.map(instr => `
+        <div class="instruction-card">
+            <div class="instruction-name">${instr.name}</div>
+            <div class="instruction-prompt">
+                <code>${instr.prompt}</code>
+                <button class="copy-btn" onclick="copyPrompt(this)">COPY</button>
+            </div>
+        </div>
+    `).join('');
 }
 
 function openAestheticModal(title, content) {
@@ -171,23 +178,23 @@ function openAestheticModal(title, content) {
     if (!modal || !body) return;
 
     body.innerHTML = `
-        < div class="modal-aesthetic-content" >
+        <div class="modal-aesthetic-content">
             <h2 class="sub-section-title">${title}</h2>
             <div class="modal-description">${content}</div>
-        </div >
-        `;
+        </div>
+    `;
     modal.classList.add('active');
     document.body.style.overflow = 'hidden';
 }
 
 function renderDirectorManual() {
     const container = document.getElementById('director-manual-container');
-    if (!container) return;
+    if (!container || typeof cinematicDirectives === 'undefined') return;
     container.innerHTML = cinematicDirectives.map(d => `
-        < div class="manual-item" >
-            <strong>${d.name}:</strong> ${ d.desc }
-        </div >
-        `).join('');
+        <div class="manual-item">
+            <strong>${d.name}:</strong> ${d.desc}
+        </div>
+    `).join('');
 }
 
 window.copyPrompt = (btn) => {
@@ -231,7 +238,7 @@ function openCharModal(char) {
     if (!modal || !body) return;
 
     body.innerHTML = `
-        < div class="modal-char-layout" >
+        <div class="modal-char-layout">
             <div class="modal-char-visual">
                 <img src="${char.avatar}" alt="${char.name}">
             </div>
@@ -256,8 +263,8 @@ function openCharModal(char) {
                     ${char.isOriginalIP ? '<span class="status-tag">原创 IP 保护</span>' : ''}
                 </div>
             </div>
-        </div >
-        `;
+        </div>
+    `;
 
     modal.classList.add('active');
     document.body.style.overflow = 'hidden';
@@ -265,7 +272,7 @@ function openCharModal(char) {
 
 window.copyName = (name) => {
     navigator.clipboard.writeText(name).then(() => {
-        alert(`${ name } 已复制到剪贴板`);
+        alert(`${name} 已复制到剪贴板`);
     });
 };
 

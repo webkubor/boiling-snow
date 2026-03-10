@@ -101,7 +101,7 @@ const characters = [
         isHeavenlyRoster: true,
         name: "燕照绫",
         isOriginalIP: true,
-        isRevealed: true,
+        isRevealed: false,
         revealedIn: "后期登场",
         title: "西燕百族领袖 / 赤练",
         desc: "野性而极度记仇。亲眼目睹生父死于孤山之手。腰间缠绕的【赤练】皮鞭由异兽皮淬毒而成。",
@@ -118,6 +118,102 @@ const characters = [
         title: "连城寺首座 / 天下第一防线",
         desc: "第十一集正式入局。风雪压身而不退，青莲大自在一开，快马与杀意都撞不过他脚下那一步。",
         weapons: ["无 (以身为兵)"],
+        avatar: "https://img.webkubor.online/1772725378011-313y6om7.png"
+    },
+    {
+        id: "wen-xiao-wan",
+        isHeavenlyRoster: false,
+        name: "温小婉",
+        isOriginalIP: true,
+        isRevealed: false,
+        revealedIn: "剧情核心 (待揭晓)",
+        title: "南楚皇后 / 权力巅峰",
+        desc: "极度疯批，母仪天下的外壳下是扭曲偏执的内心。对萧烬弦的爱已化为毁灭的执念。",
+        weapons: ["玄黑短箭簇"],
+        avatar: "https://img.webkubor.online/1772725378011-313y6om7.png"
+    },
+    {
+        id: "liu-nan-zhi",
+        isHeavenlyRoster: false,
+        name: "柳南栀",
+        isOriginalIP: true,
+        isRevealed: false,
+        revealedIn: "后期揭晓",
+        title: "天下第二美女 / 惊棠",
+        desc: "绝艳清冷，实际上效忠于北荒。与王府影子顾栖月是生死至交，共同游走在繁华下的阴影中。",
+        weapons: ["琵琶 (藏有短刺)"],
+        avatar: "https://img.webkubor.online/1772725378011-313y6om7.png"
+    },
+    {
+        id: "zhu-ying-zhu",
+        isHeavenlyRoster: false,
+        name: "祝映烛",
+        isOriginalIP: true,
+        isRevealed: true,
+        revealedIn: "EP 02",
+        title: "南楚王府外线 / 小烛",
+        desc: "灵动讨喜，心细如发。顾栖月的贴身助理，身法奇佳，是团队中的万能钥匙。",
+        weapons: ["袖中短匕", "飞针"],
+        avatar: "https://img.webkubor.online/1772725378011-313y6om7.png"
+    },
+    {
+        id: "lu-ting-chao",
+        isHeavenlyRoster: true,
+        name: "陆听潮",
+        isOriginalIP: true,
+        isRevealed: true,
+        revealedIn: "EP 01",
+        title: "北荒双刀 / 暴雨听潮",
+        desc: "陆家庄灭门惨案的生还者。雨夜、断桥、双刀残响，他是背负着血仇的孤狼。",
+        weapons: ["双刀【残响】"],
+        avatar: "https://img.webkubor.online/1772725378011-313y6om7.png"
+    },
+    {
+        id: "tu-men",
+        isHeavenlyRoster: true,
+        name: "图门",
+        isOriginalIP: true,
+        isRevealed: false,
+        revealedIn: "西燕铁骑 (待揭晓)",
+        title: "铁浮屠统领 / 巨灵",
+        desc: "西燕军武的终极杀器。两米巨汉，浑身披挂铁甲。他的战斗逻辑只有一个：碾碎前方的一切。",
+        weapons: ["重型连枷【碎星】"],
+        avatar: "https://img.webkubor.online/1772725378011-313y6om7.png"
+    },
+    {
+        id: "tuo-ba-wu-lan",
+        isHeavenlyRoster: false,
+        name: "拓跋乌兰",
+        isOriginalIP: true,
+        isRevealed: false,
+        revealedIn: "西燕暗影 (待揭晓)",
+        title: "沙巫 / 西燕之影",
+        desc: "从风沙缝隙中活下来的幸存者。半遮面具下是致命的毒刺。专门处理铁骑踏不到的死角。",
+        weapons: ["淬毒短匕【蝎尾】"],
+        avatar: "https://img.webkubor.online/1772725378011-313y6om7.png"
+    },
+    {
+        id: "tuo-ba-lie",
+        isHeavenlyRoster: false,
+        name: "拓跋烈",
+        isOriginalIP: true,
+        isRevealed: false,
+        revealedIn: "北荒政变 (待揭晓)",
+        title: "苍狼部酋长 / 主战派",
+        desc: "北荒第一大部首领。野心勃勃，崇尚绝对武力，一心想带着北荒族人南下封侯。",
+        weapons: ["连枷【斩狼】"],
+        avatar: "https://img.webkubor.online/1772725378011-313y6om7.png"
+    },
+    {
+        id: "lao-xia-zi",
+        isHeavenlyRoster: false,
+        name: "老瞎子",
+        isOriginalIP: true,
+        isRevealed: false,
+        revealedIn: "孤山禁地 (待揭晓)",
+        title: "守碑人 / 历史余晖",
+        desc: "常年盘坐在孤山石碑旁。双目已盲，却能听清百里风雪。深不可测的武林异人。",
+        weapons: ["断掉的木剑"],
         avatar: "https://img.webkubor.online/1772725378011-313y6om7.png"
     },
 
@@ -144,18 +240,6 @@ const characters = [
         title: "天榜第六 / 绝密代号",
         desc: "榜上第六，真名未存。关于他的记录几乎都停在传闻里，只知道这个位置从来没人敢轻易去碰。",
         weapons: ["未知"],
-        avatar: "https://img.webkubor.online/1772725378011-313y6om7.png"
-    },
-    {
-        id: "lu-ting-chao",
-        isHeavenlyRoster: true,
-        name: "陆听潮",
-        isOriginalIP: true,
-        isRevealed: false,
-        revealedIn: "待揭晓",
-        title: "北荒双刀 / 暴雨听潮",
-        desc: "陆家庄灭门之后活下来的那个人。雨夜、断桥、双刀残响，都是他留给旧仇的回声。",
-        weapons: ["双刀【残响】"],
         avatar: "https://img.webkubor.online/1772725378011-313y6om7.png"
     }
 ];
