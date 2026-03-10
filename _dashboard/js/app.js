@@ -6,12 +6,29 @@ document.addEventListener('DOMContentLoaded', () => {
         if (typeof weapons !== 'undefined') renderWeapons();
         if (typeof sceneries !== 'undefined') renderScenery();
         if (typeof materials !== 'undefined') renderMaterials();
+        if (typeof aestheticBible !== 'undefined') renderAesthetics();
+        if (typeof aiInstructions !== 'undefined') renderAIInstructions();
+        if (typeof cinematicDirectives !== 'undefined') renderDirectorManual();
+
+        // 增加美学手册点击交互
+        document.querySelectorAll('.directive-item, .manual-item, .instruction-card').forEach(item => {
+            item.style.cursor = 'pointer';
+            item.addEventListener('click', (e) => {
+                if (e.target.classList.contains('copy-btn')) return;
+                const title = item.querySelector('strong, .directive-name, .instruction-name')?.innerText || '美学指令';
+                const desc = item.querySelector('.directive-desc, .instruction-prompt code')?.innerText || item.innerText;
+                openAestheticModal(title, desc);
+            });
+        });
     } catch (e) {
         console.error("数据渲染出错:", e);
     }
 
-    // 2. 音乐播放与入阵逻辑 (核心逻辑，必须尝试启动)
+    // 2. 音乐播放与入阵逻辑
     initMusicPlayer();
+
+    // 3. 初始化弹窗逻辑
+    initModal();
 });
 
 function initScrollObserver() {
@@ -63,6 +80,11 @@ function renderRoster() {
                 <div class="char-weapons">${weaponTags}</div>
             </div>
         `;
+
+        card.addEventListener('click', () => {
+            if (char.isRevealed) openCharModal(char);
+        });
+
         container.appendChild(card);
     });
 }
@@ -112,6 +134,140 @@ function renderMaterials() {
         container.appendChild(item);
     });
 }
+
+function renderAesthetics() {
+    const container = document.getElementById('aesthetics-bible-container');
+    if (!container) return;
+    container.innerHTML = `
+        <div class="bible-intro">
+            <h3>${aestheticBible.title} ${aestheticBible.version}</h3>
+            <p class="philosophy">${aestheticBible.philosophy}</p>
+        </div>
+        <div class="bible-directives">
+            ${aestheticBible.directives.map(d => `
+                <div class="directive-item">
+                    <span class="directive-name">${d.name}</span>
+                    <span class="directive-desc">${d.desc}</span>
+                </div>
+            `).join('')}
+        </div>
+        <div class="bible-tech">
+            <p><strong>环境背景:</strong> ${aestheticBible.environment}</p>
+            <p><strong>技术参数:</strong> ${aestheticBible.technical}</p>
+        </div>
+    `;
+}
+
+function renderAIInstructions() {
+    const container = document.getElementById('ai-instructions-container');
+    if (!container) return;
+        </div >
+        `).join('');
+}
+
+function openAestheticModal(title, content) {
+    const modal = document.getElementById('modal-overlay');
+    const body = document.getElementById('modal-body');
+    if (!modal || !body) return;
+
+    body.innerHTML = `
+        < div class="modal-aesthetic-content" >
+            <h2 class="sub-section-title">${title}</h2>
+            <div class="modal-description">${content}</div>
+        </div >
+        `;
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function renderDirectorManual() {
+    const container = document.getElementById('director-manual-container');
+    if (!container) return;
+    container.innerHTML = cinematicDirectives.map(d => `
+        < div class="manual-item" >
+            <strong>${d.name}:</strong> ${ d.desc }
+        </div >
+        `).join('');
+}
+
+window.copyPrompt = (btn) => {
+    const code = btn.previousElementSibling.innerText;
+    navigator.clipboard.writeText(code).then(() => {
+        const originalText = btn.innerText;
+        btn.innerText = 'COPIED';
+        setTimeout(() => btn.innerText = originalText, 2000);
+    });
+};
+
+function initModal() {
+    const modal = document.getElementById('modal-overlay');
+    const closeBtn = document.querySelector('.modal-close');
+    if (!modal || !closeBtn) return;
+
+    closeBtn.addEventListener('click', () => {
+        modal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    });
+
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+    });
+
+    // 绑定 ESC 键关闭
+    window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.classList.contains('active')) {
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+    });
+}
+
+function openCharModal(char) {
+    const modal = document.getElementById('modal-overlay');
+    const body = document.getElementById('modal-body');
+    if (!modal || !body) return;
+
+    body.innerHTML = `
+        < div class="modal-char-layout" >
+            <div class="modal-char-visual">
+                <img src="${char.avatar}" alt="${char.name}">
+            </div>
+            <div class="modal-char-data">
+                <h2>${char.name}</h2>
+                <p class="modal-title">${char.title}</p>
+                <hr>
+                <div class="modal-info-section">
+                    <h4>人物简介</h4>
+                    <p>${char.desc}</p>
+                </div>
+                <div class="modal-info-section">
+                    <h4>专属神兵</h4>
+                    <p>${char.weapons.join(' / ')}</p>
+                </div>
+                <div class="modal-info-section">
+                    <h4>出场回目</h4>
+                    <p>${char.revealedIn || '未正式露面'}</p>
+                </div>
+                <div class="modal-actions">
+                    <button class="primary-btn" onclick="copyName('${char.name}')">复制角色名</button>
+                    ${char.isOriginalIP ? '<span class="status-tag">原创 IP 保护</span>' : ''}
+                </div>
+            </div>
+        </div >
+        `;
+
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+window.copyName = (name) => {
+    navigator.clipboard.writeText(name).then(() => {
+        alert(`${ name } 已复制到剪贴板`);
+    });
+};
 
 function initMusicPlayer() {
     const overlay = document.getElementById('enter-overlay');

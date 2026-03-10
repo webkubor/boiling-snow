@@ -40,7 +40,7 @@
         <div class="hero-subtitle">Boiling Snow Cinematic IP</div>
         <div class="hero-quote">“雪落江湖，热血难凉。一笔写风月，一心藏滚烫。”</div>
     </header>
-    
+
     <!-- 江湖宣言 (移出 main 以实现全屏沉浸) -->
     <section class="manifesto-section">
         <div class="manifesto-content">
@@ -99,24 +99,39 @@
             </div>
         </div>
 
-        <!-- 电影预告 -->
-        <h2 class="section-title">电影概念预告 (Cinematic Teaser)</h2>
-        <div class="video-teaser">
-            <div class="video-container">
-                <iframe src="//player.bilibili.com/player.html?bvid=BV1tHZsBtEa5&page=1&high_quality=1&danmaku=0"
-                    scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true">
-                </iframe>
-            </div>
         </div>
+
+        <!-- 美学手册 (Aesthetic Handbook) -->
+        <h2 class="section-title">美学手册 (Aesthetic & AI Handbook)</h2>
+        <section class="aesthetics-section">
+            <div class="aesthetics-grid" id="aesthetics-bible-container"></div>
+            <div class="ai-prompts-container">
+                <h3 class="sub-section-title">AI 指令集 (AI Instruction Sets)</h3>
+                <div id="ai-instructions-container"></div>
+            </div>
+            <div class="director-manual">
+                <h3 class="sub-section-title">执导手册 (Director's Manual)</h3>
+                <div id="director-manual-container"></div>
+            </div>
+        </section>
     </main>
 
     <footer>
         © 2026 Boiling Snow | Webkubor Original IP | 微电影 · 原创剧情 · 原创 OC · 原创 BGM | 电影级 AI 联合生产
     </footer>
 
+    <!-- 全局弹窗 (Modal) -->
+    <div id="modal-overlay" class="modal-overlay">
+        <div class="modal-content">
+            <button class="modal-close">&times;</button>
+            <div id="modal-body"></div>
+        </div>
+    </div>
+
     <!-- 注入数据 -->
     <script src="data/characters.js"></script>
     <script src="data/assets.js"></script>
+    <script src="data/aesthetics.js"></script>
     <script src="js/app.js"></script>
 </body>
 

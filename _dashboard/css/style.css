@@ -266,6 +266,18 @@ main {
     overflow: hidden;
     backdrop-filter: blur(10px);
     min-height: 240px;
+    cursor: pointer;
+}
+
+.roster-card:hover {
+    border-color: var(--accent-gold);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.roster-card.locked {
+    cursor: not-allowed;
+    opacity: 0.8;
 }
 
 .ep-tag {
@@ -655,6 +667,7 @@ footer {
 }
 
 @media (max-width: 1024px) {
+
     header,
     .manifesto-section {
         background-attachment: scroll;
@@ -970,5 +983,328 @@ footer {
 
     .faction-name {
         font-size: 1.32rem;
+    }
+}
+
+/* 美学手册板块 */
+.aesthetics-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 100px;
+    background: rgba(10, 10, 10, 0.4);
+    border: 1px solid var(--border-color);
+    padding: 40px;
+    backdrop-filter: blur(20px);
+}
+
+.sub-section-title {
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    color: var(--accent-gold);
+    margin-bottom: 30px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 10px;
+}
+
+/* 视觉圣经网格 */
+#aesthetics-bible-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.bible-intro h3 {
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.philosophy {
+    color: var(--accent-gold);
+    font-style: italic;
+    font-size: 0.95rem;
+}
+
+.bible-directives {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.directive-item {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 15px;
+    border-left: 2px solid var(--accent-red);
+}
+
+.directive-name {
+    display: block;
+    font-weight: bold;
+    color: #fff;
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+}
+
+.directive-desc {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+/* AI 指令集卡片 */
+.ai-prompts-container {
+    grid-column: span 1;
+}
+
+.instruction-card {
+    background: #000;
+    border: 1px solid var(--border-color);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.instruction-name {
+    color: var(--accent-gold);
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.instruction-prompt {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.instruction-prompt code {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 15px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    color: #aaa;
+    white-space: pre-wrap;
+    word-break: break-all;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.copy-btn {
+    align-self: flex-start;
+    background: transparent;
+    border: 1px solid var(--accent-gold);
+    color: var(--accent-gold);
+    padding: 4px 12px;
+    font-size: 0.7rem;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.copy-btn:hover {
+    background: var(--accent-gold);
+    color: #000;
+}
+
+/* 执导手册 */
+.director-manual {
+    grid-column: span 2;
+    background: rgba(139, 0, 0, 0.05);
+    padding: 30px;
+    border: 1px dashed rgba(139, 0, 0, 0.3);
+}
+
+.manual-item {
+    margin-bottom: 15px;
+    font-size: 0.95rem;
+}
+
+@media (max-width: 1024px) {
+    .aesthetics-section {
+        grid-template-columns: 1fr;
+    }
+
+    .director-manual {
+        grid-column: span 1;
+    }
+}
+
+/* 全局弹窗 (Modal) 核心样式 */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+    backdrop-filter: blur(10px);
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.modal-content {
+    background: #0a0a0a;
+    width: 90%;
+    max-width: 1000px;
+    max-height: 85vh;
+    border: 1px solid var(--accent-gold);
+    position: relative;
+    padding: 60px 40px;
+    overflow-y: auto;
+    border-radius: 4px;
+    box-shadow: 0 0 100px rgba(0, 0, 0, 0.9);
+    background-image:
+        linear-gradient(rgba(197, 160, 89, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(197, 160, 89, 0.03) 1px, transparent 1px);
+    background-size: 20px 20px;
+}
+
+.modal-close {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    font-size: 2.5rem;
+    cursor: pointer;
+    line-height: 1;
+    transition: color 0.3s;
+}
+
+.modal-close:hover {
+    color: #fff;
+}
+
+.modal-char-layout {
+    display: grid;
+    grid-template-columns: 350px 1fr;
+    gap: 50px;
+}
+
+.modal-char-visual img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+}
+
+.modal-char-data h2 {
+    font-family: var(--font-serif);
+    font-size: 3.5rem;
+    margin-bottom: 5px;
+    color: #fff;
+    letter-spacing: 0.1em;
+}
+
+.modal-title {
+    color: var(--accent-gold);
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+}
+
+.modal-info-section {
+    margin: 30px 0;
+}
+
+.modal-info-section h4 {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    border-left: 3px solid var(--accent-red);
+    padding-left: 12px;
+    letter-spacing: 0.1em;
+}
+
+.modal-info-section p {
+    color: #ccc;
+    font-size: 1rem;
+    line-height: 1.8;
+}
+
+.modal-actions {
+    margin-top: 50px;
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.primary-btn {
+    background: var(--accent-gold);
+    color: #000;
+    border: none;
+    padding: 12px 30px;
+    font-weight: 900;
+    cursor: pointer;
+    font-size: 1rem;
+    letter-spacing: 0.1em;
+    transition: all 0.3s;
+}
+
+.primary-btn:hover {
+    background: #fff;
+    transform: translateY(-2px);
+}
+
+.status-tag {
+    font-size: 0.8rem;
+    color: var(--accent-gold);
+    border: 1px solid rgba(197, 160, 89, 0.4);
+    padding: 6px 15px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.modal-actions {
+    margin-top: 50px;
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.modal-aesthetic-content {
+    padding: 20px;
+}
+
+.modal-description {
+    font-size: 1.2rem;
+    color: #ccc;
+    line-height: 2;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 30px;
+    border-radius: 4px;
+    margin-top: 20px;
+    border: 1px dashed var(--accent-gold);
+}
+
+.directive-item:hover,
+.manual-item:hover,
+.instruction-card:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: var(--accent-gold);
+    transition: 0.3s;
+}
+
+@media (max-width: 850px) {
+    .modal-char-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .modal-char-visual img {
+        height: 400px;
+    }
+
+    .modal-char-data h2 {
+        font-size: 2.5rem;
     }
 }

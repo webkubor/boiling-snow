@@ -25,6 +25,7 @@ TEMP_DIR = Path("/tmp/boiling_snow_sheets")
 
 CHAR_NAME_MAP = {
     "xiaozhu": "小烛",
+    "xiaonan": "小楠",
     "gu_qiyue": "顾栖月",
     "su_mengcheng": "苏梦城",
     "mu_xige": "慕夕歌",
