@@ -40,7 +40,7 @@ STUDIO_BG = (
     "soft warm top-down volumetric light beams, dark neutral walls, dim lantern ambient glow"
 )
 
-QUALITY = "8K cinematic, 35mm film grain, visible skin pores, realistic fabric texture, no airbrushing, no text, no markers"
+QUALITY = "8K cinematic, 35mm film grain, visible skin pores, realistic fabric texture, no airbrushing, STRICTLY NO TEXT, NO WATERMARK, NO LABELS, NO WRITING anywhere in the image"
 
 VIEW_PROMPTS = {
     "front": "FRONT VIEW: facing camera directly, looking straight ahead, neutral standing pose, full body from top of head to feet",
