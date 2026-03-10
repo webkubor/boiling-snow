@@ -17,5 +17,12 @@
     "primary": "白色苎麻宽袖汉服，素雅清冷，配双辫或散发",
     "secondary": "深红绣花曲裾，烛光华美，金色发饰",
     "scene_vibe": "花楼私室、梅花雪夜、月下楼阁"
-  }
+  },
+  "official_costumes": {
+    "primary": "白色漏肩汉服（漏肩+宽袖），清凉适合跳舞",
+    "secondary": "黑金宋制褙子（黑底金绣），低调奢华反差感",
+    "character_key": "长发全散飘动+清冷舞姿+眼神有神不空洞"
+  },
+  "dance_style": "天下第一舞女，身姿婀娜S型，袖袂随风，表情清冷妩媚并存，眼神看穿一切但不外露",
+  "film_official": "costume_designs/小楠/xiaonan_film_official3_dance.png"
 }

@@ -1,3 +1,19 @@
+@font-face {
+    font-family: 'Shangwei';
+    src: url('../assets/fonts/汉仪尚巍手书W.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Zhuokai';
+    src: url('../assets/fonts/江西拙楷2.0.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
 :root {
     --bg-color: #050505;
     --text-main: #e0e0e0;
@@ -6,6 +22,8 @@
     --accent-gold: #c5a059;
     --font-serif: 'Noto Serif SC', 'Songti SC', serif;
     --font-sans: 'Inter', -apple-system, sans-serif;
+    --font-hand: 'Shangwei', 'Noto Serif SC', serif;
+    --font-brush: 'Zhuokai', 'Noto Serif SC', serif;
     --border-color: rgba(255, 255, 255, 0.1);
 }
 
@@ -221,30 +239,39 @@ main {
 
 .manifesto-content {
     max-width: 1000px;
-    padding: 40px;
-    font-family: var(--font-serif);
-    color: var(--text-muted);
-    font-size: 1.4rem;
-    line-height: 2.2;
+    padding: 60px;
+    font-family: var(--font-brush);
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 1.6rem;
+    line-height: 2.4;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 12px;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8), inset 0 0 40px rgba(0, 0, 0, 0.5);
 }
 
 .manifesto-question {
-    font-size: 2.5rem;
+    font-family: var(--font-hand);
+    font-size: 3rem;
     color: #fff;
     margin-bottom: 60px;
-    letter-spacing: 0.3em;
-    opacity: 0.9;
-    text-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+    letter-spacing: 0.15em;
+    opacity: 1;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.9), 0 0 15px rgba(197, 160, 89, 0.4);
 }
 
 .manifesto-core {
     margin-top: 60px;
-    font-size: 2rem;
+    font-family: var(--font-hand);
+    font-size: 2.6rem;
     color: #fff;
-    font-weight: 700;
-    line-height: 1.8;
-    letter-spacing: 0.1em;
-    text-shadow: 0 0 30px rgba(139, 0, 0, 0.6);
+    font-weight: normal;
+    line-height: 1.6;
+    letter-spacing: 0.05em;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.9), 0 0 20px rgba(139, 0, 0, 0.6);
 }
 
 /* 天榜网格 */
@@ -812,21 +839,23 @@ footer {
     }
 
     .manifesto-content {
-        padding: 24px 20px;
-        font-size: 1rem;
-        line-height: 1.9;
+        padding: 32px 24px;
+        font-size: 1.05rem;
+        line-height: 2;
+        border-radius: 8px;
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.8), inset 0 0 20px rgba(0, 0, 0, 0.5);
     }
 
     .manifesto-question {
-        font-size: 1.5rem;
-        letter-spacing: 0.16em;
-        margin-bottom: 28px;
+        font-size: 1.8rem;
+        letter-spacing: 0.12em;
+        margin-bottom: 32px;
     }
 
     .manifesto-core {
-        margin-top: 28px;
-        font-size: 1.22rem;
-        line-height: 1.75;
+        margin-top: 32px;
+        font-size: 1.4rem;
+        line-height: 1.6;
     }
 
     main {
