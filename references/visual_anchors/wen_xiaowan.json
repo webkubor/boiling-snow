@@ -1,0 +1,22 @@
+{
+    "character": "温小婉 (Wen Xiaowan)",
+    "face_anchor_source": "references/character_anchors/温小婉.png",
+    "facial_anchors": {
+        "face_shape": "Petite delicate oval face, refined jawline",
+        "eyes": "Sharp phoenix eyes, slightly up-turned, intense and sharp gaze, reddish eye makeup",
+        "special_features": "Red ornate flower-shaped mark (Huadian) on the center of the forehead",
+        "eyebrows": "Thin, dark, high arched eyebrows",
+        "nose": "Small straight delicate nose",
+        "lips": "Small heart-shaped lips, deep crimson red, dignified expression",
+        "hair": "Jet black hair in an elaborate high-updo with two circular loops (dual buns), ornate golden phoenix crown with tassels on both sides",
+        "skin": "Flawless fair porcelain skin",
+        "overall_vibe": "Majestic, cold, and calculating Southern Chu Empress; breathtaking majesty"
+    },
+    "face_consistency_prompt": "Petite oval face, sharp phoenix eyes with reddish makeup, red flower mark (Huadian) on forehead, high-updo with dual loops and golden phoenix crown with tassels, deep red lips, fair porcelain skin, cold majestic expression. KEEP FACE AND FOREHEAD MARK EXACTLY THE SAME.",
+    "role_in_film": "南楚皇后，深宫蛇蝎。额头花钿与极尽奢华的凤冠是其权力的视觉符号。美艳中透着不容侵犯的冷冽。",
+    "film_costume": {
+        "color": "玄色（Black）配大红（Crimson），金线刺绣",
+        "style": "华丽沉重的皇后凤袍，宽大拖尾，高领设计显出压迫感",
+        "makeup": "浓妆，深红唇，拉长眼线，显出威严与妖艳"
+    }
+}
