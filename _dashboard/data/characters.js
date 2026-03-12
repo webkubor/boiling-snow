@@ -32,7 +32,7 @@ const characters = [
         isRevealed: true,
         revealedIn: "EP 04",
         title: "天榜高手 / 索命鬼神",
-        desc: "第四集天门关现身。银面、白发、黑金大氅。他是南楚皇权最深的阴影，也是唯一的定海神针。点名要战西燕大将欧阳狂徒。",
+        desc: "第四集天门关现身。银面、白发、黑金大氅。他是南楚皇权最深的阴影，也是唯一的定海神针。实际上，这就是那位在朝堂上‘病弱’的异姓王苏梦城的另一面：索命鬼神。",
         weapons: ["银白透甲长枪【惊鸿】"],
         avatar: "https://cdn.jsdelivr.net/gh/webkubor/upic-images@main/assets/su_meng_cheng_anchor.png"
     },
@@ -92,7 +92,7 @@ const characters = [
         isRevealed: true,
         revealedIn: "EP 10",
         title: "南楚异姓王 / 逍遥王",
-        desc: "第十集正式露脸。南楚建国以来唯一的异姓王，据说当年他完全有机会让这江山姓苏。但他不仅让出了皇权，更自废了一身武功，此后满头白发，终日醉生梦死。眼神惫懒，自称连鸡都不敢杀。",
+        desc: "第十集正式露脸。南楚建国以来唯一的异姓王，据说当年他完全有机会让这江山姓苏。但他不仅让出了皇权，更自废了一身武功，此后满头白发，终日醉生梦死。实际上，他才是天榜第二的枪神夜惊鸿。",
         weapons: ["青铜酒壶", "精钢折扇"],
         avatar: "https://img.webkubor.online/prince_su_white_hair.png"
     },
@@ -139,9 +139,21 @@ const characters = [
         isOriginalIP: true,
         isRevealed: false,
         revealedIn: "后期揭晓",
-        title: "天下第二美女 / 惊棠",
-        desc: "绝艳清冷，实际上效忠于北荒。与王府影子顾栖月是生死至交，共同游走在繁华下的阴影中。",
+        title: "天下第三美女 / 惊棠",
+        desc: "绝艳清冷，北荒部落献给南楚皇帝的‘贡品’。实际上效忠于北荒，与王府影子顾栖月是生死至交。",
         weapons: ["琵琶 (藏有短刺)"],
+        avatar: "https://img.webkubor.online/1772725378011-313y6om7.png"
+    },
+    {
+        id: "tian-jin-er",
+        isHeavenlyRoster: false,
+        name: "甜锦儿",
+        isOriginalIP: true,
+        isRevealed: false,
+        revealedIn: "后期揭晓",
+        title: "天下第二美女 / 蜜棠",
+        desc: "南楚原住民，甜美娇俏。明面上是皇后的干妹妹，实则是其插入朝堂权贵圈的一柄软刀子。",
+        weapons: ["织锦绸带", "暗香毒粉"],
         avatar: "https://img.webkubor.online/1772725378011-313y6om7.png"
     },
     {
@@ -205,14 +217,14 @@ const characters = [
         avatar: "https://img.webkubor.online/1772725378011-313y6om7.png"
     },
     {
-        id: "lao-xia-zi",
-        isHeavenlyRoster: false,
-        name: "老瞎子",
+        id: "ou-yang-duan-mu",
+        isHeavenlyRoster: true,
+        name: "欧阳断木 (老瞎子)",
         isOriginalIP: true,
         isRevealed: false,
         revealedIn: "孤山禁地 (待揭晓)",
-        title: "守碑人 / 历史余晖",
-        desc: "常年盘坐在孤山石碑旁。双目已盲，却能听清百里风雪。深不可测的武林异人。",
+        title: "天榜第六 / 守碑人",
+        desc: "常年盘坐在孤山石碑旁。双目已盲，却能听清百里风雪。因失忆而不知真实姓名，唯留‘断木’残响。实为西燕大将军欧阳狂徒的生父，天榜排名第六。",
         weapons: ["断掉的木剑"],
         avatar: "https://img.webkubor.online/1772725378011-313y6om7.png"
     },
