@@ -9,7 +9,7 @@
 
 详细体系看：
 
-- [WECHAT_SYSTEM.md](/Users/webkubor/Desktop/create/cinematic-storyboard-pro/promotions/WECHAT_SYSTEM.md)
+- [WECHAT_SYSTEM.md](../../WECHAT_SYSTEM.md)
 
 ## 发内容前先看
 

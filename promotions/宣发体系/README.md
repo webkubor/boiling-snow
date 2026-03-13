@@ -22,13 +22,13 @@
 
 ### 平台目录
 
-- [小红书/README.md](/Users/webkubor/Desktop/create/cinematic-storyboard-pro/promotions/宣发体系/小红书/README.md)
-- [微博/README.md](/Users/webkubor/Desktop/create/cinematic-storyboard-pro/promotions/宣发体系/微博/README.md)
-- [微信公众号/README.md](/Users/webkubor/Desktop/create/cinematic-storyboard-pro/promotions/宣发体系/微信公众号/README.md)
+- [小红书/README.md](小红书/README.md)
+- [微博/README.md](微博/README.md)
+- [微信公众号/README.md](微信公众号/README.md)
 
-### 素材入口
+## 常用工具
 
-- [素材入口.md](/Users/webkubor/Desktop/create/cinematic-storyboard-pro/promotions/宣发体系/素材入口.md)
+- [素材入口.md](素材入口.md)
 
 ## 三、使用规则
 

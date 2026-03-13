@@ -9,7 +9,7 @@
 
 详细体系看：
 
-- [XHS_SYSTEM.md](/Users/webkubor/Desktop/create/cinematic-storyboard-pro/promotions/XHS_SYSTEM.md)
+- [XHS_SYSTEM.md](../../XHS_SYSTEM.md)
 
 ## 发内容前先看
 

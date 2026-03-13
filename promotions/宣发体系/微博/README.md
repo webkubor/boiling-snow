@@ -9,7 +9,7 @@
 
 详细体系看：
 
-- [WEIBO_SYSTEM.md](/Users/webkubor/Desktop/create/cinematic-storyboard-pro/promotions/WEIBO_SYSTEM.md)
+- [WEIBO_SYSTEM.md](../../WEIBO_SYSTEM.md)
 
 ## 发内容前先看
 

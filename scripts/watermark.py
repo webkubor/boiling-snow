@@ -64,12 +64,10 @@ def add_watermark(input_path, output_path, title="沸腾之雪", subtitle="@司�
     print(f"✅ {os.path.basename(output_path)}")
 
 if __name__ == "__main__":
-    scenery_dir = os.path.expanduser(
-        "~/Desktop/create/cinematic-storyboard-pro/_dashboard/assets/scenery"
-    )
-    out_dir = os.path.expanduser(
-        "~/Desktop/create/cinematic-storyboard-pro/_dashboard/assets/scenery_watermarked"
-    )
+    # 使用相对路径定位项目根目录
+    base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    scenery_dir = os.path.join(base_dir, "_dashboard/assets/scenery")
+    out_dir = os.path.join(base_dir, "_dashboard/assets/scenery_watermarked")
     os.makedirs(out_dir, exist_ok=True)
 
     for fname in sorted(os.listdir(scenery_dir)):
