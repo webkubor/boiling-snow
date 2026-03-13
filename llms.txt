@@ -9,16 +9,13 @@
 - **Production**: All scenes are segmented into 15s clips following the [0-4s: Breath | 4-10s: Impact | 10-15s: Aftermath] structure.
 
 ## 📁 Critical Files for AI Context
-- `bibles/WORLD.md`: The SSOT (Single Source of Truth) for world-building, weapon stats, and ranking logic.
-- `bibles/PRODUCTION.md`: Hard rules for cinematography, low-key lighting, and combat physics.
-- `cast/*.json`: Character physical attributes and consistency anchors.
-- `SKILL.md`: Storyboard generation protocol.
+- `agents/`: The unified Creation Center. Contains rules, prompt libraries, and templates.
+- `bibles/WORLD.md`: The SSOT for world-building and ranking logic.
+- `cast/`: Character data in JSON format.
 
-## 👤 Key Characters
-- **Su Mengcheng (苏梦城)**: King of Nanchu, Spear God. White hair, silver mask.
-- **Gu Qiyue (顾栖月)**: Shadow guard, Jade flute. Master of agility (Step 1 in Qinggong ranking).
-- **Mu Beige (慕北歌)**: Sword Leader of Lone Mountain. Calm and absolute.
-- **Ouyang Kuangtu (欧阳狂徒)**: Berserker of Xiyan, Giant cleaver. Pure physical destruction.
+## 👤 Key Characters & Ranking
+- Detailed profiles and Tianbang (God Ranking) are managed in [bibles/WORLD.md](bibles/WORLD.md) and [cast/](cast/).
+- Refer to [agents/README.md](agents/README.md) for the unified creation center.
 
 ## 🛠️ AI Production Red Lines
 - **Strictly NO subtitles/watermarks** in visual descriptions.

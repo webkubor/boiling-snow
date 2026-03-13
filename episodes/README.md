@@ -18,5 +18,5 @@
 | **第十一集** | 《茶间问雪：和尚入局，狂刀还生》 | 王府问雪、慧明入局、欧阳狂徒苏醒、狂刀与和尚正式对上 | ✅ 已发布 |
 
 ---
-**详细剧本存放在**: `scripts/canon/epXX.md`
-**最终脚本模板（统一格式）**: `scripts/canon/FINAL_SCRIPT_FORMAT.md`
+**详细剧本存放在**: 当前目录下的 `epXX.md`
+**最终脚本模板（唯一格式）**: [../agents/SCRIPT_TEMPLATE.md](../agents/SCRIPT_TEMPLATE.md)
