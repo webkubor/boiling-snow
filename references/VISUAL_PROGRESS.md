@@ -75,8 +75,13 @@
   - `references/character_anchors/顾栖月.png`
   - `references/character_anchors/顾栖月-face.png`
   - `references/costume_designs/顾栖月/`
+- **第12集新增需求**：
+  - 北荒难民时期形象（15年前，少女时期）
+  - 噩梦惊醒时的惊恐/脆弱表情参考
+  - 北荒风雪中的特写镜头视觉
 - 状态判断：
   - 是当前最成熟的女性角色形象之一
+  - 第12集需要补充童年/青少年期视觉参考
 
 ### 6. 萧烬弦
 

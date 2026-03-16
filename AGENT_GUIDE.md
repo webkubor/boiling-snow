@@ -32,7 +32,31 @@
 
 ---
 
-## 3. 创作流 (Workflow)
+## 3. AI 工具协作准则 (Tool Collaboration SOP)
+
+为了保证《沸腾之雪》的视觉质量与角色一致性，所有指令输出必须遵循以下分工：
+
+### 1) 职能分工表
+- **Veo 3.1 (Google)**: **高阶视频与原生音效工具**。侧重于 4K 高画质、精细镜头控制（Dolly-in/Tracking）、原生音效同步（SFX）。
+- **Jimeng (即梦)**: **常规视频生成工具**。侧重于快速动态捕捉和镜头衔接。**统一指令格式**：必须使用“一行流（Single Line）+ 时间锚点（如 [00:00-03:00]）+ 动态描述 + 电影质感后缀”的格式。禁止换行。
+  - **示例**: `15秒电影镜头，主体描述，[00:00-05:00]镜头动态1，[05:00-10:00]镜头动态2，[10:00-15:00]镜头动态3。电影质感后缀。`
+- **Midjourney (MJ)**: **意境与大景海报工具**。
+- **Nanobanana**: **角色一致性工具**。
+
+### 2) Veo 3.1 专用 Prompt 公式
+采用五段式结构：**[镜头/运镜] + [主体细节] + [核心动作] + [环境背景] + [风格/音效]**。
+- **示例**: `Cinematic dolly-in, Southern Chu army in black armor, marching forward through rain, Danyang stone gates, 35mm film grain. SFX: Heavy rain and metallic clashing.`
+
+### 3) 视觉禁令 (Visual Hard Rules)
+- **建筑风格**: 严禁出现西式城堡（Castle/Cathedral）。必须使用中式城池、歇山顶、青砖、关隘。
+- **文字处理**: MJ/即梦中严禁强求写对汉字，应后期通过 PS 或脚本叠加。
+- **视觉符号**: 
+  - 南楚 = 黑金、秩序、冷雨、长枪、绸缎旗帜。
+  - 西燕 = 铜革、暴力、黄沙、重刃、破损皮旗。
+  - 北荒 = 白雪、苍凉、黑灰、补丁皮袄、石质孤城。
+- **审美底线**: 拒绝高饱和度滤镜，追求 35mm 电影胶片感，自然肤质。
+
+## 4. 创作流 (Workflow)
 
 1.  **查阅手册**：在 [agents/CREATIVE_BIBLE.md](agents/CREATIVE_BIBLE.md) 确认视觉、动作、镜头红线。
 2.  **获取人设**：在 [cast/](cast/) 读取 JSON 档案。

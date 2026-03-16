@@ -16,6 +16,13 @@
 
 ---
 
+## 🛠 生产工具栈 (Production Tools)
+
+- **视频生成 (Video)**: Google Veo 3.1 / 即梦 AI (Jimeng)
+- **视觉/海报 (Visual)**: Midjourney (MJ) / Nanobanana
+- **封面制作 (Cover)**: [Gemini 视频封面创作中心](https://gemini.google.com/share/9915a3a902a0) (专用封面 Prompt 逻辑与画幅控制)
+- **自动化套件 (Scripts)**: `scripts/` 目录下的 Python 自动化套件 (加字幕、水印、角色卡)
+
 ## 📂 目录索引 (Directory Index)
 
 ### 核心管理与规则
