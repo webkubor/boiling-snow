@@ -10,7 +10,8 @@
 
 所有 AI Agent 和创作者应优先访问 **[agents/README.md](agents/README.md)**。这里整合了所有的生产力工具：
 
-*   **[创意法典 (CREATIVE_BIBLE.md)](agents/CREATIVE_BIBLE.md)**: 视觉、动作、镜头、环境、武器及角色制作的所有硬核规则。
+*   **[创意法典 (CREATIVE_BIBLE.md)](agents/CREATIVE_BIBLE.md)**: 视觉、动作、镜头、环境及角色制作的所有硬核规则。
+*   **[快捷操作 (QUICK_ACTIONS.md)](agents/QUICK_ACTIONS.md)**: 四视图控制台、自动加水印等提效工具。
 *   **[Prompt 资产库 (PROMPT_LIBRARY.md)](agents/PROMPT_LIBRARY.md)**: 沉淀好的视觉公式、场景矩阵、调参后缀。
 *   **[脚本模板 (SCRIPT_TEMPLATE.md)](agents/SCRIPT_TEMPLATE.md)**: 15s 视频脚本生成的唯一标准格式。
 

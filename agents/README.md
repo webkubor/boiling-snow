@@ -5,6 +5,7 @@
 ## 📁 目录结构
 
 *   [CREATIVE_BIBLE.md](CREATIVE_BIBLE.md) - **全量创作手册**。整合了视觉、动作、镜头、环境的所有规则。
+*   [QUICK_ACTIONS.md](QUICK_ACTIONS.md) - **快捷操作手册**。包含四视图、自动加水印等提效工具。
 *   [../cast/](../cast/) - **人物全量档案 (JSON)**。
 *   [../bibles/WORLD.md](../bibles/WORLD.md) - **世界规则与排名 (SSOT)**。
 *   [../episodes/FINAL_SCRIPT_FORMAT.md](../episodes/FINAL_SCRIPT_FORMAT.md) - **15s 脚本唯一模板**。
