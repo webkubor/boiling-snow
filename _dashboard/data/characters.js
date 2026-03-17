@@ -157,20 +157,6 @@ const characters = [
         avatar: "https://img.webkubor.online/1772725378011-313y6om7.png"
     },
     {
-        id: "zhu-ying-zhu",
-        isHeavenlyRoster: false,
-        name: "祝映烛",
-        isOriginalIP: true,
-        isRevealed: true,
-        revealedIn: "EP 02",
-        title: "南楚王府外线 / 小烛",
-        desc: "灵动讨喜，心细如发。顾栖月的贴身助理，身法奇佳，是团队中的万能钥匙。",
-        weapons: ["袖中短匕", "飞针"],
-        avatar: "https://img.webkubor.online/1772725378011-313y6om7.png"
-    },
-    {
-        id: "lu-ting-chao",
-        isHeavenlyRoster: true,
         name: "陆听潮",
         isOriginalIP: true,
         isRevealed: true,

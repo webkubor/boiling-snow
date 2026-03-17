@@ -74,14 +74,14 @@ promotions/*.md → 整理配图 → 各平台分发
 ```bash
 # 只换服装（第一步，保持背景）
 python3 scripts/gen_image.py \
-  --char xiaozhu \
+  --char gu_qiyue \
   --outfit "黑色修身武侠劲装，领口银线绣边" \
   --step costume \
   --key <API_KEY>
 
 # 只换背景（第二步，用上一步结果）
 python3 scripts/gen_image.py \
-  --char xiaozhu \
+  --char gu_qiyue \
   --scene "月夜古巷，冷蓝月光，暖灯侧光" \
   --step scene \
   --key <API_KEY>
@@ -94,11 +94,11 @@ python3 scripts/gen_image.py \
   --key <API_KEY>
 
 # 只看 prompt，不生图
-python3 scripts/gen_image.py --char xiaozhu --scene "雪原" --print-only
+python3 scripts/gen_image.py --char gu_qiyue --scene "雪原" --print-only
 ```
 
 **支持的角色 ID**：
-`xiaozhu` / `gu_qiyue` / `su_mengcheng` / `mu_xige` / `ye_jinghong` / `yan_zhaoling`
+`gu_qiyue` / `gu_qiyue` / `su_mengcheng` / `mu_xige` / `ye_jinghong` / `yan_zhaoling`
 
 **关键参数**：
 
@@ -115,7 +115,7 @@ python3 scripts/gen_image.py --char xiaozhu --scene "雪原" --print-only
 
 **规则**：
 
-- ✅ 必须用定妆照做底图（`costume_designs/{角色}/xiaozhu_film_official.png`）
+- ✅ 必须用定妆照做底图（`costume_designs/{角色}/gu_qiyue_film_official.png`）
 - ✅ 用 `edit_image`，不用文生图
 - ❌ 禁止直接文生图出三视图（会假，会跟定妆照割裂）
 
@@ -248,4 +248,4 @@ promotions/epXX.md（已有ep01-09）
 **小红书话题（固定10个，每次必须用全）**：
 
 - 司南烛：`#手机壁纸 #壁纸分享 #古风壁纸 #武侠壁纸 #免费壁纸 #古风 #武侠 #AI绘画 #沸腾之雪 #古风插画`
-- 小烛：`#AI虚拟人 #古风美女 #AI美女 #武侠 #古风 #沸腾之雪 #AI绘画 #二次元 #古风插画 #虚拟偶像`
+- 旁白：`#AI虚拟人 #古风美女 #AI美女 #武侠 #古风 #沸腾之雪 #AI绘画 #二次元 #古风插画 #虚拟偶像`

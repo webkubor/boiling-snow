@@ -2,7 +2,7 @@
 """
 《沸腾之雪》角色生图工具
 用法：
-  python3 scripts/gen_image.py --char xiaozhu --scene "竹林烟雨，轻纱飘动" --outfit "淡蓝白色轻纱汉服，斜肩设计"
+  # python3 scripts/gen_image.py --char gu_qiyue --scene "竹林烟雨，轻纱飘动" --outfit "淡蓝白色轻纱汉服，斜肩设计"
   python3 scripts/gen_image.py --char gu_qiyue --scene "屋檐夜雨，持笛而立" --step costume  （只换服装）
   python3 scripts/gen_image.py --char su_mengcheng --scene "雪原远眺" --ratio 16:9
 """
@@ -44,7 +44,7 @@ def load_anchor(char_id: str) -> dict:
 def find_base_image(char_id: str) -> Path | None:
     """找角色底图，优先用 costume_designs 里的古风图（人脸一致性更好）"""
     char_name_map = {
-        "xiaozhu": "小烛",
+        
         "gu_qiyue": "顾栖月",
         "su_mengcheng": "苏梦城",
         "mu_xige": "慕夕歌",

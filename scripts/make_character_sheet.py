@@ -3,8 +3,8 @@
 《沸腾之雪》三视图生成工具
 流程：分别生成正面/侧面/背面 → PIL 横向拼接 → 存档
 用法：
-  python3 scripts/make_character_sheet.py --char xiaozhu --key <API_KEY>
-  python3 scripts/make_character_sheet.py --char xiaozhu --key <API_KEY> --front-only  # 只重新生成正面
+  # python3 scripts/make_character_sheet.py --char gu_qiyue --key <API_KEY>
+  # python3 scripts/make_character_sheet.py --char gu_qiyue --key <API_KEY> --front-only  # 只重新生成正面
 """
 
 import argparse
@@ -24,7 +24,7 @@ NANOBANANA = Path.home() / "Desktop/skills/nanobanana-plus/mcp-server/dist/index
 TEMP_DIR = Path("/tmp/boiling_snow_sheets")
 
 CHAR_NAME_MAP = {
-    "xiaozhu": "小烛",
+    
     "xiaonan": "小楠",
     "gu_qiyue": "顾栖月",
     "su_mengcheng": "苏梦城",
