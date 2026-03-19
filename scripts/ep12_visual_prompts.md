@@ -196,7 +196,7 @@ generate_image({
 ### 7.1 生成命令（Python脚本）
 ```bash
 # 使用项目脚本生成（推荐）
-cd /Users/webkubor/Desktop/create/ip-film-boiling-snow
+cd /Users/webkubor/Desktop/create/boiling-snow-film
 python3 scripts/gen_image.py --prompt "你的prompt内容" --ratio 21:9 --model gemini-3-pro-image-preview
 ```
 
@@ -204,7 +204,7 @@ python3 scripts/gen_image.py --prompt "你的prompt内容" --ratio 21:9 --model 
 ```bash
 #!/bin/bash
 # 批量生成第12集素材
-cd /Users/webkubor/Desktop/create/ip-film-boiling-snow
+cd /Users/webkubor/Desktop/create/boiling-snow-film
 
 # 西燕场景
 python3 scripts/gen_image.py --prompt "Epic wide shot: 5000 heavy cavalry of Western Yan at dawn in Gobi desert..." --ratio 21:9 --out "references/scenes/ep12/western_yan_cavalry.png"
