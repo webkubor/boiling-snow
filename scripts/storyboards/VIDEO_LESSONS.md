@@ -278,6 +278,60 @@
 
 打中=力与力的碰撞，不是碰一下对方就倒。两个人都必须被力推开。
 
+---
+
+## 十一、Seedance 2.0 平台规则（必须遵守）
+
+> 以下规则来自 Seedance 2.0 官方结构化提示词系统和社区实测经验。
+
+### 11.1 Prompt 必须按 S-A-C-S 结构
+
+Seedance 2.0 的标准 prompt 结构是固定的：
+
+```
+S（Subject 主体）：@图片1 角色参考，@图片2 场景参考
+A（Action 动作）：每段一个核心动作，现在时态动词
+C（Camera 镜头）：景别 + 运动 + 角度 + 镜头
+S（Style 风格）：视觉锚点 + 光照 + 色调
+约束：[负面约束词]
+```
+
+### 11.2 @图片引用系统
+
+- 上传角色图 → `@图片1` 引用，不要写外貌描述
+- 上传场景图 → `@图片2` 引用，不要写文字描述场景
+- 上传武器图 → `@图片3` 引用，不要写武器外观
+- **@引用 = AI严格跟随参考，文字描述 = AI自由发挥**
+
+### 11.3 镜头用专业术语
+
+wide shot (WS) / medium shot (MS) / close-up (CU) / dolly in-out / tracking shot / crane shot / low angle / high angle / handheld / gimbal / slow motion / snap zoom
+
+### 11.4 负面约束（必须追加在prompt末尾）
+
+```
+约束：no extra characters, no crowd, no extra fingers, no extra limbs, no distortion, no deformed hands, no warped faces, no melting edges, no jump cuts, no lens flares, no floating UI, no text overlays, no watermarks, no blurry motion, no snap zooms, no whip pans, no oversaturated colors.
+```
+
+### 11.5 5秒分段迭代（复杂场景必用）
+
+不要一次生成15秒复杂打斗。先5s × 3-5个变体 → 挑最好的 → 逐段延长。
+
+### 11.6 Seedance 2.0 武侠打斗 Prompt 实例
+
+```
+@图片1 作为白衣侠客，@图片2 作为竹林雪夜场景。白衣侠客在竹林中高速穿梭闪避黑衣人刀锋，脚尖点竹竿凌空变向，玉笛横扫点倒三人，竹叶积雪在气浪中炸开如莲花绽放。crane shot 从高处俯拍竹林全景，侠客白衣在竹间穿梭如白色闪电，黑衣人成片倒伏。武侠动作片风格，35mm胶片颗粒，低调冷蓝色调，体积光穿透竹缝，动作流畅自然。约束：no extra characters, no crowd, no extra fingers, no distortion, no deformed hands, no jump cuts, no snap zooms, no blurry motion.
+```
+
+---
+
+## 十二、写脚本时自检（对照全文逐条过）
+
+- [ ] §八：场景有尺度？人物用@引用不分正反方？
+- [ ] §九：踩坑实录里的坑没踩？
+- [ ] §十：物理来源？间接杀人？环境余波？交锋回合≤3？力度反馈三要素？
+- [ ] §十一：S-A-C-S结构？用@引用？镜头术语？负面约束？5秒分段？
+
 ### 10.6 写脚本时自检
 
 - [ ] 每个位移动作有物理来源？（重力/反弹/惯性/蹬力）
