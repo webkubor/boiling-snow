@@ -37,6 +37,7 @@
 为了保证《沸腾之雪》的视觉质量与角色一致性，所有指令输出必须遵循以下分工：
 
 ### 1) 职能分工表
+- **Seedance 2.0**: **当前默认视频主平台**。负责 15s 高动态武侠视频的主生成链路。必须遵守 `S-A-C-S` 结构、`@引用` 系统、负面约束、5 秒分段与物理反馈规则。黄金案例：`scripts/storyboards/top10_rank09_顾栖月.md`。
 - **Veo 3.1 (Google)**: **高阶视频与原生音效工具**。侧重于 4K 高画质、精细镜头控制（Dolly-in/Tracking）、 原生音效同步（SFX）。
 - **Jimeng (即梦)**: **常规视频生成工具**。侧重于快速动态捕捉和镜头衔接。**统一指令格式**：必须使用“一行流（Single Line）+ 时间锚点（如 [00:00-03:00]）+ 动态描述 + 电影质感后缀”的格式。禁止换行。
   - **示例**: `15秒电影镜头，主体描述，[00:00-05:00]镜头动态1，[05:00-10:00]镜头动态2，[10:00-15:00]镜头动态3。电影质感后缀。`
@@ -70,9 +71,11 @@
 ## 4. 创作流 (Workflow)
 
 1.  **查阅手册**：在 [agents/CREATIVE_BIBLE.md](agents/CREATIVE_BIBLE.md) 确认视觉、动作、镜头红线。
-2.  **获取人设**：在 [cast/](cast/) 读取 JSON 档案。
-3.  **确认环境**：在 [bibles/WORLD.md](bibles/WORLD.md) 确认地理逻辑。
-4.  **执行输出**：按照 [agents/SCRIPT_TEMPLATE.md](agents/SCRIPT_TEMPLATE.md) 格式输出。
+2.  **平台规则对齐**：默认先读 [scripts/storyboards/VIDEO_LESSONS.md](scripts/storyboards/VIDEO_LESSONS.md) 与 [scripts/storyboards/COMBAT_SOP.md](scripts/storyboards/COMBAT_SOP.md)。
+3.  **获取人设**：在 [cast/](cast/) 读取 JSON 档案。
+4.  **确认环境**：在 [bibles/WORLD.md](bibles/WORLD.md) 确认地理逻辑。
+5.  **对照成功样板**：涉及 `Seedance 2.0` 生成时，优先复用 [scripts/storyboards/top10_rank09_顾栖月.md](scripts/storyboards/top10_rank09_顾栖月.md) 的组织方式。
+6.  **执行输出**：按照 [agents/SCRIPT_TEMPLATE.md](agents/SCRIPT_TEMPLATE.md) 格式输出，再转化为平台可直接执行的结构化 prompt。
 
 ---
 *Created by Agent Center for Father (老爹).*

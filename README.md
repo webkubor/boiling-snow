@@ -14,12 +14,14 @@
 *   **[快捷操作 (QUICK_ACTIONS.md)](agents/QUICK_ACTIONS.md)**: 四视图控制台、自动加水印等提效工具。
 *   **[Prompt 资产库 (PROMPT_LIBRARY.md)](agents/PROMPT_LIBRARY.md)**: 沉淀好的视觉公式、场景矩阵、调参后缀。
 *   **[脚本模板 (SCRIPT_TEMPLATE.md)](agents/SCRIPT_TEMPLATE.md)**: 15s 视频脚本生成的唯一标准格式。
+*   **[Seedance 2.0 规则库 (VIDEO_LESSONS.md)](scripts/storyboards/VIDEO_LESSONS.md)**: 当前默认视频平台的结构化提示词、物理规则与踩坑结论。
+*   **[顾栖月·百丈漈 Solo 黄金案例](scripts/storyboards/top10_rank09_顾栖月.md)**: 当前已验证通过的 `Seedance 2.0` 样板。
 
 ---
 
 ## 🛠 生产工具栈 (Production Tools)
 
-- **视频生成 (Video)**: Google Veo 3.1 / 即梦 AI (Jimeng)
+- **视频生成 (Video)**: **Seedance 2.0（默认优先）** / Google Veo 3.1 / 即梦 AI (Jimeng)
 - **视觉/海报 (Visual)**: Midjourney (MJ) / Nanobanana
 - **封面制作 (Cover)**: [Gemini 视频封面创作中心](https://gemini.google.com/share/9915a3a902a0) (专用封面 Prompt 逻辑与画幅控制)
 - **自动化套件 (Scripts)**: `scripts/` 目录下的 Python 自动化套件 (加字幕、水印、角色卡)
@@ -51,8 +53,9 @@
 
 1.  **规则对齐**：在 [agents/CREATIVE_BIBLE.md](agents/CREATIVE_BIBLE.md) 确认视觉与动作红线。
 2.  **人设提取**：从 [cast/](cast/) 目录下读取目标角色的 JSON 档案。
-3.  **视觉调用**：从 [agents/PROMPT_LIBRARY.md](agents/PROMPT_LIBRARY.md) 获取经过验证的视觉公式。
-4.  **脚本输出**：按照 [agents/SCRIPT_TEMPLATE.md](agents/SCRIPT_TEMPLATE.md) 格式输出 15s 视频指令。
+3.  **平台规则对齐**：在 [scripts/storyboards/VIDEO_LESSONS.md](scripts/storyboards/VIDEO_LESSONS.md) 使用 `Seedance 2.0` 的 `S-A-C-S` 结构、`@引用` 系统、负面约束与 5 秒分段策略。
+4.  **黄金案例校准**：优先对照 [scripts/storyboards/top10_rank09_顾栖月.md](scripts/storyboards/top10_rank09_顾栖月.md) 的百丈漈 Solo 样板，继承已验证成功的镜头与动作组织方式。
+5.  **脚本输出**：按照 [agents/SCRIPT_TEMPLATE.md](agents/SCRIPT_TEMPLATE.md) 格式输出 15s 视频指令，再转成 `Seedance 2.0` 可投喂版本。
 
 ---
 *Created for Father (老爹) by Boiling Snow Team.*

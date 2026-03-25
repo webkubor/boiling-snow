@@ -1,6 +1,6 @@
 # 《沸腾之雪》制作工具脚本手册
 
-> 本项目目前有 **5 个成熟工作流**，覆盖从角色造型到内容发布的完整制作链路。
+> 本项目目前有 **5 个成熟工作流**，其中视频生成链路已切换为 **Seedance 2.0 默认优先**。
 
 ---
 
@@ -14,7 +14,7 @@ face anchor JSON → 底图 edit → 定妆照 → character_sheets
 场景图原图 → 加水印 → 小红书发布
 
 工作流 C：分镜脚本工作流
-剧情设定 → generate_story SOP → 21:9 连续分镜图
+剧情设定 → Seedance 2.0 规则对齐 → 黄金案例校准 → 结构化视频 prompt
 
 工作流 D：公众号发布工作流
 Markdown/HTML → baoyu-post-to-wechat → 草稿箱 → 发布
@@ -192,22 +192,31 @@ _dashboard/assets/scenery_watermarked/  # 场景图水印版
 
 ## 🔄 工作流 C：分镜脚本工作流
 
-**SOP 来源**：`skills/generate_story.md`
+**默认平台**：`Seedance 2.0`
+
+**规则来源**：
+
+- `scripts/storyboards/VIDEO_LESSONS.md`
+- `scripts/storyboards/COMBAT_SOP.md`
+- 黄金案例：`scripts/storyboards/top10_rank09_顾栖月.md`
 
 **流程**：
 
 ```
 剧情大纲 → 锁定角色锚点（cast/*.json + character_sheets）
-        → generate_story MCP 工具
-        → 4张 21:9 连贯分镜图
-        → 存入 scripts/storyboards/
+        → 对照 VIDEO_LESSONS.md 写 15s 骨架
+        → 按 S-A-C-S 结构整理为 Seedance 2.0 prompt
+        → 复杂镜头按 5s × 3 迭代
+        → 通过后存入 scripts/storyboards/
 ```
 
 **要点**：
 
 - 必须先从 `references/三视图/` 读取角色特征
-- `aspectRatio` 固定 `21:9`
-- `outputCount` 建议 4
+- 必须使用 `@引用` 系统绑定角色/场景/武器
+- 打斗类镜头必须写物理反馈、位移来源、环境余波
+- 复杂镜头不要直接 15s 一次跑完，先 5 秒分段迭代
+- 顾栖月百丈漈 Solo 是当前默认母版，优先照着它的镜头与动作组织方式写
 
 ---
 
