@@ -1,0 +1,15 @@
+{
+    "character": "燕照绫 (Yan Zhaoling) - [NEW SWAP]",
+    "facial_anchors": {
+        "features": "Sharp, almond-shaped eyes, refined and determined facial structure",
+        "hair": "Dark brown hair with complex braids, silver forehead headpiece with intricate carvings",
+        "skin": "Sun-kissed fair skin, realistic golden sunset illumination"
+    },
+    "costume_anchors": {
+        "outer": "Crimson/Red high-volume wolf-fur shrug/collar, dark teal leather crop top with metallic embroidery",
+        "lower": "Layered brown leather skirt with heavy rope belt, tan suede lace-up high boots",
+        "arms": "Dark leather lace-up bracers with fur trim",
+        "weapon": "Dark braided leather/bone whip with silver hilt"
+    },
+    "visual_quality_spec": "8K Masterpiece, 35mm film grain, Low-key sunset photography, high contrast, volumetric sand particles, hyper-realistic fur and leather textures."
+}

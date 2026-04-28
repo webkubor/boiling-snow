@@ -1,0 +1,18 @@
+{
+    "character": "宁观尘 (Ning Guanchen)",
+    "facial_anchors": {
+        "features": "Young, slightly rugged Asian face, relaxed but steady gaze, natural eyebrows",
+        "hair": "Messy black hair tied in a loose top-knot, curly strands framing the face",
+        "skin": "Tanned, sun-kissed, visible pores, realistic dirty/dusty texture for desert environment"
+    },
+    "costume_anchors": {
+        "clothing": "Rough brown/earth-tone travel robes, tattered edges, layered linen, leather straps across the chest",
+        "accessories": [
+            "Large wooden wine gourd tied with rope at the waist",
+            "Traditional bone/paper lantern with warm glow, hanging from a stick or held",
+            "Plain steel Dao (saber) with a simple dark hilt"
+        ],
+        "aesthetic": "Wandering swordsman, dusty, travel-worn, loose and functional"
+    },
+    "visual_quality_spec": "8K, 35mm film grain, Low-key desert sunset lighting, Tyndall effect with dust particles, high-contrast, extreme texture detail on rough linen and leather."
+}

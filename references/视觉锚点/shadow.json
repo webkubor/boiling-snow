@@ -1,0 +1,16 @@
+{
+    "character": "影 (Shadow)",
+    "facial_anchors": {
+        "mask": "None, but often obscured by a conical bamboo hat (douli) and shadows",
+        "features": "Sharp, cold, stoic Asian male face, unseen eyes under the hat brim",
+        "hair": "Long black hair, wind-blown, messy",
+        "skin": "Fair but rugged, often in low-light/shadowed conditions"
+    },
+    "costume_anchors": {
+        "outer": "Tattered, layered dark grey/black robes, worn-out linen, weathered and battle-damaged edges",
+        "headgear": "Traditional conical bamboo hat (douli), worn low to hide the face",
+        "arms": "Tight dark bandages/wraps on the forearms",
+        "weapon": "Zhelong (蛰龙) - sleeve-hidden three-edged dagger, matte black finish, non-reflective"
+    },
+    "visual_quality_spec": "8K Masterpiece, 35mm film grain, Low-key photography, high contrast shadows, volumetric mist/fog (bamboo forest setting), Tyndall effect through bamboo leaves, high-texture detail on tattered linen."
+}

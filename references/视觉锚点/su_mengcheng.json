@@ -1,0 +1,14 @@
+{
+    "character": "苏梦城 (Su Mengcheng) - [WHITE HAIR VERSION]",
+    "facial_anchors": {
+        "face": "Mature, authoritative Asian male face, sharp focused eyes",
+        "hair": "Pure white/silver hair, tied up in a neat high bun/top-knot",
+        "skin": "Fair skin, natural aging lines for maturity"
+    },
+    "costume_anchors": {
+        "outer": "Black-and-white brocade robes with dense silver dragon/cloud embroidery",
+        "collar": "Thick black wolf-fur collar framing the neck",
+        "identity": "The Princely Lord (异姓王) in transition, no mask, majestic posture"
+    },
+    "visual_quality_spec": "8K Masterpiece, 35mm film grain, Low-key indoor photography with warm lantern light, high contrast, visible silk weaving patterns."
+}

@@ -1,0 +1,28 @@
+{
+  "character": "柳南栀·惊棠 (Liu Nanzhi / Xiaonan)",
+  "face_anchor_source": "references/character_anchors/小楠.png",
+  "facial_anchors": {
+    "face_shape": "Soft oval egg-shaped face, gentle refined jawline",
+    "eyes": "Crescent-moon shaped eyes, natural double eyelids, warm gentle gaze, NOT phoenix eyes",
+    "eyebrows": "Soft natural arched eyebrows, not too thick",
+    "nose": "Small delicate straight nose, do NOT emphasize or redden",
+    "lips": "Soft natural lips with subtle pink tint, gentle closed smile",
+    "hair": "Jet black silky straight long hair, no bangs, center-parted or side-parted naturally",
+    "skin": "Fair luminous porcelain skin, glass skin texture, natural healthy glow",
+    "overall_vibe": "19-year-old beauty, pure yet alluring, clear intelligent eyes that see through everything"
+  },
+  "face_consistency_prompt": "Soft oval face, crescent-moon shaped eyes with natural double eyelids, small straight nose, soft pink lips, jet black long straight hair, fair luminous porcelain skin, 19 years old, gentle yet intelligent expression. KEEP FACE EXACTLY THE SAME.",
+  "role_in_film": "花楼头牌「惊棠」，天下第二美女。外表柔美清纯，内里心气极硬、清醒如刀。会弹琵琶，善听话外之音。",
+  "film_costume": {
+    "primary": "白色苎麻宽袖汉服，素雅清冷，配双辫或散发",
+    "secondary": "深红绣花曲裾，烛光华美，金色发饰",
+    "scene_vibe": "花楼私室、梅花雪夜、月下楼阁"
+  },
+  "official_costumes": {
+    "primary": "白色漏肩汉服（漏肩+宽袖），清凉适合跳舞",
+    "secondary": "黑金宋制褙子（黑底金绣），低调奢华反差感",
+    "character_key": "长发全散飘动+清冷舞姿+眼神有神不空洞"
+  },
+  "dance_style": "天下第一舞女，身姿婀娜S型，袖袂随风，表情清冷妩媚并存，眼神看穿一切但不外露",
+  "film_official": "costume_designs/小楠/xiaonan_film_official3_dance.png"
+}

@@ -1,0 +1,15 @@
+{
+    "character": "陆听潮 (Lu Tingchao)",
+    "facial_anchors": {
+        "mask": "Silver/Iron weathered mask covering the face, often obscured by a deep green hood",
+        "features": "Focused, vengeful eyes visible through mask slits",
+        "hair": "Hidden under the hood"
+    },
+    "costume_anchors": {
+        "outer": "Deep green/dark grey hooded cloak, weathered and tattered at the hem",
+        "armor": "Dark weathered leather chest armor and pauldrons (non-heavy, for speed)",
+        "lower": "Matching dark trousers and leather boots",
+        "weapon": "Canxiang (残响) - dual curved short blades with intricate resonance slots and silver hilts"
+    },
+    "visual_quality_spec": "8K Masterpiece, 35mm film grain, Low-key photography, high contrast highlights on metallic mask and blades, volumetric blizzard/snow effect, high-texture detail on weathered leather and rough cloak fabric."
+}

@@ -1,0 +1,16 @@
+{
+    "character": "顾栖月 (Gu Qiyue)",
+    "facial_anchors": {
+        "face_shape": "Refined oval face from '顾栖月-face' reference, sharp jawline",
+        "eyes": "Intense cold dark eyes, highly focused expression",
+        "makeup": "Subtle soft red lip tint, elegant and clean",
+        "hair": "Jet black, high-volume flowing hair, long silver pendant earrings",
+        "skin": "Flawless porcelain white skin"
+    },
+    "costume_anchors": {
+        "robes": "Layered flowing pure white silk robes, ethereal wide sleeves, simple elegant cut",
+        "action": "Holding the pure white, extremely long jade flute (Yuchen) in her hands",
+        "weapon": "White jade flute (Jade Dust), extremely long, pure bare white, NO tassels"
+    },
+    "visual_quality_spec": "8K Masterpiece, 35mm film grain, Traditional Chinese Wuxia style, Cinematic lighting (moonlight), low-key, high contrast, realistic silk texture, wind-blown aesthetic."
+}
