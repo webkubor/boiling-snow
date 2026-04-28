@@ -1,0 +1,9 @@
+{
+    "name": "ip-film-boiling-snow",
+    "version": "1.0.0",
+    "type": "module",
+    "private": true,
+    "scripts": {
+        "build": "cd _dashboard && npm install && npm run build"
+    }
+}
