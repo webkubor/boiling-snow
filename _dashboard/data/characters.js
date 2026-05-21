@@ -10,7 +10,7 @@ const characters = [
         title: "孤山小师妹 / 风暴中心",
         desc: "孤山最清白的一页。第二集离山，单纯地以为下山只是为了看外面的世界，却不知自己早已成为各方势力角力的核心。",
         weapons: ["白色汉剑【问雪】"],
-        avatar: "https://cdn.jsdelivr.net/gh/webkubor/upic-images@main/assets/mu_xi_ge_anchor.png"
+        avatar: "assets/characters/mu_xi_ge.png"
     },
     {
         id: "mu-bei-ge",
@@ -22,7 +22,7 @@ const characters = [
         title: "孤山剑首 / 守诺者",
         desc: "知晓一切却选择沉默。第二集雪中送别师妹。身着洗得发白的青衫，视承诺如生命，绝不踏出孤山半步。",
         weapons: ["至尊汉剑【问天】"],
-        avatar: "https://cdn.jsdelivr.net/gh/webkubor/upic-images@main/assets/mu_bei_ge_anchor.jpg"
+        avatar: "assets/characters/mu_bei_ge.jpg"
     },
     {
         id: "ye-jing-hong",
@@ -31,10 +31,10 @@ const characters = [
         isOriginalIP: true,
         isRevealed: true,
         revealedIn: "EP 04",
-        title: "天榜高手 / 索命鬼神",
+        title: "天榜第二 / 索命鬼神",
         desc: "第四集天门关现身。银面、白发、黑金大氅。他是南楚皇权最深的阴影，也是唯一的定海神针。实际上，这就是那位在朝堂上‘病弱’的异姓王苏梦城的另一面：索命鬼神。",
         weapons: ["银白透甲长枪【惊鸿】"],
-        avatar: "https://cdn.jsdelivr.net/gh/webkubor/upic-images@main/assets/su_meng_cheng_anchor.png"
+        avatar: "assets/characters/ye_jing_hong.png"
     },
     {
         id: "ou-yang-kuang-tu",
@@ -46,7 +46,7 @@ const characters = [
         title: "西燕大将军 / 狂刀",
         desc: "西燕军魂，物理毁灭美学。虽未亲至南楚，但在第四集已被枪神点名。信奉绝对力量，唯有【破军】能让他开口。",
         weapons: ["黑铁斩马刀【破军】"],
-        avatar: "https://cdn.jsdelivr.net/gh/webkubor/upic-images@main/assets/ouyang_kuang_tu_anchor.png"
+        avatar: "assets/characters/ouyang_kuang_tu.png"
     },
     {
         id: "ning-guan-chen",
@@ -58,7 +58,7 @@ const characters = [
         title: "游侠道士 / 顶级探子",
         desc: "第六集登场。背负着卖姐求生愧疚感的年轻人。总是仰头喝酒。他出卖情报只为了寻找姐姐。",
         weapons: ["无名长剑", "酒葫芦"],
-        avatar: "https://cdn.jsdelivr.net/gh/webkubor/upic-images@main/assets/ning_guan_chen_anchor.png"
+        avatar: "assets/characters/ning_guan_chen.png"
     },
     {
         id: "gu-qi-yue",
@@ -70,7 +70,7 @@ const characters = [
         title: "王府影子暗卫 / 花神",
         desc: "第七集凭空而降。作为苏王爷身边的影子暗卫，她总是赤足行走在光影边缘。看似吹奏横笛，实则在清理所有不速之客。",
         weapons: ["白玉横笛【玉尘】", "无声暗箭"],
-        avatar: "https://cdn.jsdelivr.net/gh/webkubor/upic-images@main/assets/gu_qi_yue_anchor.png"
+        avatar: "assets/characters/gu_qi_yue.png"
     },
     {
         id: "xiao-jin-xian",
@@ -82,11 +82,11 @@ const characters = [
         title: "南楚王府第一战力 / 命债人",
         desc: "第八集联手清街。背负着苏府满门亲卫呈现血债。他是南楚皇权最忌惮的‘刺头’，【乌麟】长弓从不虚发。",
         weapons: ["玄角长弓【乌麟】"],
-        avatar: "https://cdn.jsdelivr.net/gh/webkubor/upic-images@main/assets/xiao_jin_xian_anchor.png"
+        avatar: "assets/characters/xiao_jin_xian.png"
     },
     {
         id: "su-meng-cheng",
-        isHeavenlyRoster: false,
+        isHeavenlyRoster: true,
         name: "苏梦城",
         isOriginalIP: true,
         isRevealed: true,
@@ -94,7 +94,7 @@ const characters = [
         title: "南楚异姓王 / 逍遥王",
         desc: "第十集正式露脸。南楚建国以来唯一的异姓王，据说当年他完全有机会让这江山姓苏。但他不仅让出了皇权，更自废了一身武功，此后满头白发，终日醉生梦死。实际上，他才是天榜第二的枪神夜惊鸿。",
         weapons: ["青铜酒壶", "精钢折扇"],
-        avatar: "https://img.webkubor.online/prince_su_white_hair.png"
+        avatar: "assets/characters/su_meng_cheng.png"
     },
     {
         id: "yan-zhao-ling",
@@ -106,7 +106,7 @@ const characters = [
         title: "西燕百族领袖 / 赤练",
         desc: "野性而极度记仇。亲眼目睹生父死于孤山之手。腰间缠绕的【赤练】皮鞭由异兽皮淬毒而成。",
         weapons: ["异兽皮鞭【赤练】"],
-        avatar: "https://cdn.jsdelivr.net/gh/webkubor/upic-images@main/assets/yan_zhao_ling_anchor.png"
+        avatar: "assets/characters/yan_zhao_ling.png"
     },
     {
         id: "hui-ming",
@@ -118,7 +118,7 @@ const characters = [
         title: "连城寺首座 / 天下第一防线",
         desc: "第十一集正式入局。风雪压身而不退，青莲大自在一开，快马与杀意都撞不过他脚下那一步。",
         weapons: ["无 (以身为兵)"],
-        avatar: "https://img.webkubor.online/1772725378011-313y6om7.png"
+        avatar: "assets/characters/hui_ming.jpg"
     },
     {
         id: "wen-xiao-wan",
@@ -130,7 +130,7 @@ const characters = [
         title: "南楚皇后 / 权力巅峰",
         desc: "极度疯批，母仪天下的外壳下是扭曲偏执的内心。对萧烬弦的爱已化为毁灭的执念。",
         weapons: ["玄黑短箭簇"],
-        avatar: "https://img.webkubor.online/1772725378011-313y6om7.png"
+        avatar: "assets/characters/wen_xiao_wan.png"
     },
     {
         id: "liu-nan-zhi",
@@ -142,7 +142,7 @@ const characters = [
         title: "天下第三美女 / 惊棠",
         desc: "绝艳清冷，北荒部落献给南楚皇帝的‘贡品’。实际上效忠于北荒，与王府影子顾栖月是生死至交。",
         weapons: ["琵琶 (藏有短刺)"],
-        avatar: "https://img.webkubor.online/1772725378011-313y6om7.png"
+        avatar: "assets/characters/liu_nan_zhi.png"
     },
     {
         id: "tian-jin-er",
@@ -154,9 +154,11 @@ const characters = [
         title: "天下第二美女 / 蜜棠",
         desc: "南楚原住民，甜美娇俏。明面上是皇后的干妹妹，实则是其插入朝堂权贵圈的一柄软刀子。",
         weapons: ["织锦绸带", "暗香毒粉"],
-        avatar: "https://img.webkubor.online/1772725378011-313y6om7.png"
+        avatar: "assets/characters/tian_jin_er.png"
     },
     {
+        id: "lu-ting-chao",
+        isHeavenlyRoster: false,
         name: "陆听潮",
         isOriginalIP: true,
         isRevealed: true,
@@ -164,7 +166,7 @@ const characters = [
         title: "北荒双刀 / 暴雨听潮",
         desc: "陆家庄灭门惨案的生还者。雨夜、断桥、双刀残响，他是背负着血仇的孤狼。",
         weapons: ["双刀【残响】"],
-        avatar: "https://img.webkubor.online/1772725378011-313y6om7.png"
+        avatar: "assets/characters/lu_ting_chao.jpg"
     },
     {
         id: "tu-men",
@@ -176,7 +178,7 @@ const characters = [
         title: "铁浮屠统领 / 巨灵",
         desc: "西燕军武的终极杀器。两米巨汉，浑身披挂铁甲。他的战斗逻辑只有一个：碾碎前方的一切。",
         weapons: ["重型连枷【碎星】"],
-        avatar: "https://img.webkubor.online/1772725378011-313y6om7.png"
+        avatar: "assets/characters/tu_men.png"
     },
     {
         id: "tuo-ba-wu-lan",
@@ -188,7 +190,7 @@ const characters = [
         title: "沙巫 / 西燕之影",
         desc: "从风沙缝隙中活下来的幸存者。半遮面具下是致命的毒刺。专门处理铁骑踏不到的死角。",
         weapons: ["淬毒短匕【蝎尾】"],
-        avatar: "https://img.webkubor.online/1772725378011-313y6om7.png"
+        avatar: "assets/characters/tuo_ba_wu_lan.png"
     },
     {
         id: "tuo-ba-lie",
@@ -200,7 +202,7 @@ const characters = [
         title: "苍狼部酋长 / 主战派",
         desc: "北荒第一大部首领。野心勃勃，崇尚绝对武力，一心想带着北荒族人南下封侯。",
         weapons: ["连枷【斩狼】"],
-        avatar: "https://img.webkubor.online/1772725378011-313y6om7.png"
+        avatar: "assets/characters/tuo_ba_lie.png"
     },
     {
         id: "ou-yang-duan-mu",
@@ -212,7 +214,7 @@ const characters = [
         title: "天榜第六 / 守碑人",
         desc: "常年盘坐在孤山石碑旁。双目已盲，却能听清百里风雪。因失忆而不知真实姓名，唯留‘断木’残响。实为西燕大将军欧阳狂徒的生父，天榜排名第六。",
         weapons: ["断掉的木剑"],
-        avatar: "https://img.webkubor.online/1772725378011-313y6om7.png"
+        avatar: "assets/characters/ou_yang_duan_mu.png"
     },
 
     // --- 幕后迷雾角色 (Unrevealed) ---
@@ -226,7 +228,7 @@ const characters = [
         title: "寒江淮影卫 / 天榜第四",
         desc: "寒江淮手中最锋利的一道影子。名字和来路都还藏着，留下来的只有蛰龙短刺与灭门传闻。",
         weapons: ["蛰龙"],
-        avatar: "https://img.webkubor.online/1772725378011-313y6om7.png"
+        avatar: "assets/characters/ying.png"
     },
     {
         id: "unknown-roster",
@@ -235,9 +237,9 @@ const characters = [
         isOriginalIP: true,
         isRevealed: false,
         revealedIn: "待揭晓",
-        title: "天榜第六 / 绝密代号",
-        desc: "榜上第六，真名未存。关于他的记录几乎都停在传闻里，只知道这个位置从来没人敢轻易去碰。",
+        title: "天榜 / 绝密代号",
+        desc: "榜上佚名，真身未存。关于他的记录几乎都停在传闻里，只知道这个位置从来没人敢轻易去碰。",
         weapons: ["未知"],
-        avatar: "https://img.webkubor.online/1772725378011-313y6om7.png"
+        avatar: "assets/characters/wei_zhi_zhe.png"
     }
 ];
