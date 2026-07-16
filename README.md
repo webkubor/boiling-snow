@@ -1,5 +1,7 @@
 ![logo](https://cdn.jsdelivr.net/gh/webkubor/picx-images-hosting@master/blog/projects/cinematic-storyboard-pro/cs-token4ai-1784194077304407000.png)
 
+![banner](https://cdn.jsdelivr.net/gh/webkubor/picx-images-hosting@master/blog/projects/cinematic-storyboard-pro-banner/cs-token4ai-1784205644937428000.png)
+
 # 《沸腾之雪》(Boiling Snow)
 
 > **“雪落江湖，热血难凉。一笔写风月，一心藏滚烫。”**
