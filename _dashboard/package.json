@@ -2,6 +2,7 @@
     "name": "boiling-snow-dashboard",
     "version": "1.0.0",
     "private": true,
+    "type": "module",
     "description": "Boiling Snow 电影级项目可视化看板",
     "scripts": {
         "dev": "vite",
@@ -11,8 +12,9 @@
         "serve": "serve ."
     },
     "devDependencies": {
-        "vite": "^5.2.0",
         "live-server": "^1.2.2",
-        "serve": "^14.2.0"
+        "serve": "^14.2.0",
+        "vite": "^5.2.0",
+        "vite-plugin-refresh-guard": "^0.2.0"
     }
 }
