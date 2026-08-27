@@ -65,6 +65,7 @@ async function loadAll() {
 }
 
 async function selectEpisode(id) {
+  if (id !== activeEpisode.value && !confirmDiscard()) return;
   activeEpisode.value = id;
   outline.value = '';
   const ep = episodes.value.find((e) => e.id === id);
@@ -77,7 +78,13 @@ async function selectEpisode(id) {
   }
 }
 
+/** 切走前拦一下未保存的改动 —— prompt 是手打出来的，丢了很肉疼 */
+function confirmDiscard() {
+  return !dirty.value || confirm('当前镜头有未保存的改动，切走就丢了。确定？');
+}
+
 function selectShot(id) {
+  if (id !== selectedId.value && !confirmDiscard()) return;
   selectedId.value = id;
   const shot = shots.value.find((s) => s.id === id);
   draft.value = shot ? pickEditable(shot) : null;

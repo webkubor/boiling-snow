@@ -71,8 +71,3 @@ export function resolveState(...segments) {
   }
   return abs;
 }
-
-/** 绝对路径 → 相对仓库根，用于回给前端（前端只认相对路径） */
-export function toRelative(absPath) {
-  return resolve(absPath).slice(PROJECT_ROOT.length + 1);
-}

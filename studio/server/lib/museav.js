@@ -78,12 +78,21 @@ export function runMuseav(args, onProgress) {
   });
 }
 
-/** 从 stderr 里挑一行像样的错误信息给前端，不把整坨日志糊上去 */
+/**
+ * 从 stderr 里挑一行像样的错误信息给前端，不把整坨日志糊上去。
+ *
+ * museav 把进度和错误都写 stderr，且**错误在最后**。取第一行只会拿到
+ * 「上传垫图 [图片1] …」这种进度文案，把真正的原因（❌ ENOENT: …）吞掉。
+ * 所以先找带错误标记的行，没有才退回最后一条非空行。
+ */
 function firstMeaningfulLine(stderr) {
-  return stderr
+  const lines = stderr
     .split('\n')
     .map((l) => l.trim())
-    .find((l) => l && !l.startsWith('at ') && !/^\s*$/.test(l));
+    .filter((l) => l && !l.startsWith('at '));
+
+  const marked = lines.filter((l) => /❌|✗|error|failed|失败|错误/i.test(l));
+  return marked.at(-1) ?? lines.at(-1);
 }
 
 function parseJson(stdout, what) {
