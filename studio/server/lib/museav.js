@@ -125,6 +125,27 @@ export async function listJobs({ limit, status } = {}) {
 }
 
 /**
+ * 从 museav 输出里挑出**生成结果**的 URL。
+ *
+ * 坑：用 --ref 垫图时，stderr 会回显一条「图片1 就绪: …/refs/<uuid>.jpg」——
+ * 那是垫图上传后的地址，不是出图结果。早先的实现把 stdout+stderr 拼起来取最后一个
+ * http 链接，结果稳定拿到垫图，用户看到的「出图结果」其实是自己传进去的参考图。
+ *
+ * 所以：先看 stdout（机器可读那一路），再退回 stderr，两边都排除 /refs/。
+ * 一个结果 URL 都找不到时**报错**，绝不退而求其次返回垫图。
+ */
+function extractResultUrl(...texts) {
+  for (const text of texts) {
+    const url = (text.match(/https?:\/\/\S+/g) ?? [])
+      .map((u) => u.replace(/[),.\s]+$/, ''))
+      .filter((u) => !u.includes('/refs/'))
+      .at(-1);
+    if (url) return url;
+  }
+  return null;
+}
+
+/**
  * 出图 / 出视频。这是**花钱**的操作，调用方必须是用户的显式动作。
  *
  * museav gen 自带轮询，会一直跑到出结果，所以这个 Promise 可能几十秒才 resolve。
@@ -172,10 +193,7 @@ export async function generate(options, onProgress) {
 
   const { stdout, stderr } = await runMuseav(args, onProgress);
 
-  // gen 成功时输出结果 URL。格式随版本可能变，所以抓最后一个 http(s) 链接，
-  // 而不是硬编码某一行的位置。
-  const urls = `${stdout}\n${stderr}`.match(/https?:\/\/\S+/g) ?? [];
-  const url = urls.at(-1)?.replace(/[),.]+$/, '');
+  const url = extractResultUrl(stdout, stderr);
   if (!url) throw new MuseavError('museav 没有返回结果 URL', { stderr });
 
   return { url, raw: stdout.trim() };

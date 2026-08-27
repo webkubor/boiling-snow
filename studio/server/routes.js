@@ -244,7 +244,8 @@ export const handleApi = createRouter({
       },
       (line) => broadcast('progress', { shotId: shot.id, takeId, line }),
     )
-      .then((result) => finishTake(shot.id, takeId, { status: 'done', url: result.url }))
+      // 留下 museav 的原始 stdout：出图结果对不上时，这是唯一能复盘的线索
+      .then((result) => finishTake(shot.id, takeId, { status: 'done', url: result.url, raw: result.raw }))
       .catch((err) => finishTake(shot.id, takeId, { status: 'failed', error: err.message }));
   },
 
