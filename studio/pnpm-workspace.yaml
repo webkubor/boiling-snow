@@ -1,0 +1,5 @@
+# pnpm 11 起，依赖的 build script 要在这里逐个批准（package.json 里的
+# onlyBuiltDependencies 已不生效）。esbuild 要装原生二进制，不批准的话
+# 每次 install 都以 exit 1 收场，连带 runDepsStatusCheck 挂掉、`pnpm dev` 起不来。
+allowBuilds:
+  esbuild: true

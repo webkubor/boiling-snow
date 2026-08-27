@@ -4,6 +4,8 @@
 dist/
 build/
 pnpm-lock.yaml
+# studio 是要能被复现安装的本地工具，它的 lockfile 得进版本库
+!studio/pnpm-lock.yaml
 
 # IDE & OS
 .DS_Store
