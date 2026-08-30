@@ -25,8 +25,11 @@
 | 资源名称 | 文件链接 | 用途说明 |
 | :--- | :--- | :--- |
 | **创意法典** | [CREATIVE_BIBLE.md](CREATIVE_BIBLE.md) | 视觉、动作、镜头、环境的所有硬核规则。 |
-| **Prompt 实验室** | [PROMPT_LIBRARY.md](PROMPT_LIBRARY.md) | 沉淀好的视觉公式、场景矩阵、调参后缀。 |
-| **脚本唯一模板** | [SCRIPT_TEMPLATE.md](SCRIPT_TEMPLATE.md) | 15s 视频脚本的标准输出格式。 |
+| **学习素材总览** | [../seasons/s1/scripts/storyboards/LEARNING_MATERIALS.md](../seasons/s1/scripts/storyboards/LEARNING_MATERIALS.md) | 8 个验证过的 15s 动作脚本（金标 / 天榜 / 顾栖月系列 / 序章），每个标注「学习要点 / 适用场景 / 推荐程度」。**写新分镜前先扫这一页**。 |
+| **最终交付格式样板** | [../seasons/s1/scripts/storyboards/雨夜古巷_顾栖月_15s.md](../seasons/s1/scripts/storyboards/雨夜古巷_顾栖月_15s.md) | 复制即用的 15s 脚本样板：「人物外貌/武器外观由参考图决定，prompt 只写物理特性」。 |
+| **视频打斗戏 Skill** | [../skills/视频打斗戏/SKILL.md](../skills/视频打斗戏/SKILL.md) | 15s 打斗脚本生成规则，含大师思维框架 v2.0。 |
+| **人设模板 Skill** | [../skills/人设模板/SKILL.md](../skills/人设模板/SKILL.md) | 角色 JSON 结构规范。 |
+| **镜头美学 Skill** | [../skills/镜头美学/SKILL.md](../skills/镜头美学/SKILL.md) | 镜头偏好收集与 Camera Prompt 生成。 |
 
 ---
 
@@ -104,8 +107,10 @@
 
 ## 7. 快速导航
 
-*   **人物档案 (JSON)**：[../cast/](../cast/)
-*   **世界观与排名 (SSOT)**：[../bibles/WORLD.md](../bibles/WORLD.md)
+*   **人物档案 (JSON)**：[../seasons/s1/cast/](../seasons/s1/cast/)
+*   **世界观与排名 (SSOT)**：[../seasons/s1/bibles/WORLD.md](../seasons/s1/bibles/WORLD.md)
+*   **神兵谱 (SSOT)**：[../seasons/s1/bibles/WEAPONS.md](../seasons/s1/bibles/WEAPONS.md)
+*   **学习素材总览 (动作/镜头/Prompt 参考脚本)**：[../seasons/s1/scripts/storyboards/LEARNING_MATERIALS.md](../seasons/s1/scripts/storyboards/LEARNING_MATERIALS.md)
 
 ---
 *Created for Father (老爹) by Agent Center.*

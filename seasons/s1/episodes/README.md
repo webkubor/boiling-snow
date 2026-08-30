@@ -20,4 +20,5 @@
 
 ---
 **详细剧本存放在**: 当前目录下的 `epXX.md`
-**最终脚本模板（唯一格式）**: [../agents/SCRIPT_TEMPLATE.md](../agents/SCRIPT_TEMPLATE.md)
+**15s 镜头脚本交付格式样板**: [../scripts/storyboards/雨夜古巷_顾栖月_15s.md](../scripts/storyboards/雨夜古巷_顾栖月_15s.md)（复制即用，人物外貌/武器外观由参考图决定，prompt 只写物理特性）
+**学习素材总览**: [../scripts/storyboards/LEARNING_MATERIALS.md](../scripts/storyboards/LEARNING_MATERIALS.md)（8 个验证过的 15s 动作脚本 + 推荐程度）

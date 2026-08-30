@@ -25,11 +25,13 @@
 所有 AI Agent 和创作者应优先访问 **[agents/README.md](agents/README.md)**：
 
 *   **[创意法典 (CREATIVE_BIBLE.md)](agents/CREATIVE_BIBLE.md)** — 视觉、动作、镜头、环境及角色制作的所有硬核规则。
-*   **[快捷操作 (QUICK_ACTIONS.md)](agents/QUICK_ACTIONS.md)** — 四视图控制台、自动加水印等提效工具。
-*   **[Prompt 资产库 (PROMPT_LIBRARY.md)](agents/PROMPT_LIBRARY.md)** — 沉淀好的视觉公式、场景矩阵、调参后缀。
-*   **[脚本模板 (SCRIPT_TEMPLATE.md)](agents/SCRIPT_TEMPLATE.md)** — 15s 视频脚本生成的唯一标准格式。
-*   **[Seedance 2.0 规则库](seasons/s1/scripts/storyboards/VIDEO_LESSONS.md)** — 当前默认视频平台的结构化提示词、物理规则与踩坑结论。
-*   **[顾栖月·百丈漈 Solo 黄金案例](seasons/s1/scripts/storyboards/top10_rank09_顾栖月.md)** — 已验证通过的 `Seedance 2.0` 样板。
+*   **[学习素材总览](seasons/s1/scripts/storyboards/LEARNING_MATERIALS.md)** ⭐ — **8 个验证过的 15s 动作脚本一条条列出来**，每个标注「学习要点 / 适用场景 / 推荐程度」。写新分镜前**先扫这一页**。
+
+### 跨季 Skills（生产模块）
+
+*   **[视频打斗戏 Skill](skills/视频打斗戏/SKILL.md)** — 15s 打斗脚本生成规则，含大师思维框架 v2.0。
+*   **[人设模板 Skill](skills/人设模板/SKILL.md)** — 角色 JSON 结构规范。
+*   **[镜头美学 Skill](skills/镜头美学/SKILL.md)** — 镜头偏好收集与 Camera Prompt 生成。
 
 ---
 
@@ -102,8 +104,17 @@ _dashboard/ ← 第一季对外展示站(将来可按季分流)
 *   **[seasons/s1/bibles/WEAPONS.md](seasons/s1/bibles/WEAPONS.md)** — 神兵谱：神兵形制、物理逻辑与 IP 符号。
 *   **[seasons/s1/cast/](seasons/s1/cast/)** — 18 角色全量档案（JSON）。
 *   **[seasons/s1/episodes/](seasons/s1/episodes/)** — 14 集剧情大纲与定稿剧本（ep00 序幕 → ep13 待开发）。
-*   **[seasons/s1/references/](seasons/s1/references/)** — 三视图 / 定妆照 / 通告 / 纹身 / 演绎 视觉参考库。
-*   **[seasons/s1/scripts/storyboards/](seasons/s1/scripts/storyboards/)** — 已验证的 15s 镜头脚本与黄金案例。
+*   **[seasons/s1/references/](seasons/s1/references/)** — 三视图 / 定妆照 / 场景设计 / 武器 / 海报 / 脸部参考 / 坐骑 视觉库。
+*   **[seasons/s1/scripts/storyboards/](seasons/s1/scripts/storyboards/)** — 15s 镜头脚本（含 8 个验证过的分镜 + 1 个总览）。
+
+### 📚 学习素材（动作/镜头/Prompt 参考脚本）
+
+**[seasons/s1/scripts/storyboards/LEARNING_MATERIALS.md](seasons/s1/scripts/storyboards/LEARNING_MATERIALS.md)** — 8 个验证过的 15s 动作脚本一条条列出来作为学习素材：
+
+* ⭐ 金标：[顾栖月·百丈漈 Solo 母版](seasons/s1/scripts/storyboards/top10_rank09_顾栖月.md)
+* 🥈 天榜正式版（4 种动作范式）：[影·潜行瞬杀](seasons/s1/scripts/storyboards/top10_rank04_影.md) / [萧烬弦·远射弓刃](seasons/s1/scripts/storyboards/top10_rank07_萧烬弦.md) / [陆听潮·泥沼双刃](seasons/s1/scripts/storyboards/top10_rank08_陆听潮.md) / [燕照绫·大漠鞭术](seasons/s1/scripts/storyboards/top10_rank10_燕照绫.md)
+* 🥉 顾栖月系列：[雨夜古巷·交付格式样板](seasons/s1/scripts/storyboards/雨夜古巷_顾栖月_15s.md) / [剑门关·V2.0 重制版](seasons/s1/scripts/storyboards/顾栖月_剑门关_重制版.md)
+* 🟢 序章：[prologue_tianbang_intro_15s.md](seasons/s1/scripts/storyboards/prologue_tianbang_intro_15s.md)
 
 ### 展示与控制
 *   **[_dashboard/](_dashboard/)** — 第一季对外展示站。
@@ -114,10 +125,10 @@ _dashboard/ ← 第一季对外展示站(将来可按季分流)
 ## 🛠 核心工作流
 
 1.  **规则对齐** — 读 [agents/CREATIVE_BIBLE.md](agents/CREATIVE_BIBLE.md) 确认视觉与动作红线。
-2.  **人设提取** — 从当前季 `seasons/{s}/cast/*.json` 读目标角色档案。
-3.  **平台规则对齐** — 走 `seasons/{s}/scripts/storyboards/VIDEO_LESSONS.md` 的 `S-A-C-S` 结构、`@引用` 系统、负面约束与 5 秒分段策略。
-4.  **黄金案例校准** — 优先对照 `seasons/s1/scripts/storyboards/top10_rank09_顾栖月.md` 的百丈漈 Solo 样板。
-5.  **脚本输出** — 按 [agents/SCRIPT_TEMPLATE.md](agents/SCRIPT_TEMPLATE.md) 输出 15s 视频指令，再转成 Seedance 2.0 可投喂版本。
+2.  **扫学习素材** — 来 [LEARNING_MATERIALS.md](seasons/s1/scripts/storyboards/LEARNING_MATERIALS.md) 找跟你现在写的角色/动作/场景最像的那一条，先读完再去写 prompt。
+3.  **人设提取** — 从当前季 `seasons/{s}/cast/*.json` 读目标角色档案。
+4.  **平台规则对齐** — 走 `agents/CREATIVE_BIBLE.md` 第 5 章「神兵镜头专属逻辑」+ `skills/视频打斗戏/SKILL.md` 大师思维框架。
+5.  **脚本输出** — 参考金标 `top10_rank09_顾栖月.md` 或最终交付格式样板 `雨夜古巷_顾栖月_15s.md` 的 prompt 结构（细节见 LEARNING_MATERIALS.md）。
 6.  **工作台出图/出视频** — `studio/` 起本地工作台 → `/shots` 镜头台建条目 → museav 出图 → take 验收 → 入库。
 
 ---

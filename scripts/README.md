@@ -196,23 +196,25 @@ _dashboard/assets/scenery_watermarked/  # 场景图水印版
 
 **规则来源**：
 
-- `scripts/storyboards/VIDEO_LESSONS.md`
-- `scripts/storyboards/COMBAT_SOP.md`
-- 黄金案例：`scripts/storyboards/top10_rank09_顾栖月.md`
+- 创作红线：`agents/CREATIVE_BIBLE.md`
+- 学习素材总览（含金标 / 4 种天榜动作范式 / 顾栖月系列 / 序章）：`seasons/s1/scripts/storyboards/LEARNING_MATERIALS.md`
+- 黄金案例（已验证）：`seasons/s1/scripts/storyboards/top10_rank09_顾栖月.md`
+- 最终交付格式样板：`seasons/s1/scripts/storyboards/雨夜古巷_顾栖月_15s.md`
+- 打斗戏 Skill：`skills/视频打斗戏/SKILL.md`
 
 **流程**：
 
 ```
 剧情大纲 → 锁定角色锚点（cast/*.json + character_sheets）
-        → 对照 VIDEO_LESSONS.md 写 15s 骨架
+        → 扫 LEARNING_MATERIALS.md 找最像的范式
         → 按 S-A-C-S 结构整理为 Seedance 2.0 prompt
         → 复杂镜头按 5s × 3 迭代
-        → 通过后存入 scripts/storyboards/
+        → 通过后存入 seasons/s1/scripts/storyboards/
 ```
 
 **要点**：
 
-- 必须先从 `references/三视图/` 读取角色特征
+- 必须先从 `seasons/s1/references/三视图/` 读取角色特征
 - 必须使用 `@引用` 系统绑定角色/场景/武器
 - 打斗类镜头必须写物理反馈、位移来源、环境余波
 - 复杂镜头不要直接 15s 一次跑完，先 5 秒分段迭代
