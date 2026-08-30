@@ -5,5 +5,11 @@
     "private": true,
     "scripts": {
         "build": "cd _dashboard && npm install && npm run build"
+    },
+    "devDependencies": {
+        "vitest": "^4.1.11"
+    },
+    "dependencies": {
+        "html2canvas": "^1.4.1"
     }
 }

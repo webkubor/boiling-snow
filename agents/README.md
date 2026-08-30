@@ -16,17 +16,17 @@
 
 ## 📁 导航
 
-**SSOT 核心**
-- [../bibles/WORLD.md](../bibles/WORLD.md) — 世界规则与排名
-- [../bibles/WEAPONS.md](../bibles/WEAPONS.md) — 神兵谱（武器物理唯一口径）
-- [../bibles/VOICEOVER.md](../bibles/VOICEOVER.md) — Solo 视频旁白文案标准
-- [../cast/](../cast/) — 人物全量档案（JSON，唯一数据源）
+**SSOT 核心**（季特定，每季一份；默认 s1）
+- [../seasons/s1/bibles/WORLD.md](../seasons/s1/bibles/WORLD.md) — 世界规则与排名
+- [../seasons/s1/bibles/WEAPONS.md](../seasons/s1/bibles/WEAPONS.md) — 神兵谱（武器物理唯一口径）
+- [../seasons/s1/bibles/VOICEOVER.md](../seasons/s1/bibles/VOICEOVER.md) — Solo 视频旁白文案标准
+- [../seasons/s1/cast/](../seasons/s1/cast/) — 人物全量档案（JSON，唯一数据源）
 
-**规则与流程**
+**规则与流程**（跨季共享）
 - [CREATIVE_BIBLE.md](CREATIVE_BIBLE.md) — 创作红线：视觉、动作、镜头、环境
-- [../scripts/storyboards/VIDEO_LESSONS.md](../scripts/storyboards/VIDEO_LESSONS.md) — 视频规则库（Seedance 2.0）
-- [../scripts/storyboards/COMBAT_SOP.md](../scripts/storyboards/COMBAT_SOP.md) — 打斗脚本生成流程
-- [../scripts/storyboards/top10_rank09_顾栖月.md](../scripts/storyboards/top10_rank09_顾栖月.md) — 黄金案例（已验证）
+- [../seasons/s1/scripts/storyboards/VIDEO_LESSONS.md](../seasons/s1/scripts/storyboards/VIDEO_LESSONS.md) — 视频规则库（Seedance 2.0）
+- [../seasons/s1/scripts/storyboards/COMBAT_SOP.md](../seasons/s1/scripts/storyboards/COMBAT_SOP.md) — 打斗脚本生成流程
+- [../seasons/s1/scripts/storyboards/top10_rank09_顾栖月.md](../seasons/s1/scripts/storyboards/top10_rank09_顾栖月.md) — 黄金案例（已验证）
 
 **Skills（可复用生产模块）**
 - [../skills/视频打斗戏/SKILL.md](../skills/视频打斗戏/SKILL.md) — 15秒打斗脚本生成规则
