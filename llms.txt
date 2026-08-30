@@ -1,26 +1,37 @@
-# Boiling Snow (沸腾之雪) - LLMs Discovery Guide
+# 沸雪·武侠 AI 工作台 (Boiling Snow — Wuxia AI Workbench)
 
-> **Project Identity**: AI-Native Realistic Wuxia Micro-movie Production System.
-> **Philosophy**: Physics-based action, 35mm film grain, Low-key lighting, Realistic high-martial-arts (Realistic Wuxia).
+> **Project Identity**: AI-Native Wuxia / Realistic High-Martial-Arts multi-season IP film production platform.
+> **Philosophy**: Physics-based action, 35mm film grain, Low-key lighting, Realistic wuxia. One-platform, multi-season.
+> **Flagship Season**: 《沸腾之雪》(Boiling Snow) — 14 episodes, 18 characters, 12 weapons, theme song 「雪沸」.
 
 ## 🎬 Core Strategy
-- **Visual**: No magic circles, no glowing runes. Every movement must have a physical impact (snow dust, wall cracks, fabric physics).
+- **Visual**: No magic circles, no glowing runes. Every movement must have physical impact (snow dust, wall cracks, fabric physics).
 - **Ranking**: The "Tianbang" (God Ranking) defines the power balance (10 masters).
-- **Production**: All scenes are segmented into 15s clips following the [0-4s: Breath | 4-10s: Impact | 10-15s: Aftermath] structure.
+- **Production**: All scenes segmented into 15s clips following [0-4s: Breath | 4-10s: Impact | 10-15s: Aftermath].
+- **Multi-season**: seasons/s1/, seasons/s2/, ... each fully self-contained IP data; studio switches via top-bar dropdown.
+
+## 🛠 Platform Layer (cross-season)
+- `agents/CREATIVE_BIBLE.md` — Creative red lines (shared across seasons).
+- `agents/README.md` — Agent Center entry point.
+- `studio/` — Local workbench (Vue 3 + Vite 8 + Node middleware): 8 views, 9 data routes, 30+ API endpoints.
+- `scripts/` — Cross-season automation (Python + museav CLI shell-out).
 
 ## 📁 Critical Files for AI Context
-- `agents/`: The unified Creation Center. Contains rules, prompt libraries, and templates.
-- `bibles/WORLD.md`: The SSOT for world-building and ranking logic.
-- `cast/`: Character data in JSON format.
+- `agents/`: The unified Creation Center. Contains rules, prompt libraries, templates.
+- `seasons/s1/bibles/WORLD.md`: SSOT for world-building and ranking logic.
+- `seasons/s1/cast/`: Character data in JSON format (18 characters).
+- `seasons/s1/scripts/storyboards/VIDEO_LESSONS.md`: Seedance 2.0 default video rules.
+- `seasons/s1/scripts/storyboards/top10_rank09_顾栖月.md`: Validated gold case (Bai Zhangji Solo).
 
 ## 👤 Key Characters & Ranking
-- Detailed profiles and Tianbang (God Ranking) are managed in [bibles/WORLD.md](bibles/WORLD.md) and [cast/](cast/).
+- Detailed profiles and Tianbang (God Ranking) are managed in [seasons/s1/bibles/WORLD.md](seasons/s1/bibles/WORLD.md) and [seasons/s1/cast/](seasons/s1/cast/).
 - Refer to [agents/README.md](agents/README.md) for the unified creation center.
 
-## 🛠️ AI Production Red Lines
+## 🛠 AI Production Red Lines
 - **Strictly NO subtitles/watermarks** in visual descriptions.
 - **Strictly NO modern elements**.
-- **Combat**: Must follow "Windup -> Path -> Impact -> Recovery" loop.
+- **Combat**: Must follow "Windup → Path → Impact → Recovery" loop.
+- **Multi-season awareness**: When writing for a non-s1 season, anchor rules to that season's `bibles/` and `cast/`, not the root.
 
 ---
 *Created by Little Candle (小烛) for Father (老爹).*
