@@ -1,10 +1,76 @@
-import { createReadStream, readdirSync, readFileSync, statSync, writeFileSync } from 'node:fs';
-import { basename, extname, join } from 'node:path';
+import { createReadStream, readFileSync, statSync, writeFileSync } from 'node:fs';
+import { extname, join } from 'node:path';
 import { createRouter, fail, json } from './lib/http.js';
 import { generate, health, listJobs, postProcess } from './lib/museav.js';
-import { PROJECT_ROOT, resolveReadable, resolveWritable } from './lib/paths.js';
+import {
+  DEFAULT_SEASON,
+  getSeasonRoot,
+  listSeasons,
+  PROJECT_ROOT,
+  resolveReadable,
+  resolveWritable,
+} from './lib/paths.js';
 import { nextId, readState, writeState } from './lib/state.js';
 import { getRegistry, invalidateRegistry } from './registry.js';
+import { saveCapture, listCaptures, getCapture, deleteCapture, clearCaptures } from './lib/captures.js';
+import {
+  parseAllEpisodes,
+  parseStoryboards,
+  parseCreativeBible,
+  parseVoiceover,
+  parseCameraSkill,
+  parseAesthetic,
+  parseBgm,
+  parseMainTheme,
+  parseWeapons,
+  setSeason,
+} from './lib/parser.js';
+
+/** 全局搜索：合并角色 / 剧集 / 神兵 / BGM。query 太短或空就返回空数组。 */
+function globalSearch(q, season) {
+  setSeason(season);
+  const query = (q || '').trim();
+  if (query.length < 1) return [];
+  const results = [];
+  // 角色
+  try {
+    for (const c of getRegistry().characters) {
+      const hit = c.name?.includes(query) || c.title?.includes(query) || c.aliases?.some((a) => a?.includes(query));
+      if (hit) {
+        results.push({ type: 'character', name: c.name, title: c.title, faction: c.faction, rank: c.rank, avatar: c.avatar, to: '/cast' });
+      }
+    }
+  } catch { /* */ }
+  // 剧集
+  try {
+    for (const ep of parseAllEpisodes()) {
+      const hit = ep.title?.includes(query) || ep.core?.includes(query) || String(ep.ep).includes(query);
+      if (hit) {
+        results.push({ type: 'episode', ep: ep.ep, title: ep.title, core: ep.core?.slice(0, 60), status: ep.statusLabel, to: '/episodes' });
+      }
+    }
+  } catch { /* */ }
+  // 神兵
+  try {
+    for (const w of parseWeapons()) {
+      const hit = w.name?.includes(query) || w.holder?.includes(query);
+      if (hit) {
+        results.push({ type: 'weapon', name: w.name, holder: w.holder, to: '/cast' });
+      }
+    }
+  } catch { /* */ }
+  // BGM
+  try {
+    const bgm = parseBgm();
+    for (const b of bgm?.blocks || []) {
+      const hit = b.title?.includes(query) || b.tag?.includes(query);
+      if (hit) {
+        results.push({ type: 'bgm', title: b.title, tag: b.tag, to: '/aesthetic' });
+      }
+    }
+  } catch { /* */ }
+  return results.slice(0, 30);
+}
 
 const MIME = {
   '.png': 'image/png',
@@ -73,30 +139,41 @@ function sanitizeShot(input, base = {}) {
 
 /* ── 剧集 / 分镜（只读） ──────────────────────────────────────── */
 
-function listMarkdown(dirRel) {
-  const dir = join(PROJECT_ROOT, dirRel);
-  try {
-    return readdirSync(dir)
-      // README 是给人看的目录说明，不是剧集/分镜本身
-      .filter((f) => f.endsWith('.md') && f.toUpperCase() !== 'README.MD')
-      .map((f) => {
-        const abs = join(dir, f);
-        const text = readFileSync(abs, 'utf8');
-        const st = statSync(abs);
-        return {
-          id: basename(f, '.md'),
-          rel: `${dirRel}/${f}`,
-          // 第一个 # 标题当作显示名，没有就退回文件名
-          title: text.match(/^#\s+(.+)$/m)?.[1]?.trim() ?? basename(f, '.md'),
-          lines: text.split('\n').length,
-          size: st.size,
-          mtime: st.mtimeMs,
-        };
-      })
-      .sort((a, b) => a.id.localeCompare(b.id, 'zh'));
-  } catch {
-    return [];
-  }
+/** 把单集收敛成列表用摘要（不返回 raw、acts、scenes 等大字段） */
+function summarizeEpisode(ep) {
+  return {
+    ep: ep.ep,
+    slug: ep.slug,
+    title: ep.title || ep.slug,
+    core: ep.core || '',
+    kind: ep.kind,
+    status: ep.status,
+    statusLabel: ep.statusLabel,
+    exists: ep.exists,
+    shotCount:
+      (ep.acts?.reduce((n, a) => n + (a.shots?.length || 0), 0) ?? 0)
+      || ep.scenes?.length
+      || ep.prologueParts?.length
+      || ep.storyboardShots?.length
+      || 0,
+    jimengCount: ep.jimeng?.length || 0,
+    voiceoverCount: ep.voiceover?.length || 0,
+    audioCount: ep.audio?.length || 0,
+    charCount: ep.charCount,
+    updatedAt: ep.updatedAt,
+  };
+}
+
+function summarizeStoryboard(b) {
+  return {
+    file: b.file,
+    rel: b.rel,
+    title: b.title,
+    shotCount: b.shots.length,
+    jimengCount: b.jimeng.length,
+    charCount: b.charCount,
+    updatedAt: b.updatedAt,
+  };
 }
 
 /* ── 路由表 ──────────────────────────────────────────────────── */
@@ -146,8 +223,149 @@ export const handleApi = createRouter({
     json(res, { ok: true, path: char.castPath });
   },
 
-  'GET /episodes': ({ res }) => json(res, listMarkdown('episodes')),
-  'GET /storyboards': ({ res }) => json(res, listMarkdown('scripts/storyboards')),
+  'GET /episodes': ({ res, query }) => {
+    setSeason(query.get('season'));
+    const eps = parseAllEpisodes().map(summarizeEpisode);
+    json(res, { episodes: eps, total: eps.length, season: query.get('season') || DEFAULT_SEASON });
+  },
+  'GET /episodes/:n': ({ res, params, query }) => {
+    setSeason(query.get('season'));
+    const n = parseInt(params.n, 10);
+    if (Number.isNaN(n) || n < 0 || n > 13) {
+      throw Object.assign(new Error('ep 必须在 0-13 之间'), { statusCode: 400 });
+    }
+    const ep = parseAllEpisodes()[n];
+    json(res, { ep });
+  },
+  'GET /storyboards': ({ res, query }) => {
+    setSeason(query.get('season'));
+    const boards = parseStoryboards().map(summarizeStoryboard);
+    json(res, { storyboards: boards, total: boards.length, season: query.get('season') || DEFAULT_SEASON });
+  },
+  'GET /storyboards/:file': ({ res, params, query }) => {
+    setSeason(query.get('season'));
+    const file = decodeURIComponent(params.file);
+    const board = parseStoryboards().find((b) => b.file === file);
+    if (!board) throw Object.assign(new Error('storyboard 不存在'), { statusCode: 404 });
+    json(res, { storyboard: board });
+  },
+
+  // ── 创意法典 + 旁白 + 镜头美学 ──
+  'GET /bible': ({ res, query }) => {
+    setSeason(query.get('season'));
+    json(res, { bible: parseCreativeBible() });
+  },
+  'GET /voiceover': ({ res, query }) => {
+    setSeason(query.get('season'));
+    json(res, { voiceover: parseVoiceover() });
+  },
+  'GET /camera-skill': ({ res, query }) => {
+    setSeason(query.get('season'));
+    json(res, { cameraSkill: parseCameraSkill() });
+  },
+
+  // ── 镜头·音乐·审美 三轴 ──
+  'GET /aesthetic': ({ res, query }) => {
+    setSeason(query.get('season'));
+    json(res, { aesthetic: parseAesthetic() });
+  },
+  'GET /bgm': ({ res, query }) => {
+    setSeason(query.get('season'));
+    json(res, { bgm: parseBgm() });
+  },
+  'GET /theme': ({ res, query }) => {
+    setSeason(query.get('season'));
+    json(res, { theme: parseMainTheme() });
+  },
+  'GET /weapons': ({ res, query }) => {
+    setSeason(query.get('season'));
+    json(res, { weapons: parseWeapons() });
+  },
+
+  // ── 季/IP 切换 ──
+  'GET /seasons': ({ res }) => {
+    const seasons = listSeasons().map((s) => ({
+      name: s,
+      root: getSeasonRoot(s),
+    }));
+    json(res, { seasons, current: DEFAULT_SEASON });
+  },
+  'GET /seasons/:name/manifest': ({ res, params }) => {
+    const name = params.name;
+    setSeason(name);
+    // 给个轻量 manifest：14 集数 + 角色数 + 神兵数 + BGM 数
+    const eps = parseAllEpisodes();
+    const reg = getRegistry();
+    const bgm = parseBgm();
+    const weapons = parseWeapons();
+    json(res, {
+      season: name,
+      episodes: { total: eps.length, finalized: eps.filter((e) => e.status === 'finalized').length },
+      characters: reg.characters.length,
+      weapons: weapons.length,
+      bgm: bgm?.blocks?.length || 0,
+    });
+  },
+
+  // ── 全局搜索 ──
+  'GET /search': ({ res, query }) => {
+    const q = query.get('q') || '';
+    const results = globalSearch(q, query.get('season'));
+    json(res, { q, results, total: results.length });
+  },
+
+  // ── 本地轻量库:截图/卡片捕获 ──
+  'GET /captures': ({ res, query }) => {
+    const list = listCaptures({
+      limit: Number(query.get('limit')) || 100,
+      type: query.get('type') || undefined,
+    });
+    json(res, { captures: list, total: list.length });
+  },
+  'GET /captures/:id': ({ res, params }) => {
+    const cap = getCapture(params.id);
+    if (!cap) throw Object.assign(new Error('捕获不存在'), { statusCode: 404 });
+    json(res, { capture: cap });
+  },
+  'DELETE /captures/:id': ({ res, params }) => {
+    const ok = deleteCapture(params.id);
+    if (!ok) throw Object.assign(new Error('捕获不存在'), { statusCode: 404 });
+    json(res, { ok: true });
+  },
+  'DELETE /captures': ({ res }) => {
+    clearCaptures();
+    json(res, { ok: true });
+  },
+  'POST /captures raw': async ({ req, res }) => {
+    // 上传 PNG 二进制 + meta
+    // 客户端用 multipart/form-data,这里简单点:用 raw body + X-Meta header
+    const chunks = [];
+    for await (const chunk of req) chunks.push(chunk);
+    const buffer = Buffer.concat(chunks);
+    if (buffer.length === 0) throw Object.assign(new Error('empty body'), { statusCode: 400 });
+    if (buffer.length > 20 * 1024 * 1024) {
+      throw Object.assign(new Error('超过 20MB 上限'), { statusCode: 413 });
+    }
+    let meta = {};
+    try {
+      const raw = req.headers['x-meta'];
+      if (raw) meta = JSON.parse(raw);
+    } catch { /* */ }
+    const cap = saveCapture(buffer, meta);
+    json(res, { ok: true, capture: cap }, 201);
+  },
+  'GET /captures/:id/raw': ({ res, params }) => {
+    const cap = getCapture(params.id);
+    if (!cap) throw Object.assign(new Error('捕获不存在'), { statusCode: 404 });
+    const abs = join(PROJECT_ROOT, 'studio', '.state', 'captures', cap.filename);
+    const st = statSync(abs);
+    res.writeHead(200, {
+      'content-type': 'image/png',
+      'content-length': st.size,
+      'cache-control': 'no-cache',
+    });
+    createReadStream(abs).pipe(res);
+  },
 
   'GET /doc/:rel': ({ res, params }) => {
     const abs = resolveReadable(params.rel);

@@ -1,7 +1,23 @@
 import { ref } from 'vue';
 
+const SEASON_KEY = 'studio.season';
+const currentSeason = ref(localStorage.getItem(SEASON_KEY) || 's1');
+
+/** 切季后所有后续 request 会自动带 ?season= */
+export function setCurrentSeason(name) {
+  currentSeason.value = name || 's1';
+  localStorage.setItem(SEASON_KEY, currentSeason.value);
+}
+export function getCurrentSeason() { return currentSeason.value; }
+
+function withSeason(path) {
+  const sep = path.includes('?') ? '&' : '?';
+  return `${path}${sep}season=${encodeURIComponent(currentSeason.value)}`;
+}
+
 async function request(path, options = {}) {
-  const res = await fetch(`/api${path}`, {
+  const url = withSeason(path);
+  const res = await fetch(`/api${url}`, {
     headers: { 'content-type': 'application/json' },
     ...options,
     body: options.body ? JSON.stringify(options.body) : undefined,
@@ -20,9 +36,54 @@ export const api = {
   saveCharacter: (name, raw) =>
     request(`/cast/${encodeURIComponent(name)}`, { method: 'PUT', body: raw }),
 
+  // 季切换
+  seasons: () => request('/seasons'),
+  seasonManifest: (name) => request(`/seasons/${encodeURIComponent(name)}/manifest`),
+
+  // 全局搜索
+  search: (q) => request(`/search?q=${encodeURIComponent(q)}`),
+
+  // 截图/卡片捕获
+  captures: (opts = {}) => {
+    const params = new URLSearchParams();
+    if (opts.limit) params.set('limit', String(opts.limit));
+    if (opts.type) params.set('type', opts.type);
+    return request(`/captures${params.toString() ? '?' + params : ''}`);
+  },
+  deleteCapture: (id) => request(`/captures/${id}`, { method: 'DELETE' }),
+  clearCaptures: () => request('/captures', { method: 'DELETE' }),
+  async uploadCapture(blob, meta = {}) {
+    const buf = await blob.arrayBuffer();
+    const res = await fetch(`/api/captures`, {
+      method: 'POST',
+      headers: {
+        'content-type': 'image/png',
+        'x-meta': JSON.stringify(meta),
+      },
+      body: buf,
+    });
+    const text = await res.text();
+    const data = text ? JSON.parse(text) : null;
+    if (!res.ok) throw new Error(data?.error ?? `上传失败 (${res.status})`);
+    return data.capture;
+  },
+
   episodes: () => request('/episodes'),
+  episode: (n) => request(`/episodes/${n}`),
   storyboards: () => request('/storyboards'),
+  storyboard: (file) => request(`/storyboards/${encodeURIComponent(file)}`),
   doc: (rel) => request(`/doc/${encodeURIComponent(rel)}`),
+
+  // 创意法典 + 旁白 + 镜头美学
+  bible: () => request('/bible'),
+  voiceover: () => request('/voiceover'),
+  cameraSkill: () => request('/camera-skill'),
+
+  // 镜头·音乐·审美 三轴
+  aesthetic: () => request('/aesthetic'),
+  bgm: () => request('/bgm'),
+  theme: () => request('/theme'),
+  weapons: () => request('/weapons'),
 
   shots: () => request('/shots'),
   createShot: (shot) => request('/shots', { method: 'POST', body: shot }),

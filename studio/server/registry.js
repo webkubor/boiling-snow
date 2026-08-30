@@ -1,6 +1,6 @@
 import { readdirSync, readFileSync, statSync } from 'node:fs';
 import { basename, extname, join, relative } from 'node:path';
-import { PROJECT_ROOT, STUDIO_ROOT } from './lib/paths.js';
+import { getSeasonRoot, PROJECT_ROOT, STUDIO_ROOT } from './lib/paths.js';
 
 /**
  * 资产索引层 —— 把仓库里四套并存的命名映射到一起。
@@ -97,7 +97,7 @@ function loadManualAliases() {
 }
 
 function buildCharacters() {
-  const castDir = join(PROJECT_ROOT, 'cast');
+  const castDir = join(getSeasonRoot(), 'cast');
   const characters = [];
 
   for (const file of readdirSync(castDir)) {
@@ -156,7 +156,7 @@ function build() {
     .sort((a, b) => b.alias.length - a.alias.length);
 
   // references/ 下每个一级目录是一个资产分类（定妆照 / 三视图 / 武器 …）
-  const refRoot = join(PROJECT_ROOT, 'references');
+  const refRoot = join(getSeasonRoot(), 'references');
   const categories = {};
   let refDirs = [];
   try {

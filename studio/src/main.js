@@ -8,8 +8,13 @@ const router = createRouter({
   routes: [
     { path: '/', redirect: '/shots' },
     { path: '/shots', name: 'shots', component: () => import('./views/ShotsView.vue') },
+    { path: '/episodes', name: 'episodes', component: () => import('./views/EpisodesView.vue') },
     { path: '/cast', name: 'cast', component: () => import('./views/CastView.vue') },
     { path: '/gallery', name: 'gallery', component: () => import('./views/GalleryView.vue') },
+    { path: '/bible', name: 'bible', component: () => import('./views/BibleView.vue') },
+    { path: '/aesthetic', name: 'aesthetic', component: () => import('./views/AestheticView.vue') },
+    { path: '/cases', name: 'cases', component: () => import('./views/CaseGalleryView.vue') },
+    { path: '/prompt-lab', name: 'prompt-lab', component: () => import('./views/PromptLabView.vue') },
     { path: '/queue', name: 'queue', component: () => import('./views/QueueView.vue') },
   ],
 });

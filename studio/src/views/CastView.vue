@@ -4,6 +4,7 @@ import { api, assetUrl } from '../api';
 
 const characters = ref([]);
 const orphans = ref([]);
+const weapons = ref([]);
 const selected = ref(null);
 const detail = ref(null);
 const draft = ref('');
@@ -11,6 +12,8 @@ const tab = ref('profile');
 const saving = ref(false);
 const message = ref(null);
 const keyword = ref('');
+const onlyMine = ref(false);
+const copied = ref(null);
 
 const filtered = computed(() => {
   const kw = keyword.value.trim();
@@ -48,6 +51,11 @@ async function loadList() {
   const reg = await api.registry();
   characters.value = reg.characters;
   orphans.value = reg.orphans;
+  // 神兵谱只加载一次；cast 列表变动不影响武器
+  if (!weapons.value.length) {
+    const w = await api.weapons();
+    weapons.value = w.weapons || [];
+  }
   if (!selected.value && characters.value.length) select(characters.value[0].name);
 }
 
@@ -93,6 +101,29 @@ const allRefs = computed(() => {
     files.map((f) => ({ ...f, category })),
   );
 });
+
+/** 当前角色持有的神兵 —— holder 字段包含角色名就算 */
+const myWeapons = computed(() => {
+  if (!detail.value?.name) return [];
+  const name = detail.value.name;
+  return weapons.value.filter((w) => w.holder?.includes(name));
+});
+
+/** 武器 tab 显示列表：默认全 12 把，开启 onlyMine 只看自己的 */
+const weaponsForTab = computed(() => {
+  if (onlyMine.value) return myWeapons.value;
+  return weapons.value;
+});
+
+const weaponKv = (kvs, key) => kvs?.find((k) => k.key === key)?.value;
+
+async function copy(text, id) {
+  try {
+    await navigator.clipboard.writeText(text);
+    copied.value = id;
+    setTimeout(() => { if (copied.value === id) copied.value = null; }, 1500);
+  } catch { /* */ }
+}
 
 watch(selected, () => {
   tab.value = 'profile';
@@ -164,6 +195,7 @@ onMounted(loadList);
           v-for="t in [
             { id: 'profile', label: '档案' },
             { id: 'refs', label: `参考图 ${allRefs.length}` },
+            { id: 'weapons', label: `神兵 ${myWeapons.length}/${weapons.length}` },
             { id: 'raw', label: '原文 JSON' },
           ]"
           :key="t.id"
@@ -200,6 +232,55 @@ onMounted(loadList);
           <p v-if="!allRefs.length" class="empty">
             这个角色还没有任何参考图。去镜头台出一张，或往 references/ 里放。
           </p>
+        </div>
+
+        <!-- 神兵 -->
+        <div v-else-if="tab === 'weapons'" class="weapons-tab">
+          <div class="weapons-toolbar">
+            <label class="weapons-toggle">
+              <input type="checkbox" v-model="onlyMine" />
+              <span>只看 {{ detail.name }} 的 ({{ myWeapons.length }})</span>
+            </label>
+            <span class="dim mono">{{ weaponsForTab.length }} / {{ weapons.length }}</span>
+          </div>
+          <p v-if="!weapons.length" class="empty">神兵谱未加载</p>
+          <p v-else-if="!weaponsForTab.length" class="empty">
+            {{ onlyMine ? `${detail.name} 在神兵谱里没有专属武器` : '无' }}
+          </p>
+          <div v-else class="weapons-list">
+            <article
+              v-for="w in weaponsForTab"
+              :key="w.index"
+              class="weapon-card"
+              :class="{ mine: myWeapons.includes(w) }"
+            >
+              <header class="weapon-card-head">
+                <span class="weapon-card-num">{{ String(w.index).padStart(2, '0') }}</span>
+                <h3 class="weapon-card-name">【{{ w.name }}】</h3>
+                <span v-if="w.holder" class="dim weapon-card-holder">{{ w.holder }}</span>
+                <button
+                  v-if="myWeapons.includes(w)"
+                  class="btn btn-sm weapon-card-copy"
+                  @click="copy(weaponKv(w.kvs, 'IP符号') || w.body, `w-${w.index}`)"
+                >{{ copied === `w-${w.index}` ? '已复制' : '复制' }}</button>
+              </header>
+              <dl class="weapon-card-meta">
+                <div v-if="weaponKv(w.kvs, '形制')">
+                  <dt>形制</dt><dd>{{ weaponKv(w.kvs, '形制') }}</dd>
+                </div>
+                <div v-if="weaponKv(w.kvs, '物理逻辑')">
+                  <dt>物理</dt><dd>{{ weaponKv(w.kvs, '物理逻辑') }}</dd>
+                </div>
+                <div v-if="weaponKv(w.kvs, 'IP符号')">
+                  <dt>符号</dt><dd>{{ weaponKv(w.kvs, 'IP符号') }}</dd>
+                </div>
+              </dl>
+              <details class="weapon-card-body-wrap">
+                <summary class="dim">展开完整描述</summary>
+                <pre class="weapon-card-body mono">{{ w.body }}</pre>
+              </details>
+            </article>
+          </div>
         </div>
 
         <!-- 原文 -->
@@ -475,4 +556,25 @@ onMounted(loadList);
   color: var(--crimson);
   font-size: 11px;
 }
+
+/* 神兵 tab */
+.weapons-tab { display: flex; flex-direction: column; gap: var(--sp-3); max-width: 920px; }
+.weapons-toolbar { display: flex; justify-content: space-between; align-items: center; padding: var(--sp-2) var(--sp-3); background: var(--ink-1); border: 1px solid var(--line-1); border-radius: var(--r-2); }
+.weapons-toggle { display: flex; gap: var(--sp-2); align-items: center; font-size: 12px; color: var(--text-2); cursor: pointer; }
+.weapons-toggle input { accent-color: var(--gold-2); }
+.weapons-list { display: flex; flex-direction: column; gap: var(--sp-2); }
+.weapon-card { padding: var(--sp-3); background: var(--ink-1); border: 1px solid var(--line-1); border-radius: var(--r-3); border-left: 2px solid var(--ink-4); }
+.weapon-card.mine { border-left-color: var(--gold-2); background: linear-gradient(90deg, var(--gold-wash) 0%, var(--ink-1) 30%); }
+.weapon-card-head { display: flex; align-items: center; gap: var(--sp-2); margin-bottom: var(--sp-2); }
+.weapon-card-num { font-family: var(--font-mono); font-size: 10px; color: var(--gold-2); letter-spacing: 0.15em; }
+.weapon-card-name { margin: 0; font-size: 15px; color: var(--gold-1); flex: 0 0 auto; }
+.weapon-card-holder { font-size: 11px; flex: 1; }
+.weapon-card-copy { font-size: 10px; padding: 1px 6px; }
+.weapon-card-meta { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: var(--sp-2); padding: var(--sp-2); background: var(--ink-0); border-radius: var(--r-2); margin: 0 0 var(--sp-2); }
+.weapon-card-meta div { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.weapon-card-meta dt { font-size: 9px; color: var(--text-3); letter-spacing: 0.2em; }
+.weapon-card-meta dd { margin: 0; font-size: 11px; color: var(--text-1); line-height: 1.5; }
+.weapon-card-body-wrap summary { cursor: pointer; padding: var(--sp-1) 0; user-select: none; font-size: 10px; }
+.weapon-card-body-wrap summary:hover { color: var(--gold-1); }
+.weapon-card-body { white-space: pre-wrap; word-break: break-word; font-size: 11px; line-height: 1.6; color: var(--text-2); margin: var(--sp-1) 0 0; max-height: 320px; overflow-y: auto; padding: var(--sp-2); background: var(--ink-0); border-radius: var(--r-2); }
 </style>

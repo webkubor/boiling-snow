@@ -1,81 +1,149 @@
 # 沸雪工作台 (Boiling Snow Studio)
 
-《沸腾之雪》的**本地**生产工作台。跑在自己机器上，直接读写仓库里的真源文件。
+《沸腾之雪》多季本地生产工作台。Vue 3 + Vite 8 前端,Node 后端挂在 Vite dev middleware(零外部进程)。一个命令起全部,只跑 127.0.0.1,**纯本地工具,不部署**。
+
+## 跑起来
 
 ```bash
-cd studio && pnpm install && pnpm dev
+cd studio
+pnpm install   # 首次
+pnpm dev       # http://127.0.0.1:5273
 ```
 
-一条命令起完整工作台（前端 + 后端同进程，后端是 Vite 的 middleware，不用另开服务）。
+> `pnpm build` 只做语法/打包校验。**不能直接部署** —— 静态站没有后端,`/api/*` 都会 404。生产请直接 `pnpm dev`。
 
-`pnpm build` 只用来做构建校验。**构建产物不能部署** —— 静态站没有后端，所有 `/api/*` 都会 404。
-这是本地工具，只跑 `dev`。
-
-## 这个工作台和 `_dashboard/` 什么关系
-
-两套前端，**互不干扰**，共用同一批真源：
-
-| | `_dashboard/` | `studio/`（本工作台） |
-|---|---|---|
-| 给谁看 | 对外访客 | 只给自己 |
-| 部署 | Vercel 静态站 | **只在本地跑，不部署** |
-| 目的 | 沉浸叙事（入阵动画、BGM、宣言） | 干活（信息密度、可编辑、能出图） |
-| 数据 | `_dashboard/data/*.js` 手抄副本 | 直接读 `cast/` `episodes/` `references/` 真源 |
-
-分开是刻意的：展示站要沉浸感，工作台要信息密度，塞进一个页面两边都做不好。
-
-## 真源与状态的边界（重要）
-
-**工作台永远不会自作主张改你的内容真源。**
-
-| 数据 | 位置 | 谁是真源 | 工作台的权限 |
-|---|---|---|---|
-| 角色档案 | `cast/*.json` | 文件本身 | 读 + **显式点保存才写** |
-| 剧集剧本 | `episodes/*.md` | 文件本身 | **只读**，永不回写 |
-| 参考图库 | `references/` | 文件本身 | 只读索引 |
-| 镜头/出图记录 | `studio/.state/` | 工作台 | 读写（已 gitignore） |
-
-所以：**工作台崩了、删了、重写了，你的内容一个字都不会少。** 丢的最多是生产状态（哪张图采用了）。
-
-保存角色档案时的格式：缩进 2 空格、中文不转义、字段顺序原样保留 —— 和仓库里现有 JSON 一致，
-diff 只会显示你真正改的那几行。唯一的例外是**文件末尾会补一个换行**：18 个角色里有 16 个本来就有，
-只有 `温小婉.json` 和 `顾栖月.json` 缺，第一次保存这两个会多一行 EOF 的 diff，之后就稳定了。
-
-`episodes/*.md` 之所以只读，是因为 14 集里有至少 4 种不同的文档结构（ep02–07 只有大纲、压根没有镜头；ep01/ep12/ep13 各是一套镜头写法）。写一个能吃下全部格式还能安全回写的解析器，是个永远修不完的坑。所以镜头在工作台里独立建，只**引用**剧集，不反向改写它。
-
-## 目录
+## 多季架构(2026-08 后)
 
 ```
-studio/
-├── server/          后端（挂在 Vite middleware 上，零外部依赖，只用 node: 内置模块）
-│   ├── registry.js  资产索引层 —— 统一四套命名（见下）
-│   └── routes/      cast / episodes / refs / shots / gen
-├── src/             Vue 3 前端
-│   └── styles/      设计 token
-└── .state/          生产状态侧车（gitignore）
+seasons/
+  s1/                  ← 第一季《沸腾之雪》(默认)
+    cast/ episodes/ bibles/ music/ references/ scripts/storyboards/
+  s2/                  ← 第二季(同结构,新建空目录后从 s1 复制骨架)
+  s3/
+agents/                ← 跨季共享(创作红线 CREATIVE_BIBLE.md 等)
+scripts/               ← 跨季工具脚本
+studio/                ← 工作台本身(独立)
+_dashboard/            ← 第一季对外展示站
 ```
 
-## 四套命名的问题
+**顶栏下拉切换季**(`/api/seasons` 列出 `seasons/` 下的子目录),所有视图自动重读对应季的 cast/episodes/bibles。`localStorage` 记住上次选择。
 
-同一个角色，仓库里历史上有四种叫法：
+新增第二季:`mkdir -p seasons/s2/{cast,episodes,bibles,music,references,scripts/storyboards}` → 复制 s1 骨架 → 工作台下拉选 s2。
 
-| 位置 | 顾栖月长什么样 |
+## 8 个视图
+
+| 路径 | 用途 |
 |---|---|
-| `cast/顾栖月.json` | 文件名中文，内含 `"ID": "gu-qi-yue"` |
-| `_dashboard/assets/characters/` | `gu_qi_yue.png`（下划线） |
-| `references/定妆照/` | 中文目录 + 中文文件名 |
-| `scripts/gen_image.py`（已废弃） | `gu_qiyue`（第三种拼法） |
+| `/shots` | 镜头台 — 分镜 CRUD + museav 出图/出视频 |
+| `/episodes` | **剧集看板** — 14 集 + 状态分组 + 详情按 kind 自适应 + JImeng 指令侧栏 |
+| `/cast` | 角色库 — 18 角色档案可编辑 + 4 tab(档案/参考图/神兵/原文 JSON) |
+| `/gallery` | 参考图库 — references/ 缩略图 |
+| `/bible` | 创意法典 — 7 大节法典 + 旁白文案 + 镜头美学 SKILL |
+| `/aesthetic` | 三轴预览 — 镜头 / 音乐 / 审美(神兵) |
+| `/prompt-lab` | **Prompt 实验室** — 法典+角色+神兵 自动套用 S-A-C-S,一键复制投喂 Seedance 2.0 |
+| `/queue` | 渲染队列 — museav jobs |
 
-`server/registry.js` 在运行时把这四套映射到一起。**不移动、不重命名任何现有文件** —— 移目录会炸掉一堆硬编码引用，代价远大于收益。
+侧栏顶栏还有**全局搜索**(⌘-K 风格的字符搜,跨角色/剧集/神兵/BGM,200ms debounce)。
+
+## API 路由
+
+| Method | Path | 说明 |
+|---|---|---|
+| `GET` | `/api/health` | 后端健康(museav / registry) |
+| `GET` | `/api/registry` | 角色索引(全部,不含 raw) |
+| `GET` | `/api/cast/:name` | 单角色 raw |
+| `PUT` | `/api/cast/:name` | 写回 cast JSON(2 空格缩进,中文不转义) |
+| `GET` | `/api/seasons` | 所有季列表 |
+| `GET` | `/api/seasons/:name/manifest` | 单季 manifest(集数/角色/神兵/BGM 计数) |
+| `GET` | `/api/search?q=...` | 全局搜索(角色/剧集/神兵/BGM) |
+| `GET` | `/api/episodes[?season=s1]` | 14 集摘要 |
+| `GET` | `/api/episodes/:n[?season=s1]` | 单集详情(5 种 kind 自适应) |
+| `GET` | `/api/storyboards[?season=s1]` | storyboard 列表 |
+| `GET` | `/api/storyboards/:file[?season=s1]` | 单个 storyboard |
+| `GET` | `/api/bible[?season=s1]` | 创意法典结构化 |
+| `GET` | `/api/voiceover[?season=s1]` | 角色评卷版文案 |
+| `GET` | `/api/camera-skill[?season=s1]` | 镜头美学 SKILL |
+| `GET` | `/api/aesthetic[?season=s1]` | 影调协议(去重) |
+| `GET` | `/api/bgm[?season=s1]` | BGM 库 |
+| `GET` | `/api/theme[?season=s1]` | 主题曲「雪沸」 |
+| `GET` | `/api/weapons[?season=s1]` | 12 把神兵 |
+| `GET` | `/api/shots` | 工作台镜头账本(studio/.state/) |
+| `POST` | `/api/shots` | 新建镜头 |
+| `PUT` | `/api/shots/:id` | 更新 |
+| `DELETE` | `/api/shots/:id` | 删除 |
+| `POST` | `/api/shots/:id/adopt` | 标记采用某 take |
+| `POST` | `/api/shots/:id/generate` | 出图/视频(SSE 推进度) |
+| `GET` | `/api/jobs?limit=20` | museav 队列 |
+| `POST` | `/api/post-process` | upscale / remove-bg / remove-watermark |
+| `GET` | `/api/asset?p=...` | 仓库内图片/视频/字体直出 |
+| `GET` | `/api/events` | SSE(出图进度推送) |
+| `GET` | `/api/doc/:rel` | 读任意 md 文件(白名单内) |
+
+所有 `?season=xxx` 缺省 = 默认季(`STUDIO_SEASON` env 或 `s1`)。
+
+## 真源与状态的边界
+
+| 数据 | 位置 | 谁是真源 | 工作台权限 |
+|---|---|---|---|
+| 角色档案 | `seasons/{s}/cast/*.json` | 文件本身 | 读 + **显式点保存才写** |
+| 剧集剧本 | `seasons/{s}/episodes/*.md` | 文件本身 | **只读** |
+| 神兵谱 | `seasons/{s}/bibles/WEAPONS.md` | 文件本身 | 只读 |
+| 创作红线 | `agents/CREATIVE_BIBLE.md` | 文件本身 | 只读(跨季共享) |
+| 参考图库 | `seasons/{s}/references/` | 文件本身 | 只读索引 |
+| 镜头/出图记录 | `studio/.state/` | 工作台 | 读写(gitignore) |
+
+`episodes/*.md` 之所以只读:14 集至少 4 种文档结构(ep02–07 是大纲、ep01/ep12/ep13 各一套镜头写法),安全回写解析器是个无底洞。**镜头在工作台里独立建,只引用剧集,不反向改写**。
+
+## 5 种 Episode Kind
+
+parser 自动识别,UI 按 kind 决定渲染:
+
+| Kind | 样例 | 识别规则 |
+|---|---|---|
+| `prologue` | ep00 | 文件名 ep00 |
+| `structured-15s` | ep01 | 含 `## 第X幕` 或 `### N. xxx` |
+| `detailed-scenes` | ep12 | 含 `## 场景N：xxx` |
+| `outline` | ep07, ep02-11 | 默认(短剧情大纲) |
+| `storyboard` | scripts/storyboards/*.md | 含 `0-3秒\|起势` |
+| `pending` | ep13(待开发) | 文件不存在 |
+
+## 命名映射(registry 4 套同名问题)
+
+同一个角色,仓库里历史上有 4 种叫法:`cast/顾栖月.json`(中文文件名 + ID `gu-qi-yue`)、`_dashboard/assets/characters/gu_qi_yue.png`(下划线)、`references/定妆照/顾栖月_v1_玉笛.png`(中文目录+版本后缀)、`scripts/gen_image.py` 已废弃的 `gu_qiyue`(第三种拼法)。`server/registry.js` 在运行时把它们映射到一起。**不移动、不重命名任何现有文件**。
 
 ## 出图链路
 
-出图/出视频全部 shell out 到 [`museav`](https://github.com/webkubor/museav-cli) CLI，工作台自己不写任何模型调用代码：
+出图/出视频全部 shell out 到 [`museav`](https://github.com/webkubor/museav-cli) CLI:
 
-- 出图/出视频 → `museav gen`（`--ref` 垫图、`--video --image` 图生视频首帧）
+- 出图/出视频 → `museav gen`(`--ref` 垫图、`--video --image` 图生视频首帧)
 - 队列 → `museav jobs`
 - 后处理 → `museav upscale` / `remove-bg` / `remove-watermark`
 
-> `scripts/gen_image.py` **已废弃**：它引用的 `references/visual_anchors`、`character_anchors`、`costume_designs` 三个目录都不存在了，依赖的 nanobanana MCP 路径也没了。功能由 `museav` 全部覆盖，不再维护。
+> `scripts/gen_image.py` **已废弃**,功能由 `museav` 全部覆盖,不再维护。
 
-解析 `museav` 输出时**只读 stdout** —— 人类可读的那部分走 stderr，照终端所见去解析会抓空。
+解析 `museav` 输出时**只读 stdout** —— 人类可读的那部分走 stderr,照终端所见去解析会抓空。
+
+## 路径安全
+
+`server/lib/paths.js` 写白名单不写黑名单:**新增目录默认读不到**。可读白名单:`cast/ episodes/ bibles/ music/ references/ scripts/storyboards/ agents/ skills/ _dashboard/assets/`。可写白名单:只有 `cast/`。`episodes/` 刻意不可写 —— 14 集 4 种结构,安全回写做不到。
+
+## 测试
+
+```bash
+cd studio
+pnpm test         # 跑 vitest(parser 核心函数回归)
+```
+
+测试覆盖:`parseEpNumber`(中文/阿拉伯数字集号)、`parseEpisodeIndex`(README 索引表)、`detectKind`(5 种 kind 自动识别)、`extractJimengPrompts`(容忍加粗+空格+全角)、`extractMetaField`(双格式兼容)、`globalSearch`(跨类合并)。
+
+## 路线图
+
+- [x] **阶段 1**: 仓库重构 + 多季架构(2026-08)
+- [x] **阶段 2**: Prompt 实验室(2026-08)
+- [x] **阶段 3**: 全局搜索(2026-08)
+- [x] **阶段 4**: 文档 + 单测(2026-08)
+- [ ] **阶段 5**: 键盘快捷键(⌘-K 唤起搜索, g+e 跳剧集…)
+
+---
+
+*Created for Father (老爹) by Boiling Snow Team.*

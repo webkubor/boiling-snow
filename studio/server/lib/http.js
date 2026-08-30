@@ -37,12 +37,18 @@ export async function readJsonBody(req, limitBytes = 5 * 1024 * 1024) {
 /**
  * 路由表：{ 'GET /cast': handler }
  * 支持 ':param' 占位，handler 收到 (ctx) = { req, res, params, query, body }
+ *
+ * 用法选项：
+ *   'GET /path'                       默认,GET 没有 body
+ *   'POST /path'                      自动按 JSON 解析 body
+ *   'POST /path raw'                  不解析 body,handler 自己从 req 读 stream
+ *                                     （用于 binary upload / form-data 等）
  */
 export function createRouter(routes) {
   const compiled = Object.entries(routes).map(([key, handler]) => {
-    const [method, pattern] = key.split(' ');
+    const [method, pattern, ...flags] = key.split(' ');
     const segments = pattern.split('/').filter(Boolean);
-    return { method, segments, handler };
+    return { method, segments, flags, handler };
   });
 
   return async function handle(req, res, pathname, query) {
@@ -62,9 +68,9 @@ export function createRouter(routes) {
       });
       if (!matched) continue;
 
-      const body = req.method === 'POST' || req.method === 'PUT' || req.method === 'PATCH'
-        ? await readJsonBody(req)
-        : {};
+      const hasBody = req.method === 'POST' || req.method === 'PUT' || req.method === 'PATCH';
+      const isRaw = route.flags.includes('raw');
+      const body = hasBody && !isRaw ? await readJsonBody(req) : {};
       await route.handler({ req, res, params, query, body });
       return true;
     }
