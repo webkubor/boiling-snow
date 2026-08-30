@@ -23,3 +23,11 @@ videos/
 # Temporary / Build artifacts
 _dashboard/dist/
 _dashboard/build/
+
+# Unrelated dev cruft (lipstick product video experiment + h3 prompts)
+lipstick-out/
+lipstick-source/
+.h2v3-*.txt
+.h3-*.txt
+.h3-*.json
+concat_list.txt
