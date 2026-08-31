@@ -89,9 +89,11 @@ const CAMERA_PROMPT_TEMPLATE = {
 
 const characters = ref([]);
 const weapons = ref([]);
+const skills = ref([]);
 const sceneDesc = ref('');
 const selectedChars = ref([]);
 const selectedWeapons = ref([]);
+const selectedSkillId = ref(''); // 选中的 skill（用于 prompt 头部约束注入）
 const mood = ref('杀意');
 const power = ref('极致暴力');
 const rhythm = ref('流畅连贯');
@@ -106,9 +108,14 @@ const copied = ref(null);
 // ── 加载 ──
 
 async function load() {
-  const [reg, w] = await Promise.all([api.registry(), api.weapons()]);
+  const [reg, w, sk] = await Promise.all([
+    api.registry(),
+    api.weapons(),
+    api.skills(),
+  ]);
   characters.value = reg.characters;
   weapons.value = w.weapons;
+  skills.value = sk.skills;
 }
 
 onMounted(load);
@@ -228,7 +235,22 @@ const grainTag = computed(() => {
   return map[grain.value] || '';
 });
 
-const fullPrompt = computed(() => `${duration.value}s 电影镜头，16:9，35mm 胶片感，${toneTag.value}，${grainTag.value}。\n\n[Scene]\n${sceneSection.value}\n\n[Action]\n${actionSection.value}\n\n[Camera]\n${cameraSection.value}\n\n[Style]\n${styleSection.value}`);
+// 把 Skill 的 description + 触发词注入到 Prompt 头部
+const selectedSkill = computed(() => skills.value.find((s) => s.id === selectedSkillId.value) || null);
+const skillSection = computed(() => {
+  if (!selectedSkill.value) return '';
+  const s = selectedSkill.value;
+  const triggers = (s.triggers || []).slice(0, 3).map((t) => `「${t}」`).join('、');
+  const triggerLine = triggers ? `\n触发词：${triggers}` : '';
+  return `[Skill 约束：${s.name}]\n${s.description || ''}${triggerLine}`;
+});
+
+const fullPrompt = computed(() => {
+  const head = skillSection.value
+    ? `${skillSection.value}\n\n---\n\n`
+    : '';
+  return `${head}${duration.value}s 电影镜头，16:9，35mm 胶片感，${toneTag.value}，${grainTag.value}。\n\n[Scene]\n${sceneSection.value}\n\n[Action]\n${actionSection.value}\n\n[Camera]\n${cameraSection.value}\n\n[Style]\n${styleSection.value}`;
+});
 
 const negativePrompt = computed(`约束：no extra characters, no crowd, no extra fingers, no extra limbs, no distortion, no deformed hands, no warped faces, no jump cuts, no lens flares, no text overlays, no watermarks, no blurry motion, no snap zooms, no magic circles, no glowing runes, no modern elements, no subtitles`);
 
@@ -321,6 +343,29 @@ const stats = computed(() => ({
               <span class="chip-label">【{{ w.name }}】</span>
             </button>
           </div>
+        </div>
+
+        <!-- 3.5 Skill 约束注入（P1.3：从 novels/.agent-skills/ 拉 skill 加到 prompt 头部） -->
+        <div class="block">
+          <h3 class="block-title">③⁵ Skill 约束 <span class="dim mono">（可选 · novels/.agent-skills/）</span></h3>
+          <div class="skill-row">
+            <button
+              class="chip skill-chip"
+              :class="{ active: !selectedSkillId }"
+              @click="selectedSkillId = ''"
+            >无</button>
+            <button
+              v-for="s in skills"
+              :key="s.id"
+              class="chip skill-chip"
+              :class="{ active: selectedSkillId === s.id }"
+              @click="selectedSkillId = s.id"
+              :title="s.description || ''"
+            >{{ s.name }}</button>
+          </div>
+          <p v-if="selectedSkill" class="skill-hint dim">
+              <span class="dim mono">↑</span> 选中后该 skill 的 description + triggers 会自动注入到 Prompt 头部，与法典/角色/神兵自动拼接。
+            </p>
         </div>
 
         <!-- 4. 镜头偏好 8 维度 -->
@@ -449,6 +494,15 @@ const stats = computed(() => ({
 .chip-label { white-space: nowrap; }
 
 .dim-block { display: flex; flex-direction: column; gap: var(--sp-2); padding: var(--sp-3); background: var(--ink-2); border: 1px solid var(--line-1); border-radius: var(--r-2); }
+
+/* Skill 约束注入（P1.3） */
+.skill-row { display: flex; flex-wrap: wrap; gap: 4px; }
+.skill-chip { font-size: 11px; }
+.skill-hint {
+  margin: 6px 0 0;
+  font-size: 10px;
+  line-height: 1.5;
+}
 .dim-row { display: grid; grid-template-columns: 90px 1fr; gap: var(--sp-2); align-items: center; }
 .dim-label { font-size: 10px; color: var(--text-3); letter-spacing: 0.15em; }
 .opt-row { display: flex; flex-wrap: wrap; gap: 3px; }

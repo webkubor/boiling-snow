@@ -25,6 +25,7 @@ import {
   parseWeapons,
   setSeason,
 } from './lib/parser.js';
+import { listSkills, getSkill, composeSkillPrompt } from './lib/skills.js';
 
 /** 全局搜索：合并角色 / 剧集 / 神兵 / BGM。query 太短或空就返回空数组。 */
 function globalSearch(q, season) {
@@ -312,6 +313,31 @@ export const handleApi = createRouter({
     const q = query.get('q') || '';
     const results = globalSearch(q, query.get('season'));
     json(res, { q, results, total: results.length });
+  },
+
+  // ── Skill 浏览器与上下文组装器（来自 novels/.agent-skills/） ──
+  'GET /skills': ({ res, query }) => {
+    const season = query.get('season') || DEFAULT_SEASON;
+    const skills = listSkills(season).map(({ body, ...rest }) => ({
+      ...rest,
+      // 列表不带 body（KB 级），详情按 :id 取
+      bodyPreview: body?.slice(0, 220) || '',
+    }));
+    json(res, { skills, total: skills.length, season });
+  },
+  'GET /skills/:id': ({ res, params, query }) => {
+    const season = query.get('season') || DEFAULT_SEASON;
+    const skill = getSkill(season, params.id);
+    if (!skill) throw Object.assign(new Error(`skill 不存在: ${params.id}`), { statusCode: 404 });
+    json(res, { skill });
+  },
+  'POST /skills/:id/compose': ({ res, params, body, query }) => {
+    const season = query.get('season') || DEFAULT_SEASON;
+    const result = composeSkillPrompt(season, {
+      skillId: params.id,
+      context: body?.context || {},
+    });
+    json(res, result);
   },
 
   // ── 本地轻量库:截图/卡片捕获 ──

@@ -85,6 +85,15 @@ export const api = {
   theme: () => request('/theme'),
   weapons: () => request('/weapons'),
 
+  // Skill 浏览器与上下文组装器（来自 novels/.agent-skills/）
+  skills: () => request('/skills'),
+  skill: (id) => request(`/skills/${encodeURIComponent(id)}`),
+  composeSkill: (id, context) =>
+    request(`/skills/${encodeURIComponent(id)}/compose`, {
+      method: 'POST',
+      body: { context },
+    }),
+
   shots: () => request('/shots'),
   createShot: (shot) => request('/shots', { method: 'POST', body: shot }),
   updateShot: (id, shot) => request(`/shots/${id}`, { method: 'PUT', body: shot }),

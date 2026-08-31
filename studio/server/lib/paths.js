@@ -41,6 +41,9 @@ export function listSeasons() {
 /**
  * 季内部可读白名单。在 getSeasonRoot 下加白名单 = 越界保护。
  * 跨季共享的 agents/ 仍在 PROJECT_ROOT 下，单独维护。
+ *
+ * novels/ 用来让工作台能直接调取小说灵感库的章节/人物小传/设定 + 内嵌的
+ * .agent-skills/(Agent 创作技能集)。这是 P1 阶段把"小说→剧集→分镜"链路打通的基础。
  */
 function seasonReadableDirs(season) {
   return [
@@ -50,6 +53,7 @@ function seasonReadableDirs(season) {
     'music',
     'references',
     'scripts/storyboards',
+    'novels',
   ].map((d) => join(getSeasonRoot(season), d));
 }
 

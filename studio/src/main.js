@@ -14,6 +14,7 @@ const router = createRouter({
     { path: '/bible', name: 'bible', component: () => import('./views/BibleView.vue') },
     { path: '/aesthetic', name: 'aesthetic', component: () => import('./views/AestheticView.vue') },
     { path: '/cases', name: 'cases', component: () => import('./views/CaseGalleryView.vue') },
+    { path: '/craft', name: 'craft', component: () => import('./views/CraftView.vue') },
     { path: '/prompt-lab', name: 'prompt-lab', component: () => import('./views/PromptLabView.vue') },
     { path: '/queue', name: 'queue', component: () => import('./views/QueueView.vue') },
   ],

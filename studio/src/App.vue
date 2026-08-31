@@ -17,6 +17,7 @@ const NAV = [
   { to: '/bible', label: '创意法典', hint: '红线 · 旁白 · 镜头美学' },
   { to: '/aesthetic', label: '三轴预览', hint: '镜头 · 音乐 · 审美' },
   { to: '/cases', label: '经典案例', hint: '8 个天榜 Solo 15s · 分享' },
+  { to: '/craft', label: 'Skill 创作中心', hint: 'novels/Agent skills · 一键组装' },
   { to: '/prompt-lab', label: 'Prompt 实验室', hint: '法典 + 角色 + 神兵 → Seedance' },
   { to: '/queue', label: '渲染队列', hint: 'museav jobs' },
 ];
