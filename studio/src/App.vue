@@ -1,5 +1,5 @@
 <script setup>
-import { computed, onMounted, ref, watch } from 'vue';
+import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue';
 import { useRouter } from 'vue-router';
 import { api, setCurrentSeason, getCurrentSeason, sseConnected } from './api';
 
@@ -79,6 +79,97 @@ function onSearchBlur() {
   setTimeout(() => { searchOpen.value = false; }, 150);
 }
 
+/* ── 全局键盘快捷键（阶段 5） ──────────────────────────────────────── *
+ *   ⌘-K / Ctrl-K     聚焦侧栏搜索框
+ *   g + e            跳 /episodes
+ *   g + c            跳 /cast
+ *   g + s            跳 /shots
+ *   g + p            跳 /prompt-lab
+ *   g + b            跳 /batch
+ *   g + r            跳 /craft （craft）
+ *   g + a            跳 /aesthetic
+ *   g + d            跳 /bible （创世法典 d = doctrine）
+ *   g + k            跳 /cases （案例库）
+ *   g + q            跳 /queue
+ *   ?                打开快捷键面板
+ *   Esc              关闭快捷键面板 / 取消搜索
+ *   设计参考 Gmail / GitHub: 'g' 作前缀键,500ms 内按第二键触发
+ */
+
+const helpOpen = ref(false);
+const searchInput = ref(null);
+
+const KEY_MAP = {
+  e: '/episodes',
+  c: '/cast',
+  s: '/shots',
+  p: '/prompt-lab',
+  b: '/batch',
+  r: '/craft',
+  a: '/aesthetic',
+  d: '/bible',
+  k: '/cases',
+  q: '/queue',
+};
+
+let prefix = null;       // 当前是否在等第二键（按了 g 之后）
+let prefixTimer = null;
+
+function isEditableTarget(t) {
+  if (!t) return false;
+  const tag = t.tagName?.toLowerCase();
+  if (tag === 'input' || tag === 'textarea' || tag === 'select') return true;
+  if (t.isContentEditable) return true;
+  return false;
+}
+
+function focusSearch() {
+  searchOpen.value = true;
+  nextTick(() => {
+    searchInput.value?.focus();
+    searchInput.value?.select?.();
+  });
+}
+
+function onKeydown(e) {
+  // Esc 优先：关掉帮助 / 清搜索
+  if (e.key === 'Escape') {
+    if (helpOpen.value) { helpOpen.value = false; e.preventDefault(); return; }
+    if (searchQ.value) { searchQ.value = ''; searchResults.value = []; searchOpen.value = false; e.preventDefault(); return; }
+  }
+  // ? 打开帮助（Shift + / 在大多数键盘）
+  if (e.key === '?' && !isEditableTarget(e.target)) {
+    helpOpen.value = !helpOpen.value;
+    e.preventDefault();
+    return;
+  }
+  // 文本框里不抢键
+  if (isEditableTarget(e.target)) return;
+  // ⌘-K / Ctrl-K 聚焦搜索
+  if ((e.metaKey || e.ctrlKey) && (e.key === 'k' || e.key === 'K')) {
+    e.preventDefault();
+    focusSearch();
+    return;
+  }
+  // 'g' 前缀：开始等第二键
+  if (prefix === 'g') {
+    const dest = KEY_MAP[e.key.toLowerCase()];
+    if (dest) {
+      e.preventDefault();
+      router.push(dest);
+    }
+    prefix = null;
+    clearTimeout(prefixTimer);
+    return;
+  }
+  if (e.key === 'g' || e.key === 'G') {
+    prefix = 'g';
+    clearTimeout(prefixTimer);
+    prefixTimer = setTimeout(() => { prefix = null; }, 500);
+    return;
+  }
+}
+
 onMounted(async () => {
   try {
     const [h, s] = await Promise.all([api.health(), api.seasons()]);
@@ -87,6 +178,12 @@ onMounted(async () => {
   } catch (err) {
     error.value = err.message;
   }
+  window.addEventListener('keydown', onKeydown);
+});
+
+onBeforeUnmount(() => {
+  window.removeEventListener('keydown', onKeydown);
+  clearTimeout(prefixTimer);
 });
 </script>
 
@@ -109,9 +206,10 @@ onMounted(async () => {
       <!-- 全局搜索 -->
       <div class="search-wrap">
         <input
+          ref="searchInput"
           v-model="searchQ"
           class="search-input"
-          placeholder="搜角色 / 剧集 / 神兵 / BGM…"
+          placeholder="搜角色 / 剧集 / 神兵 / BGM… (⌘-K)"
           @focus="searchOpen = true"
           @blur="onSearchBlur"
         />
@@ -160,6 +258,38 @@ onMounted(async () => {
     <main class="main">
       <RouterView />
     </main>
+
+    <!-- 快捷键帮助面板（按 ? 唤起） -->
+    <div v-if="helpOpen" class="help-mask" @click.self="helpOpen = false">
+      <div class="help-panel">
+        <header class="help-head">
+          <span class="title-brush help-title">键盘快捷键</span>
+          <button class="help-close" @click="helpOpen = false">✕</button>
+        </header>
+        <div class="help-grid">
+          <div class="help-group">
+            <div class="help-group-title">全局</div>
+            <div class="help-row"><kbd>⌘</kbd><kbd>K</kbd><span>聚焦全局搜索</span></div>
+            <div class="help-row"><kbd>?</kbd><span>打开 / 关闭本面板</span></div>
+            <div class="help-row"><kbd>Esc</kbd><span>关闭本面板 / 清搜索</span></div>
+          </div>
+          <div class="help-group">
+            <div class="help-group-title">跳转（g + 字母）</div>
+            <div class="help-row"><kbd>g</kbd><kbd>e</kbd><span>剧集看板</span></div>
+            <div class="help-row"><kbd>g</kbd><kbd>c</kbd><span>角色库</span></div>
+            <div class="help-row"><kbd>g</kbd><kbd>s</kbd><span>镜头台</span></div>
+            <div class="help-row"><kbd>g</kbd><kbd>p</kbd><span>Prompt 实验室</span></div>
+            <div class="help-row"><kbd>g</kbd><kbd>b</kbd><span>批量生成</span></div>
+            <div class="help-row"><kbd>g</kbd><kbd>r</kbd><span>Skill 创作中心 (craft)</span></div>
+            <div class="help-row"><kbd>g</kbd><kbd>a</kbd><span>三轴预览 (aesthetic)</span></div>
+            <div class="help-row"><kbd>g</kbd><kbd>d</kbd><span>创意法典 (doctrine)</span></div>
+            <div class="help-row"><kbd>g</kbd><kbd>k</kbd><span>经典案例</span></div>
+            <div class="help-row"><kbd>g</kbd><kbd>q</kbd><span>渲染队列</span></div>
+          </div>
+        </div>
+        <p class="help-footer dim">500ms 内连续按 g + 字母 触发跳转。</p>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -336,5 +466,86 @@ onMounted(async () => {
   min-width: 0;
   height: 100%;
   overflow: hidden;
+}
+
+/* ── 快捷键帮助面板（阶段 5） ── */
+.help-mask {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+.help-panel {
+  width: min(560px, 92vw);
+  max-height: 84vh;
+  overflow-y: auto;
+  background: var(--ink-1);
+  border: 1px solid var(--line-gold);
+  border-radius: var(--r-3);
+  box-shadow: var(--shadow-panel);
+  padding: var(--sp-5);
+}
+.help-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: var(--sp-3);
+  border-bottom: 1px solid var(--line-1);
+  margin-bottom: var(--sp-4);
+}
+.help-title { font-size: 18px; color: var(--gold-1); }
+.help-close {
+  background: none;
+  border: 1px solid var(--line-2);
+  color: var(--text-2);
+  font-family: inherit;
+  font-size: 14px;
+  width: 28px;
+  height: 28px;
+  border-radius: var(--r-1);
+  cursor: pointer;
+}
+.help-close:hover { border-color: var(--gold-2); color: var(--gold-1); }
+.help-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--sp-4);
+}
+.help-group-title {
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  color: var(--gold-2);
+  margin-bottom: var(--sp-2);
+}
+.help-row {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 0;
+  font-size: 12px;
+  color: var(--text-2);
+}
+.help-row span { margin-left: 8px; }
+.help-row kbd {
+  display: inline-block;
+  padding: 2px 6px;
+  min-width: 18px;
+  text-align: center;
+  background: var(--ink-3);
+  border: 1px solid var(--line-2);
+  border-bottom-width: 2px;
+  border-radius: 4px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--gold-1);
+}
+.help-footer {
+  margin-top: var(--sp-4);
+  padding-top: var(--sp-3);
+  border-top: 1px solid var(--line-1);
+  font-size: 11px;
 }
 </style>
