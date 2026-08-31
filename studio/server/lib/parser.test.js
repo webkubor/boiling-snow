@@ -9,7 +9,7 @@
  *   - ep1 structured-15s 含 JImeng 指令
  *   - BGM 7 段 + 4 段已定
  *   - 12 把神兵
- *   - 季切 s2 graceful 404
+ *   - 季切 s2 → 空骨架返回 0 集（P3.2 后 s2 骨架已建）
  */
 import { describe, it, expect, beforeAll } from 'vitest';
 import {
@@ -33,12 +33,17 @@ describe('季管理', () => {
     expect(getSeason()).toBe('s1');
   });
 
-  it('setSeason(s2) 把 _season 改成 s2(然后 parseAllEpisodes 才抛)', () => {
+  it('setSeason(s2) 把 _season 改成 s2(空骨架 → parseAllEpisodes 返回 14 个 pending)', () => {
+    // 注: 之前这个测试期望 s2 不存在 → parseAllEpisodes 抛"季不存在"。
+    // 但 P3.2 阶段已建 seasons/s2/ 空骨架,所以 setSeason(s2) 后 parseAllEpisodes
+    // 会成功。parser 仍按 0-13 生成 14 个 slot,只是全部 kind='pending'/exists=false。
     setSeason('s1'); // 重置
     setSeason('s2');
     expect(getSeason()).toBe('s2');
-    // 后续读会抛
-    expect(() => parseAllEpisodes()).toThrow(/季不存在/);
+    expect(() => parseAllEpisodes()).not.toThrow();
+    const eps = parseAllEpisodes();
+    expect(eps.length).toBe(14);
+    expect(eps.every((e) => !e.exists && e.kind === 'pending')).toBe(true);
     // 测试结束重置,避免污染下面的测试
     setSeason('s1');
   });
