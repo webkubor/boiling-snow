@@ -19,6 +19,7 @@ const NAV = [
   { to: '/cases', label: '经典案例', hint: '8 个天榜 Solo 15s · 分享' },
   { to: '/craft', label: 'Skill 创作中心', hint: 'novels/Agent skills · 一键组装' },
   { to: '/prompt-lab', label: 'Prompt 实验室', hint: '法典 + 角色 + 神兵 → Seedance' },
+  { to: '/batch', label: '批量生成', hint: '笛卡尔积 · 一键 N 条 → 草稿 shots' },
   { to: '/queue', label: '渲染队列', hint: 'museav jobs' },
 ];
 

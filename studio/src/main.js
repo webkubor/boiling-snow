@@ -16,6 +16,7 @@ const router = createRouter({
     { path: '/cases', name: 'cases', component: () => import('./views/CaseGalleryView.vue') },
     { path: '/craft', name: 'craft', component: () => import('./views/CraftView.vue') },
     { path: '/prompt-lab', name: 'prompt-lab', component: () => import('./views/PromptLabView.vue') },
+    { path: '/batch', name: 'batch', component: () => import('./views/BatchView.vue') },
     { path: '/queue', name: 'queue', component: () => import('./views/QueueView.vue') },
   ],
 });
